@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===================== SEO: UPDATED ===================== -->
+<title>Gutsy Automation — Business Process Automation for SMEs in Kenya</title>
+<meta name="description" content="Gutsy Automation builds end-to-end systems for Kenyan SMEs. We automate client bookings, M-Pesa reconciliation, inventory tracking, and lead management to eliminate manual operations. Meet Lucy, our AI receptionist.">
+<meta name="keywords" content="Business automation Kenya, M-Pesa reconciliation automation, WhatsApp AI assistant, SME workflow automation Nairobi, AI booking systems">
+<link rel="canonical" href="https://gutsyautomation.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gutsy Automation — End-to-End Business Automation">
+<meta property="og:description" content="Eliminating manual obstacles in your business through end-to-end automation.">
+<meta property="og:url" content="https://gutsyautomation.com/">
+<meta property="og:image" content="https://gutsyautomation.com/og-image.png">
+<meta property="og:locale" content="en_KE">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Gutsy Automation",
+  "description": "Business process automation, M-Pesa reconciliation, and AI-powered client engagement for Kenyan SMEs.",
+  "url": "https://gutsyautomation.com",
+  "areaServed": "Kenya",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Nairobi",
+    "addressCountry": "KE"
+  }
+}
+</script>
+
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#12131C;
+    --panel:#1B1D2E;
+    --panel-line:#2A2C42;
+    --amber:#FFB627;
+    --periwinkle:#7C83FD;
+    --paper:#F5F3EE;
+    --muted:#9A9CB5;
+    --dim:#4A4D68;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(18,19,28,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--panel-line);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;max-width:1120px;margin:0 auto;}
+  .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.5px;}
+  .logo span{color:var(--amber);}
+  .nav-links{display:flex;gap:32px;font-size:15px;color:var(--muted);}
+  .nav-links a:hover{color:var(--paper);}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--amber);color:var(--ink);
+    font-weight:600;font-size:15px;
+    padding:11px 22px;border-radius:6px;
+    text-decoration:none;white-space:nowrap;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,182,39,0.25);}
+  .btn-ghost{
+    background:transparent;color:var(--paper);
+    border:1px solid var(--panel-line);
+  }
+  @media (max-width:760px){ .nav-links{display:none;} }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:96px 0 80px;position:relative;overflow:hidden;}
+  .hero::before{
+    content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;
+    background:radial-gradient(circle,rgba(124,131,253,0.18) 0%,transparent 65%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:3px;
+    color:var(--periwinkle);text-transform:uppercase;margin-bottom:20px;
+  }
+  h1{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-1.5px;
+    max-width:780px;margin-bottom:24px;
+  }
+  h1 .accent{color:var(--amber);}
+  .hero p.lead{font-size:19px;color:var(--muted);max-width:600px;margin-bottom:36px;}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .cta-note{font-size:13px;color:var(--dim);font-family:'JetBrains Mono',monospace;margin-top:14px;}
+
+  /* ---------- Trust strip ---------- */
+  .industries{
+    border-top:1px solid var(--panel-line);border-bottom:1px solid var(--panel-line);
+    padding:28px 0;
+  }
+  .industries .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:center;align-items:center;}
+  .industries span{
+    font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:1px;
+    color:var(--dim);text-transform:uppercase;
+  }
+
+  /* ---------- Section shared ---------- */
+  section{padding:96px 0;}
+  .section-head{max-width:600px;margin-bottom:56px;}
+  .kicker{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;margin-bottom:14px;}
+  h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,4vw,40px);letter-spacing:-1px;margin-bottom:16px;}
+  .section-head p{color:var(--muted);font-size:17px;}
+
+  /* ---------- How it works ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  @media (max-width:800px){.steps{grid-template-columns:1fr;}}
+  .step{
+    background:var(--panel);border:1px solid var(--panel-line);border-radius:12px;
+    padding:32px;position:relative;
+  }
+  .step-num{font-family:'JetBrains Mono',monospace;color:var(--amber);font-size:14px;margin-bottom:16px;}
+  .step h3{font-family:'Space Grotesk',sans-serif;font-size:20px;margin-bottom:10px;}
+  .step p{color:var(--muted);font-size:15px;}
+
+  /* ---------- Demo callout ---------- */
+  .demo{
+    background:linear-gradient(135deg, var(--panel) 0%, #1E2036 100%);
+    border:1px solid var(--panel-line);border-radius:16px;
+    padding:56px;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;
+  }
+  .demo-text h3{font-family:'Space Grotesk',sans-serif;font-size:28px;margin-bottom:12px;letter-spacing:-0.5px;}
+  .demo-text p{color:var(--muted);max-width:440px;}
+  .demo-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,182,39,0.1);color:var(--amber);
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:1.5px;
+    padding:6px 12px;border-radius:20px;margin-bottom:18px;text-transform:uppercase;
+  }
+  .demo-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+  /* ---------- Services grid ---------- */
+  .services{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  @media (max-width:760px){.services{grid-template-columns:1fr;}}
+  .service{
+    border:1px solid var(--panel-line);border-radius:12px;padding:28px;
+    transition:border-color 0.15s ease;
+  }
+  .service:hover{border-color:var(--periwinkle);}
+  .service h3{font-family:'Space Grotesk',sans-serif;font-size:19px;margin-bottom:10px;}
+  .service p{color:var(--muted);font-size:15px;}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--panel-line);padding:48px 0;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+  footer .logo{font-size:18px;}
+  .footer-links{display:flex;gap:24px;font-size:14px;color:var(--muted);}
+  .foot-note{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);margin-top:8px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">GUTSY <span>AUTOMATION</span></div>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#services">Our Solutions</a>
+      <a href="#demo">Live Demo</a>
+    </div>
+    <a class="btn" href="https://wa.me/254704131495" target="_blank" rel="noopener">Chat with Lucy</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">AI Automation · Nairobi, Kenya</div>
+      <h1>Eliminating manual <span class="accent">obstacles</span> in your business.</h1>
+      <p class="lead">We build custom systems for Kenyan SMEs that handle booking, M-Pesa payment reconciliation, inventory tracking, and client lead management on autopilot.</p>
+      <div class="cta-row">
+        <a class="btn" href="#services">View our solutions</a>
+        <a class="btn btn-ghost" href="https://wa.me/254704131495" target="_blank" rel="noopener">Chat with Lucy ↓</a>
+      </div>
+      <p class="cta-note">LUCY IS OUR AI RECEPTIONIST — TEST OUR AUTOMATION LOGIC NOW</p>
+    </div>
+  </section>
+
+  <div class="industries">
+    <div class="wrap">
+      <span>Retail & Wholesale</span>
+      <span>Medical Clinics</span>
+      <span>Real Estate</span>
+      <span>Logistics</span>
+      <span>Law Firms</span>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">The Process</div>
+        <h2>From manual chaos to automated flow.</h2>
+        <p>We replace repetitive administrative tasks with custom workflows that run 24/7.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01 / ANALYZE</div>
+          <h3>Process Mapping</h3>
+          <p>We identify your biggest bottlenecks—from payment tracking to appointment scheduling—and design a custom logic flow.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02 / INTEGRATE</div>
+          <h3>System Build</h3>
+          <p>We connect your databases, M-Pesa callbacks, and WhatsApp channels into one unified, self-running system.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03 / SCALE</div>
+          <h3>Autonomous Growth</h3>
+          <p>Your business runs without manual intervention, allowing you to focus on high-value strategy instead of admin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo">
+    <div class="wrap">
+      <div class="demo">
+        <div class="demo-text">
+          <div class="demo-badge"><span class="dot"></span>Live Demo</div>
+          <h3>Test our automation engine.</h3>
+          <p>Meet Lucy. She is an example of our client-facing automation. She can identify your industry, explain our services, provide pricing, and book your strategy call.</p>
+        </div>
+        <a class="btn" href="https://wa.me/254704131495" target="_blank" rel="noopener">Chat with Lucy</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Our Solutions</div>
+        <h2>End-to-end automation for SMEs.</h2>
+      </div>
+      <div class="services">
+        <div class="service">
+          <h3>M-Pesa Reconciliation</h3>
+          <p>Automatically match incoming payments to tenant records or customer orders without manual bank statement checks.</p>
+        </div>
+        <div class="service">
+          <h3>AI WhatsApp Assistants</h3>
+          <p>Handle 24/7 client inquiries, automate booking flows, and route leads directly into your CRM.</p>
+        </div>
+        <div class="service">
+          <h3>Inventory Automation</h3>
+          <p>Real-time stock tracking that alerts suppliers or owners when you hit reorder thresholds.</p>
+        </div>
+        <div class="service">
+          <h3>Operational Dashboards</h3>
+          <p>Custom workflows that route data from WhatsApp and mobile payments into organized, actionable logs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logo">GUTSY AUTOMATION</div>
+      <div class="foot-note">© 2026 Gutsy Automation · Nairobi, Kenya</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://wa.me/254704131495">WhatsApp</a>
+      <a href="#how">Process</a>
+      <a href="#services">Solutions</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
