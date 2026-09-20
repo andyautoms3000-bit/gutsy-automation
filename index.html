@@ -171,6 +171,24 @@ footer nav a:hover{color:var(--blue2)}
   footer nav{flex-wrap:wrap}
   .copy{flex-direction:column;gap:6px}
 }
+
+/* Mobile navigation */
+.mobile-toggle{display:none;align-items:center;justify-content:center;flex-direction:column;gap:4px;width:42px;height:42px;padding:0;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:#000;color:#fff;cursor:pointer;flex:0 0 auto}
+.mobile-toggle span{display:block;width:16px;height:1.5px;background:currentColor;transition:.2s}
+.mobile-menu{display:none}
+.mobile-menu nav{display:flex;flex-direction:column}
+.mobile-menu a{display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:0 20px;border-bottom:1px solid var(--line);font-size:13px;font-weight:600;color:#fff}
+.mobile-menu a:hover,.mobile-menu a.on{color:var(--blue2)}
+.mobile-menu a.mobile-cta{color:#fff;background:var(--blue)}
+.mobile-menu a.mobile-cta svg{width:15px;height:15px}
+@media(max-width:700px){
+  .mobile-toggle{display:flex}
+  .mobile-menu{position:absolute;left:0;right:0;top:100%;display:block;background:#000;border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(0,0,0,.35)}
+  .mobile-menu[hidden]{display:none}
+  .mobile-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+  .mobile-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .mobile-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 
@@ -191,6 +209,8 @@ footer nav a:hover{color:var(--blue2)}
     <a class="btn btn-blue btn-sm" href="/onboarding">Book a discovery call
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
+<button class="mobile-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+<div class="mobile-menu" id="mobile-menu" hidden><nav aria-label="Mobile navigation"><a href="/">Home</a><a href="/solutions">Solutions</a><a href="/store">Store</a><a href="/about">About</a><a class="mobile-cta" href="/onboarding">Book a discovery call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></nav></div>
 </header>
 
 <main id="top">
@@ -327,5 +347,34 @@ footer nav a:hover{color:var(--blue2)}
     <div class="copy"><span>© 2026 Gutsy Automation. All rights reserved.</span><span>Automation that drives revenue.</span></div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var toggle=document.querySelector('.mobile-toggle');
+  var menu=document.getElementById('mobile-menu');
+  if(!toggle||!menu)return;
+  toggle.addEventListener('click',function(){
+    var open=toggle.getAttribute('aria-expanded')==='true';
+    toggle.setAttribute('aria-expanded',String(!open));
+    toggle.setAttribute('aria-label',open?'Open navigation menu':'Close navigation menu');
+    menu.hidden=open;
+  });
+  menu.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click',function(){
+      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Open navigation menu');
+      menu.hidden=true;
+    });
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape' && toggle.getAttribute('aria-expanded')==='true'){
+      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Open navigation menu');
+      menu.hidden=true;
+      toggle.focus();
+    }
+  });
+})();
+</script>
 </body>
 </html>
