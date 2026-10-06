@@ -195,6 +195,12 @@ footer nav a:hover{color:var(--blue2)}
 .skip-link{position:fixed;left:12px;top:12px;z-index:9999;padding:10px 14px;background:#fff;color:#000;text-decoration:none;font-weight:700;transform:translateY(-180%);transition:transform .18s ease}
 .skip-link:focus{transform:translateY(0)}
 :where(a,button,input,select,textarea):focus-visible{outline:2px solid #6ea8ff;outline-offset:4px}
+  /* Mobile header fix */
+@media(max-width:700px){
+  header .wrap{gap:10px}
+  header .wrap>.btn{margin-left:auto;padding:9px 12px;font-size:10.5px}
+  .logo img{height:52px}
+}
 </style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gutsy Automation","url":"https://gutsyautomation.com/","logo":"https://gutsyautomation.com/favicon.png","email":"andyautom3000@gmail.com","telephone":"+254704131495","foundingDate":"2026","address":{"@type":"PostalAddress","addressLocality":"Nairobi","addressCountry":"KE"},"areaServed":"Worldwide"}</script>
@@ -214,9 +220,9 @@ footer nav a:hover{color:var(--blue2)}
     </nav>
     <a class="btn btn-blue btn-sm" href="/onboarding">Book a discovery call
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-  </div>
-<button class="mobile-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
-<div class="mobile-menu" id="mobile-menu" hidden><nav aria-label="Mobile navigation"><a href="/" aria-current="page">Home</a><a href="/solutions">Solutions</a><a href="/store">Store</a><a href="/about">About</a><a class="mobile-cta" href="/onboarding">Book a discovery call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></nav></div>
+  <button class="mobile-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+</div>
+  <div class="mobile-menu" id="mobile-menu" hidden><nav aria-label="Mobile navigation"><a href="/" aria-current="page">Home</a><a href="/solutions">Solutions</a><a href="/store">Store</a><a href="/about">About</a><a class="mobile-cta" href="/onboarding">Book a discovery call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></nav></div>
 </header>
 
 <main id="top">
