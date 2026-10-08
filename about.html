@@ -159,6 +159,113 @@ footer{background:#000;padding:22px 0 24px}
 .skip-link{position:fixed;left:12px;top:12px;z-index:9999;padding:10px 14px;background:#fff;color:#000;text-decoration:none;font-weight:700;transform:translateY(-180%);transition:transform .18s ease}
 .skip-link:focus{transform:translateY(0)}
 :where(a,button,input,select,textarea):focus-visible{outline:2px solid #6ea8ff;outline-offset:4px}
+/* Accessibility: visible keyboard focus without changing the visual design for mouse users. */
+.skip-link{position:fixed;left:12px;top:12px;z-index:9999;padding:10px 14px;background:#fff;color:#000;text-decoration:none;font-weight:700;transform:translateY(-180%);transition:transform .18s ease}
+.skip-link:focus{transform:translateY(0)}
+:where(a,button,input,select,textarea):focus-visible{outline:2px solid #6ea8ff;outline-offset:4px}
+
+
+/* Mobile header + menu fixes */
+.mobile-menu a{border-bottom:1px solid var(--bl2)}
+.mobile-menu{border-bottom:1px solid var(--bl)}
+
+@media(max-width:700px){
+  header .pill{display:none}
+  .mobile-toggle{margin-left:auto}
+  header .wrap{padding:0 20px}
+  .logo img{height:52px}
+  header{height:68px}
+}
+
+
+/* Hero image: below the text on phones, unchanged on desktop */
+@media(max-width:700px){
+  .hero{display:flex;flex-direction:column;min-height:0}
+  .hero .wrap{order:1;padding-top:36px;padding-bottom:24px}
+  .hero::before{
+    order:2;
+    position:relative;
+    top:auto;
+    right:auto;
+    bottom:auto;
+    width:100%;
+    height:300px;
+    opacity:1;
+    background-size:cover;
+    background-position:center;
+    -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 28%);
+    mask-image:linear-gradient(180deg,transparent 0,#000 28%)
+  }
+  .hero::after{display:none}
+}
+
+
+/* Social icons — subtle horizontal footer controls */
+.soc{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  width:100%;
+  padding:10px 0 4px;
+}
+
+.soc a{
+  width:30px;
+  height:30px;
+  flex:0 0 30px;
+  border:1px solid var(--bl);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-decoration:none;
+  box-sizing:border-box;
+  transition:.2s;
+}
+
+.soc a:hover{
+  color:var(--blue2);
+  border-color:var(--blue2);
+  background:rgba(10,108,255,.12);
+}
+
+.soc svg{
+  display:block;
+  width:14px !important;
+  height:14px !important;
+  min-width:14px;
+  min-height:14px;
+  max-width:14px;
+  max-height:14px;
+}
+
+@media(max-width:700px){
+  .soc{
+    gap:14px;
+    padding:10px 0 4px;
+  }
+
+  .soc a{
+    width:28px;
+    height:28px;
+    flex-basis:28px;
+  }
+
+  .soc svg{
+    width:13px !important;
+    height:13px !important;
+    min-width:13px;
+    min-height:13px;
+    max-width:13px;
+    max-height:13px;
+  }
+}
+
+</style>
+
+<script type="application/ld+json">
 </style>
 <script type="application/ld+json">
 {
