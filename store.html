@@ -144,6 +144,46 @@ footer .wrap{max-width:1100px;padding:0 54px}
 .skip-link{position:fixed;left:12px;top:12px;z-index:9999;padding:10px 14px;background:#fff;color:#000;text-decoration:none;font-weight:700;transform:translateY(-180%);transition:transform .18s ease}
 .skip-link:focus{transform:translateY(0)}
 :where(a,button,input,select,textarea):focus-visible{outline:2px solid #6ea8ff;outline-offset:4px}
+
+/* Gutsy product catalogue — isolated styles; header/footer styles remain untouched. */
+:root{--ga-blue:#0A6CFF}
+.ga-products{background:#000;border-bottom:1px solid var(--bl);padding:48px 0 46px;color:#fff}
+.ga-products h2{max-width:720px;font-size:clamp(26px,3.4vw,34px);letter-spacing:-.035em}
+.ga-products h2 span{color:var(--ga-blue)}
+.ga-products-intro{font-size:12.5px;line-height:1.65;color:var(--muted);max-width:560px;margin-top:12px}
+.ga-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:28px 0 18px}
+.ga-filters{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ga-filter{font:600 10.5px Inter,system-ui,sans-serif;color:#b8c4d7;background:#05080e;border:1px solid #202b3b;padding:9px 13px;border-radius:3px;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.ga-filter:hover,.ga-filter.is-active{color:#fff;background:rgba(10,108,255,.16);border-color:var(--ga-blue)}
+.ga-search{display:flex;align-items:center;gap:8px;flex:0 0 190px;min-width:150px;border:1px solid #263246;background:#05080e;padding:0 10px;height:36px;border-radius:3px;color:#8795aa}
+.ga-search svg{width:15px;height:15px;flex:none}.ga-search input{width:100%;min-width:0;background:transparent;border:0;outline:0;color:#fff;font:11px Inter,system-ui,sans-serif}.ga-search input::placeholder{color:#78869b}
+.ga-status{font-size:10px;color:#7d8ca3;margin:0 0 12px;min-height:15px}
+.ga-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.ga-card{min-width:0;display:flex;flex-direction:column;border:1px solid #1b2b42;background:linear-gradient(155deg,#080d16 0%,#03060b 72%);border-radius:4px;overflow:hidden;transition:border-color .2s,transform .2s,background .2s}
+.ga-card:hover{border-color:rgba(10,108,255,.8);transform:translateY(-2px);background:#050b15}
+.ga-card-art{height:142px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 70% 20%,rgba(10,108,255,.24),transparent 48%),linear-gradient(135deg,#0b1423,#02050a 75%);border-bottom:1px solid #18283e;display:flex;align-items:center;justify-content:center}
+.ga-card-art::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(10,108,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(10,108,255,.09) 1px,transparent 1px);background-size:22px 22px;mask-image:linear-gradient(135deg,#000,transparent 85%)}
+.ga-card-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ga-art-mark{position:relative;z-index:1;width:54px;height:54px;border:1px solid rgba(10,108,255,.7);border-radius:12px;display:grid;place-items:center;color:#6aa6ff;background:rgba(0,0,0,.4);box-shadow:0 0 38px rgba(10,108,255,.12)}
+.ga-art-mark svg{width:26px;height:26px}.ga-card-art.has-image .ga-art-mark{display:none}
+.ga-card-badge{position:absolute;z-index:2;top:12px;left:12px;background:rgba(0,0,0,.78);border:1px solid rgba(10,108,255,.5);color:#9fc5ff;padding:5px 8px;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.ga-card-body{display:flex;flex-direction:column;flex:1;padding:17px 17px 15px}
+.ga-card-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#8b9bb1;font-size:9px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.ga-card h3{font-size:15px;line-height:1.35;letter-spacing:-.02em;font-weight:650;margin-bottom:8px;overflow-wrap:anywhere}
+.ga-card-desc{font-size:11px;line-height:1.65;color:#aeb9cc;overflow-wrap:anywhere}
+.ga-features{display:grid;gap:7px;margin:14px 0 18px;padding:0;list-style:none}.ga-features li{display:flex;gap:8px;align-items:flex-start;color:#c7d0de;font-size:10px;line-height:1.45}.ga-features li::before{content:"";width:5px;height:5px;flex:none;background:var(--ga-blue);margin-top:4px;border-radius:1px}
+.ga-card-bottom{margin-top:auto;border-top:1px solid #1c293b;padding-top:13px;display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.ga-price-label{display:block;font-size:8px;color:#7d8ca3;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}.ga-price{font-size:17px;font-weight:700;letter-spacing:-.025em;color:#fff;overflow-wrap:anywhere}.ga-price-note{font-size:9px;color:#8997ab;margin-top:2px}
+.ga-details{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ga-blue);color:#fff;border:1px solid var(--ga-blue);padding:10px 12px;min-height:35px;font:650 10px Inter,system-ui,sans-serif;border-radius:3px;cursor:pointer;white-space:nowrap;transition:background .18s}.ga-details:hover{background:#0757d6}.ga-details svg{width:13px;height:13px}
+.ga-empty{padding:30px 18px;text-align:center;border:1px dashed #26364c;color:#aeb9cc;font-size:12px;margin-top:8px}
+.ga-modal-backdrop{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.78);display:grid;place-items:center;padding:18px}
+.ga-modal{position:relative;width:min(100%,560px);max-height:min(88vh,760px);overflow:auto;background:#05080e;border:1px solid #24446f;box-shadow:0 20px 80px #000;padding:26px}
+.ga-modal-close{position:absolute;right:13px;top:13px;width:32px;height:32px;background:#0a111c;border:1px solid #25354a;color:#fff;font-size:20px;cursor:pointer}
+.ga-modal-kicker{color:#5d9dff;text-transform:uppercase;letter-spacing:.15em;font-size:9px;font-weight:700;margin:0 42px 12px 0}.ga-modal h3{font-size:24px;line-height:1.2;margin-bottom:12px}.ga-modal p{font-size:12px;line-height:1.7;color:#bac5d6;margin-bottom:15px}.ga-modal ul{display:grid;gap:8px;margin:14px 0 22px}.ga-modal li{font-size:11px;color:#d2dbe8}.ga-modal li::before{content:"— ";color:var(--ga-blue)}.ga-modal .ga-details{margin-top:4px}
+@media(max-width:900px){.ga-toolbar{align-items:flex-start;flex-direction:column}.ga-search{flex-basis:auto;width:min(100%,320px)}.ga-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.ga-products{padding:34px 0}.ga-filters{flex-wrap:nowrap;max-width:100%;overflow-x:auto;padding:2px 1px 8px;scrollbar-width:thin}.ga-filter{flex:none}.ga-grid{grid-template-columns:1fr;gap:13px}.ga-card{display:grid;grid-template-columns:112px minmax(0,1fr)}.ga-card-art{height:100%;min-height:190px;border-bottom:0;border-right:1px solid #18283e}.ga-card-body{padding:13px}.ga-card h3{font-size:13px}.ga-card-desc{font-size:10px}.ga-features{gap:5px;margin:10px 0 13px}.ga-card-bottom{align-items:flex-start;flex-direction:column}.ga-price{font-size:15px}.ga-details{width:100%}.ga-modal{padding:22px 18px}}
+@media(prefers-reduced-motion:reduce){.ga-card,.ga-filter,.ga-details{transition:none}}
+
 </style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gutsy Automation","url":"https://gutsyautomation.com/","logo":"https://gutsyautomation.com/favicon.png","email":"andyautom3000@gmail.com","telephone":"+254704131495","foundingDate":"2026","address":{"@type":"PostalAddress","addressLocality":"Nairobi","addressCountry":"KE"},"areaServed":"Worldwide"}</script>
@@ -162,62 +202,42 @@ footer .wrap{max-width:1100px;padding:0 54px}
 <div class="mobile-menu" id="mobile-menu" hidden><nav aria-label="Mobile navigation"><a href="/">Home</a><a href="/solutions">Solutions</a><a class="on" href="/store" aria-current="page">Store</a><a href="/about">About</a><a class="mobile-cta" href="/onboarding">Book a discovery call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></nav></div>
 </header>
 <main id="main-content">
-<section class="hero">
-  <div class="tag">Better tools.<br>Greater possibilities.</div>
+<section class="hero" aria-labelledby="store-hero-title">
   <div class="wrap">
-    <div class="eb">Store</div>
-    <h1>Software, tools and<br><span>digital products.</span></h1>
-    <p class="lead">Explore our growing collection of digital products, software and tools designed to help you work smarter, save time and get more done.</p>
-    <a class="solid" href="#categories">Browse products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="eb">Gutsy Automation Store</div>
+    <h1 id="store-hero-title">Useful tools.<br><span>Smarter possibilities.</span></h1>
+    <p class="lead">Discover software, digital resources and practical tools designed to simplify everyday tasks, solve problems and turn ideas into action—for work, business and personal use.</p>
   </div>
 </section>
 
-<section class="avail">
+
+
+
+
+<section class="ga-products" id="categories" aria-labelledby="ga-products-title">
   <div class="wrap">
-    <div class="txt">
-      <div class="eb">What&#39;s available</div>
-      <h2>Nothing here yet.<br><span>But we&#39;re working on it.</span></h2>
-      <p>We&#39;re building the first products in the Gutsy Automation store. Check back soon or get in touch if you have a specific product request.</p>
-      <a class="pill" href="https://wa.me/254704131495?text=Hi%2C%20I%20have%20a%20product%20request." target="_blank" rel="noopener noreferrer" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H10l-4.5 3.5V17H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/></svg><span>Talk to us</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="eb">The Gutsy catalogue</div>
+    <h2 id="ga-products-title">Tools built to <span>get things moving.</span></h2>
+    <p class="ga-products-intro">Practical digital products for better workflows, clearer operations and more productive work.</p>
+    <div class="ga-toolbar">
+      <div class="ga-filters" id="ga-filters" role="group" aria-label="Filter products by category">
+        <button class="ga-filter is-active" type="button" data-category="All">All products</button>
+        <button class="ga-filter" type="button" data-category="Automation">Automation</button>
+        <button class="ga-filter" type="button" data-category="Software">Software</button>
+        <button class="ga-filter" type="button" data-category="Scripts & Code">Scripts &amp; Code</button>
+        <button class="ga-filter" type="button" data-category="Templates">Templates</button>
+        <button class="ga-filter" type="button" data-category="Guides">Guides</button>
+      </div>
+      <label class="ga-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="ga-product-search" type="search" placeholder="Search products" aria-label="Search products"></label>
     </div>
-    <div class="img" role="img" aria-label="Gutsy Automation laptop on a dark cube"></div>
-    <aside class="dev">
-      <div class="h">In development</div>
-      <ul>
-        <li><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H10l-4.5 3.5V17H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/></svg></span><div><b>WhatsApp Business Tools</b><span>Communication &amp; customer engagement tools.</span></div></li>
-        <li><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5l1.6 2.6 3-.7.8 3 3 .8-.7 3L22 12l-2.6 1.6.7 3-3 .8-.8 3-3-.7L12 21.5l-1.6-2.6-3 .7-.8-3-3-.8.7-3L2 12l2.6-1.6-.7-3 3-.8.8-3 3 .7L12 2.5z"/></svg></span><div><b>Business Automation Tools</b><span>Streamline operations and boost productivity.</span></div></li>
-        <li><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><rect x="4" y="5" width="16" height="11" rx="1.2"/><path d="M2 19h20"/></svg></span><div><b>Productivity Software</b><span>Focus on what matters.</span></div></li>
-        <li><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-13"/><path d="M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/></svg></span><div><b>Internal Business Systems</b><span>Custom tools for your team.</span></div></li>
-      </ul>
-    </aside>
+    <div class="ga-status" id="ga-product-status" role="status" aria-live="polite">Loading catalogue…</div>
+    <div class="ga-grid" id="ga-product-grid"></div>
+    <div class="ga-empty" id="ga-product-empty" hidden>No products match that search. Try another term or category.</div>
+    <noscript><p class="ga-empty">Please enable JavaScript to browse the product catalogue.</p></noscript>
   </div>
 </section>
 
-<section class="cats" id="categories">
-  <div class="wrap">
-    <div class="eb">Explore by category</div>
-    <h2>Find what fits your needs.</h2>
-    <p class="sub">Browse by category to discover the right tools for your personal or business goals.</p>
-    <div class="cgrid">
-      <a class="cat" href="https://wa.me/254704131495?text=Hi%2C%20I%27m%20interested%20in%20personal%20software%20and%20tools." target="_blank" rel="noopener noreferrer" rel="noopener"><span class="ci round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.7-4 3.6-6 7.5-6s6.8 2 7.5 6"/></svg></span><h3>Personal</h3><p>Tools for individuals, productivity and everyday workflows.</p><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-      <a class="cat" href="https://wa.me/254704131495?text=Hi%2C%20I%27m%20interested%20in%20business%20software." target="_blank" rel="noopener noreferrer" rel="noopener"><span class="ci sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/></svg></span><h3>Business</h3><p>Software for businesses, operations, sales and administration.</p><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-      <a class="cat" href="https://wa.me/254704131495?text=Hi%2C%20I%27m%20interested%20in%20automation%20products." target="_blank" rel="noopener noreferrer" rel="noopener"><span class="ci round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></svg></span><h3>Automation</h3><p>Ready-to-use automation products and workflow systems.</p><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-      <a class="cat" href="https://wa.me/254704131495?text=Hi%2C%20I%27m%20interested%20in%20communication%20tools." target="_blank" rel="noopener noreferrer" rel="noopener"><span class="ci sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H10l-4.5 3.5V17H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/></svg></span><h3>Communication</h3><p>WhatsApp, messaging and customer communication tools.</p><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-    </div>
-  </div>
-</section>
 
-<section class="custom">
-  <div class="wrap">
-    <div>
-      <div class="eb">Custom solutions</div>
-      <h2>Don&#39;t see what you need?<br><span>Build it with us.</span></h2>
-      <p>Some problems don&#39;t belong in a catalogue. If your business needs something specific, we can design and build it around your workflow — from idea to deployment.</p>
-      <a class="pill" href="https://wa.me/254704131495?text=Hi%2C%20I%27d%20like%20to%20build%20a%20custom%20solution." target="_blank" rel="noopener noreferrer" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12h6M12 9v6"/></svg><span>Build a custom solution</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <ul><li><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/><path d="M17 3l4 4-4 1z"/></svg></span>Tailored to your business</li><li><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2.5l8 4.5v10l-8 4.5-8-4.5V7l8-4.5z"/><circle cx="12" cy="12" r="3"/></svg></span>Built for real-world use</li><li><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2.5l7.5 3v6c0 4.6-3.2 8.3-7.5 10-4.3-1.7-7.5-5.4-7.5-10v-6l7.5-3z"/><circle cx="12" cy="11.5" r="2.6"/></svg></span>Scalable and secure</li><li><span class="di"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2.5l8 3.2v6.3c0 4.4-3.2 8-8 9.9-4.8-1.9-8-5.5-8-9.9V5.7l8-3.2z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span>Ongoing support</li></ul>
-  </div>
-</section>
 </main>
 
 <footer>
@@ -267,5 +287,42 @@ footer .wrap{max-width:1100px;padding:0 54px}
   });
 })();
 </script>
+
+<script>
+/* Product catalogue: edit /data/products.json to add or update tiles. */
+(function(){
+  'use strict';
+  var grid=document.getElementById('ga-product-grid');
+  if(!grid)return;
+  var filters=document.getElementById('ga-filters');
+  var search=document.getElementById('ga-product-search');
+  var status=document.getElementById('ga-product-status');
+  var empty=document.getElementById('ga-product-empty');
+  var products=[], category='All', query='';
+  var icons={
+    'Automation':'<path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z"/>',
+    'Software':'<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8M12 18v4"/>',
+    'Scripts & Code':'<path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
+    'Templates':'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+    'Guides':'<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 1 4 17.5z"/><path d="M4 6h12M8 10h8M8 14h6"/>'
+  };
+  function safe(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function money(p){if(p.price_text)return safe(p.price_text);if(p.price_kes===0)return 'Free';if(typeof p.price_kes==='number'&&Number.isFinite(p.price_kes))return 'KES '+p.price_kes.toLocaleString('en-KE');return 'Request a quote';}
+  function matches(p){var text=[p.name,p.category,p.short_description,p.description].concat(Array.isArray(p.features)?p.features:[]).join(' ').toLowerCase();return (category==='All'||p.category===category)&&text.includes(query);}
+  function card(p){var cat=safe(p.category||'Product'),name=safe(p.name||'Untitled product'),id=safe(p.id||''),image=typeof p.image==='string'?p.image:'';var featureList=Array.isArray(p.features)?p.features.slice(0,4):[];var icon=icons[p.category]||icons['Software'];var statusText=p.status==='coming-soon'?'Coming soon':(p.badge||'Available');
+    return '<article class="ga-card" data-product-id="'+id+'"><div class="ga-card-art '+(image?'has-image':'')+'">'+(image?'<img src="'+safe(image)+'" alt="'+name+' product image" loading="lazy" data-ga-image>':'')+'<span class="ga-card-badge">'+safe(statusText)+'</span><span class="ga-art-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">'+icon+'</svg></span></div><div class="ga-card-body"><div class="ga-card-meta"><span>'+cat+'</span><span>'+(p.billing?safe(p.billing):'Digital product')+'</span></div><h3>'+name+'</h3><p class="ga-card-desc">'+safe(p.short_description||'Product details will be added soon.')+'</p>'+(featureList.length?'<ul class="ga-features">'+featureList.map(function(f){return '<li>'+safe(f)+'</li>';}).join('')+'</ul>':'<div style="margin:14px 0 18px"></div>')+'<div class="ga-card-bottom"><div><span class="ga-price-label">Price</span><div class="ga-price">'+money(p)+'</div>'+(p.price_note?'<div class="ga-price-note">'+safe(p.price_note)+'</div>':'')+'</div><button class="ga-details" type="button" data-ga-detail="'+id+'">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div></article>';
+  }
+  function render(){var list=products.filter(function(p){return p&&p.status!=='hidden'&&matches(p);});grid.innerHTML=list.map(card).join('');status.textContent=list.length+' product'+(list.length===1?'':'s')+' shown';empty.hidden=list.length!==0;grid.querySelectorAll('[data-ga-image]').forEach(function(img){img.addEventListener('error',function(){var art=img.parentElement;img.remove();art.classList.remove('has-image');});});}
+  function closeModal(){var m=document.querySelector('.ga-modal-backdrop');if(m)m.remove();document.removeEventListener('keydown',escapeModal);}
+  function escapeModal(e){if(e.key==='Escape')closeModal();}
+  function openDetail(id){var p=products.find(function(x){return String(x.id)===id;});if(!p)return;closeModal();var backdrop=document.createElement('div');backdrop.className='ga-modal-backdrop';backdrop.innerHTML='<section class="ga-modal" role="dialog" aria-modal="true" aria-labelledby="ga-modal-title"><button type="button" class="ga-modal-close" aria-label="Close details">×</button><div class="ga-modal-kicker">'+safe(p.category||'Product')+' · '+safe(p.status==='coming-soon'?'Coming soon':'Gutsy catalogue')+'</div><h3 id="ga-modal-title">'+safe(p.name||'Product details')+'</h3><p>'+safe(p.description||p.short_description||'Contact us to discuss this product.')+'</p>'+(Array.isArray(p.features)&&p.features.length?'<ul>'+p.features.map(function(f){return '<li>'+safe(f)+'</li>';}).join('')+'</ul>':'')+'<p><strong style="color:#fff">'+money(p)+'</strong>'+(p.billing?' · '+safe(p.billing):'')+'</p><a class="ga-details" href="'+safe(p.enquiry_url||'https://wa.me/254704131495?text='+encodeURIComponent('Hi, I am interested in '+(p.name||'a Gutsy product')+'.'))+'" target="_blank" rel="noopener noreferrer">Enquire about this product <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></a></section>';
+    backdrop.addEventListener('click',function(e){if(e.target===backdrop)closeModal();});backdrop.querySelector('.ga-modal-close').addEventListener('click',closeModal);document.body.appendChild(backdrop);document.addEventListener('keydown',escapeModal);backdrop.querySelector('.ga-modal-close').focus();}
+  filters.addEventListener('click',function(e){var b=e.target.closest('[data-category]');if(!b)return;category=b.dataset.category;filters.querySelectorAll('.ga-filter').forEach(function(x){x.classList.toggle('is-active',x===b);x.setAttribute('aria-pressed',String(x===b));});render();});
+  search.addEventListener('input',function(){query=search.value.trim().toLowerCase();render();});
+  grid.addEventListener('click',function(e){var b=e.target.closest('[data-ga-detail]');if(b)openDetail(b.getAttribute('data-ga-detail'));});
+  fetch('/data/products.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('Catalogue request failed ('+r.status+')');return r.json();}).then(function(data){if(!Array.isArray(data))throw new Error('Catalogue must be a JSON array');products=data.filter(function(p){return p&&typeof p==='object'&&typeof p.id==='string'&&typeof p.name==='string';});render();if(!products.length)status.textContent='No products published yet.';}).catch(function(err){console.error('Gutsy product catalogue:',err);status.textContent='The product catalogue could not be loaded. Check /data/products.json.';empty.hidden=false;empty.textContent='We could not load the product catalogue. Please try again later or contact Gutsy Automation.';});
+})();
+</script>
+
 </body>
 </html>
