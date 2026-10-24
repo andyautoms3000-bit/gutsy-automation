@@ -1,0 +1,113 @@
+[
+  {
+    "id": "whatsapp-business-agent",
+    "name": "WhatsApp Business Agent",
+    "category": "Automation",
+    "price_kes": null,
+    "price_text": "Request a quote",
+    "billing": "Custom setup",
+    "image": "",
+    "short_description": "A business-focused agent for customer questions, lead qualification and routine conversations.",
+    "description": "A configurable WhatsApp business agent designed around your service, escalation rules and customer workflow.",
+    "features": [
+      "Answers common enquiries",
+      "Qualifies potential customers",
+      "Escalates conversations when needed"
+    ],
+    "status": "available",
+    "badge": "Customisable",
+    "price_note": "Scope dependent"
+  },
+  {
+    "id": "workflow-automation",
+    "name": "Workflow Automation",
+    "category": "Automation",
+    "price_kes": null,
+    "price_text": "Request a quote",
+    "billing": "Project-based",
+    "image": "",
+    "short_description": "Connect repetitive business tasks and reduce manual hand-offs between tools.",
+    "description": "Workflow automation built around the tools and processes your business already uses.",
+    "features": [
+      "Connect supported apps",
+      "Reduce repetitive work",
+      "Designed around your process"
+    ],
+    "status": "available",
+    "badge": "Business tool",
+    "price_note": "Scope dependent"
+  },
+  {
+    "id": "business-website",
+    "name": "Business Website",
+    "category": "Software",
+    "price_kes": null,
+    "price_text": "Request a quote",
+    "billing": "Project-based",
+    "image": "",
+    "short_description": "A clear, responsive website built to explain your offer and help customers take action.",
+    "description": "A professional website designed for your business goals, content and customer journey.",
+    "features": [
+      "Responsive layouts",
+      "Clear calls to action",
+      "Search-friendly foundations"
+    ],
+    "status": "available",
+    "badge": "Web development",
+    "price_note": "Scope dependent"
+  },
+  {
+    "id": "lead-finder",
+    "name": "Lead Finder Toolkit",
+    "category": "Scripts & Code",
+    "price_kes": null,
+    "price_text": "Coming soon",
+    "billing": "Digital toolkit",
+    "image": "",
+    "short_description": "A research workflow for organising publicly listed business leads into a reviewable report.",
+    "description": "A lead-research toolkit concept. Availability and final features will be confirmed before launch.",
+    "features": [
+      "Structured lead records",
+      "Source-aware research",
+      "Report-oriented workflow"
+    ],
+    "status": "coming-soon",
+    "badge": "In development"
+  },
+  {
+    "id": "business-templates",
+    "name": "Business Operations Templates",
+    "category": "Templates",
+    "price_kes": null,
+    "price_text": "Coming soon",
+    "billing": "Digital download",
+    "image": "",
+    "short_description": "Practical starting points for documenting processes, tracking work and organising operations.",
+    "description": "A planned collection of editable business templates. The final contents will be listed before release.",
+    "features": [
+      "Editable formats",
+      "Practical business structure",
+      "Designed for reuse"
+    ],
+    "status": "coming-soon",
+    "badge": "In development"
+  },
+  {
+    "id": "automation-guides",
+    "name": "Automation Guides",
+    "category": "Guides",
+    "price_kes": null,
+    "price_text": "Coming soon",
+    "billing": "Digital guide",
+    "image": "",
+    "short_description": "Straightforward guides to help teams understand and plan useful automation projects.",
+    "description": "A planned set of practical guides for identifying automation opportunities and preparing implementation requirements.",
+    "features": [
+      "Step-by-step guidance",
+      "Business-first examples",
+      "Practical checklists"
+    ],
+    "status": "coming-soon",
+    "badge": "In development"
+  }
+]
