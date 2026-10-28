@@ -20,3 +20,24 @@
     "price_note": "$39"
   }
 ]
+[
+  {
+    "id": "CLIPPING TOOL",
+    "name": "GUTSY CLIPPING TOOL",
+    "category": "Software",
+    "price_kes": 5000,
+    "price_text": "$39",
+    "billing": "$39",
+    "image": "",
+    "short_description": "A local clipping tool that isn't charged monthly.",
+    "description": "Gutsy Clipping is a desktop video repurposing tool designed to turn long videos into short, engaging clips for social media. It helps creators extract highlights from YouTube videos or local video files, customize clip duration and aspect ratio, and generate captions with word-level timing. Built for Windows, Mac and Linux, it prioritizes efficient editing, H.264 video output, and a streamlined workflow for creating content for platforms like TikTok, Instagram Reels, and YouTube Shorts.",
+    "features": [
+      "Local setup",
+      "One-time purchase",
+      "Quality output"
+    ],
+    "status": "available",
+    "badge": "Clipping tool",
+    "price_note": "$39"
+  }
+]
