@@ -3,9 +3,9 @@
   {
     "id": "CLIPPING TOOL",
     "name": "GUTSY CLIPPING TOOL",
-    "category": "Software",
+    "category": "Automation",
     "price_kes": 5000,
-    "price_text": "$39",
+    "price_text": "USD",
     "billing": "$39",
     "image": "",
     "short_description": "A local clipping tool that isn't charged monthly.",
@@ -16,7 +16,8 @@
       "Quality output"
     ],
     "status": "available",
-    "badge": "Clipping tool",
+    "badge": "CLIPPING TOOL",
     "price_note": "$39"
   }
 ]
+
