@@ -1,12 +1,16 @@
-
-{
-  "heroTransaction": {
+{  "heroTransaction": {
     "src": "assets/images/transaction-proof.jpeg",
     "alt": "Transaction confirmation showing earnings from a clipping campaign",
     "caption": "GUAVA CLIP",
-    "description": "Example transaction proof. Personal and payment details should be hidden."
+    "description": "-"
   },
   "screenshots": {
+    "tool-dashboard": {
+      "src": "assets/images/guava-clip-dashboard.png",
+      "alt": "Guava Clip desktop application showing the Clipping Studio, source preview, clip library, campaign brief, aspect ratio and Generate Clips controls",
+      "caption": "Guava Clip — Clipping Studio",
+      "description": "-"
+    },
     "groq-signup": {
       "src": "assets/images/groq-signup.jpeg",
       "alt": "Groq sign-up page",
@@ -23,15 +27,35 @@
       "caption": "Create and copy your API key",
       "description": "Never publish a screenshot containing a real API key."
     },
+    "purchase-delivery": {
+      "src": "assets/images/purchase-delivery.png",
+      "alt": "Tool delivery message",
+      "caption": "Receive the tool after purchase"
+    },
+    "install-click": {
+      "src": "assets/images/install-click.png",
+      "alt": "Tool installer",
+      "caption": "Install the clipping tool"
+    },
+    "tool-settings": {
+      "src": "assets/images/tool-settings.png",
+      "alt": "Tool settings",
+      "caption": "Add your Groq API key in Settings"
+    },
+    "test-clip": {
+      "src": "assets/images/test-clip.png",
+      "alt": "Successful test clip",
+      "caption": "Confirm setup with a test clip"
+    },
     "tiktok-signup": {
       "src": "assets/images/tiktok-signup.png",
       "alt": "TikTok sign-up",
-      
+      "caption": "Create a TikTok account"
     },
     "tiktok-public": {
       "src": "assets/images/tiktok-public.png",
       "alt": "TikTok privacy setting",
-      
+      "caption": "Set the account to public"
     },
     "cr-signup": {
       "src": "assets/images/cr-signup.png",
