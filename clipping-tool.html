@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -85,8 +86,25 @@ h2{font-size:clamp(28px,3.6vw,42px);margin-bottom:14px}
 .step p,.step li{color:var(--muted);font-size:14px}
 .step ol,.step ul{padding-left:20px;margin:10px 0}
 .step li{margin:6px 0}
-.shot{margin:16px 0 4px;background:#050a12;border:1px dashed #31517c;border-radius:11px;min-height:150px;display:grid;place-items:center;text-align:center;overflow:hidden}
-.shot img{width:100%;height:auto;max-height:520px;object-fit:contain;background:#03060b}
+.shot{
+  margin:16px 0 4px;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  min-height:0;
+  display:block;
+  text-align:left;
+  overflow:hidden;
+}
+.shot img{
+  width:100%;
+  height:auto;
+  max-height:520px;
+  object-fit:contain;
+  background:transparent;
+  border:0;
+  border-radius:0;
+}
 .shot-placeholder{padding:26px 18px;color:#a9bad4}
 .shot-placeholder b{display:block;color:#dce8fa;font-size:12px;margin-bottom:5px}
 .shot-placeholder small{display:block;font-size:11px;color:#8496b3}
@@ -110,7 +128,7 @@ footer a{color:inherit;text-decoration:none}footer a:hover{color:var(--blue2)}
 
 /* Header and footer matched to the supplied Gutsy Automation Store page. */
 header{height:76px;background:#000;border-bottom:1px solid var(--bl);position:sticky;top:env(safe-area-inset-top,0px);z-index:50}
-header .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 40px;position:relative;max-width:1100px}
+header .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 40px;max-width:1100px;position:relative}
 .logo img{height:64px;width:auto;display:block;mix-blend-mode:screen}
 nav.main{display:flex;gap:40px;position:absolute;left:50%;transform:translateX(-50%);height:100%}
 nav.main a{font-size:12.5px;font-weight:500;display:flex;align-items:center;position:relative;height:100%}
@@ -150,7 +168,6 @@ footer .wrap{max-width:1100px;padding:0 54px}
 .mobile-menu a.mobile-cta svg{width:15px;height:15px}
 @media(max-width:700px){header .wrap{padding-left:20px;padding-right:20px}nav.main{display:none}header .pill span{display:none}header .pill{padding:10px 14px}.mobile-toggle{display:flex}.mobile-menu{position:absolute;left:0;right:0;top:100%;display:block;background:#000;border-bottom:1px solid var(--bl);box-shadow:0 14px 30px rgba(0,0,0,.35)}.mobile-menu[hidden]{display:none}.fr{grid-template-columns:1fr;grid-template-rows:auto;gap:16px}.fl,.brandline,.fc,.contact,.soc{grid-column:1;grid-row:auto}.fl img{height:68px}.brandline{margin-top:-18px}.fc{justify-content:flex-start;gap:18px}.contact{justify-content:flex-start;flex-wrap:wrap;white-space:normal;gap:14px}.soc{margin-top:0}.cp{flex-direction:column;align-items:flex-start;gap:10px}.legal{gap:20px}footer .wrap{padding-left:20px;padding-right:20px}}
 .mobile-toggle[aria-expanded='true'] span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}.mobile-toggle[aria-expanded='true'] span:nth-child(2){opacity:0}.mobile-toggle[aria-expanded='true'] span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
-
 </style>
 </head>
 <body>
@@ -161,7 +178,7 @@ footer .wrap{max-width:1100px;padding:0 54px}
     <nav class="main" aria-label="Main">
       <a href="https://gutsyautomation.com/">Home</a><a href="https://gutsyautomation.com/solutions">Solutions</a><a class="on" href="https://gutsyautomation.com/store" aria-current="page">Store</a><a href="https://gutsyautomation.com/about">About</a>
     </nav>
-    <a class="pill" href="https://gutsyautomation.com/onboarding" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><span>Book a discovery call</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="pill" href="https://gutsyautomation.com/onboarding" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><span>Book a discovery call</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <button class="mobile-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="mobile-menu" id="mobile-menu" hidden><nav aria-label="Mobile navigation"><a href="https://gutsyautomation.com/">Home</a><a href="https://gutsyautomation.com/solutions">Solutions</a><a class="on" href="https://gutsyautomation.com/store" aria-current="page">Store</a><a href="https://gutsyautomation.com/about">About</a><a class="mobile-cta" href="https://gutsyautomation.com/onboarding">Book a discovery call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></nav></div>
   </div>
@@ -201,9 +218,16 @@ footer .wrap{max-width:1100px;padding:0 54px}
  <div class="wrap">
   <div class="section-head"><div class="kicker">Beginner walkthrough</div><h2>Start with the tool. <span>Follow the workflow.</span></h2><p>Complete the purchase and receive your tool before beginning installation. Keep this guide open as you work through the steps.</p></div>
   <div class="steps">
-   <article class="step"><div class="step-num">01</div><div><h3>Purchase the Guava Clip</h3><p>Choose the purchase button and send the prefilled WhatsApp message. We will guide you through payment and delivery. The listed price is US$39 / KSh 5,000, one-time.</p><ol><li>Tap <b>Purchase via WhatsApp</b>.</li><li>Send the message that opens in WhatsApp.</li><li>Confirm the payment route and delivery details with Gutsy Automation.</li><li>Keep your purchase confirmation. The tool and access instructions are delivered after purchase verification.</li></ol><div class="callout">International buyers: use WhatsApp to confirm the available payment route before sending payment. Kenyan buyers can also ask for the current local payment instructions.</div></div></article>
+   <article class="step"><div class="step-num">01</div><div><h3>Purchase the Guava Clip</h3><p>Choose the purchase button and send the prefilled WhatsApp message. We will guide you through payment and delivery. The listed price is US$39 / KSh 5,000, one-time.</p><ol><li>Tap <b>Purchase via WhatsApp</b>.</li><li>Send the message that opens in WhatsApp.</li><li>Confirm the payment route and delivery details with Gutsy Automation.</li><li>Keep your purchase confirmation. The tool and access instructions are delivered after purchase verification.</li></ol><div class="callout">International buyers: use WhatsApp to confirm the available payment route before sending payment. Kenyan buyers can also ask for the current local payment instructions.</div>
+<p style="margin-top:18px">
+  <a class="btn" href="https://wa.me/254704131495?text=Hi%20Gutsy%20Automation%2C%20I%E2%80%99d%20like%20to%20purchase%20the%20Guava%20Clip%20for%20%2439%20%2F%20KSh%205%2C000.%20Please%20guide%20me%20through%20payment%20and%20delivery."
+     target="_blank" rel="noopener noreferrer">
+    Purchase via WhatsApp ↗
+  </a>
+</p>
+</div></article>
    <article class="step"><div class="step-num">02</div><div><h3>Prepare your Groq account and API key</h3><p>Connect your Groq API key to enable the AI processing used by Guava Clip. Create your own key and keep it private.</p><ol><li>Open <a href="https://console.groq.com" target="_blank" rel="noopener noreferrer">console.groq.com</a> and create an account.</li><li>Open <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer">the API Keys page</a>.</li><li>Choose <b>Create API Key</b>, give it a recognisable name such as “Guava Clip”, then create it.</li><li>Copy the key and store it securely. Do not send it to anyone or include it in screenshots.</li><li>If you lose the key, create a replacement and update the tool’s settings.</li></ol><div class="shot" data-shot="groq-signup"></div><div class="shot" data-shot="groq-keys-page"></div><div class="shot" data-shot="groq-key-copy"></div></div></article>
-   <article class="step"><div class="step-num">03</div><div><h3>Install and configure the tool</h3><p>Use the installation file and instructions delivered after your purchase. Follow the prompts shown by the installer.</p><ol><li>Download the delivered tool file onto your computer.</li><li>Open the installer and follow its on-screen installation steps.</li><li>Launch Guava Clip.</li><li>Open <b>Settings</b>, paste your Groq API key into the designated field, and save.</li><li>Run the tool’s test clip if that option is available in your delivered version. Confirm it completes before moving on.</li></ol><div class="shot" data-shot="purchase-delivery"></div><div class="shot" data-shot="install-click"></div><div class="shot product-preview" data-shot="tool-dashboard"></div><div class="shot" data-shot="tool-settings"></div><div class="shot" data-shot="test-clip"></div><p class="callout">If the installer or settings screen differs from the screenshot, stop and contact one-on-one support rather than guessing at settings.</p></div></article>
+   <article class="step"><div class="step-num">03</div><div><h3>Install and configure the tool</h3><p>Use the installation file and instructions delivered after your purchase. Follow the prompts shown by the installer.</p><ol><li>Download the delivered tool file onto your computer.</li><li>Open the installer and follow its on-screen installation steps.</li><li>Launch Guava Clip.</li><li>Open <b>Settings</b>, paste your Groq API key into the designated field, and save.</li><li>Run the tool’s test clip if that option is available in your delivered version. Confirm it completes before moving on.</li></ol><p class="callout">If the installer or settings screen differs from the screenshot, stop and contact one-on-one support rather than guessing at settings.</p></div></article>
    <article class="step"><div class="step-num">04</div><div><h3>Create a dedicated TikTok account</h3><p>Use an account that you intend to connect to Content Rewards. Campaign submission rules may require the account to be public.</p><ol><li>Create or sign in to your TikTok account.</li><li>Complete the profile with a recognisable profile image and a suitable bio.</li><li>Set the account to <b>Public</b> in TikTok privacy settings if required by the campaign platform.</li></ol><div class="shot" data-shot="tiktok-signup"></div><div class="shot" data-shot="tiktok-public"></div></div></article>
    <article class="step"><div class="step-num">05</div><div><h3>Create your Content Rewards account</h3><p>Open <a href="https://contentrewards.com" target="_blank" rel="noopener noreferrer">contentrewards.com</a> and complete its registration flow. The platform may route account creation through Whop.</p><ol><li>Open Content Rewards.</li><li>Choose the sign-up option and complete the requested account details.</li><li>Finish any account verification prompts shown to you.</li></ol><div class="shot" data-shot="cr-signup"></div></div></article>
    <article class="step"><div class="step-num">06</div><div><h3>Connect your TikTok account</h3><p>Use the current connected-account flow inside Content Rewards. The platform interface may change, so follow the labels currently shown in your account.</p><ol><li>Open your Content Rewards profile or account settings.</li><li>Choose <b>Connected accounts</b>.</li><li>Choose <b>Connect account</b>, select TikTok, then sign in and approve the requested connection.</li><li>Return to Content Rewards and confirm that TikTok appears as connected or verified.</li></ol><div class="shot" data-shot="cr-connected-accounts"></div><div class="shot" data-shot="cr-connect-tiktok"></div><div class="shot" data-shot="cr-verified"></div><p class="callout"></p></div></article>
