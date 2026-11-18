@@ -12,17 +12,17 @@
       "description": "The Guava Clip desktop application used in the workflow."
     },
     "groq-signup": {
-      "src": "assets/images/groq-signup.png",
+      "src": "assets/images/groq-signup.jpeg",
       "alt": "Groq sign-up page",
       "caption": "Create your Groq account"
     },
     "groq-keys-page": {
-      "src": "assets/images/groq-keys-page.png",
+      "src": "assets/images/groq-keys-page.jpeg",
       "alt": "Groq API keys page",
       "caption": "Open the API keys page"
     },
     "groq-key-copy": {
-      "src": "assets/images/groq-key-copy.png",
+      "src": "assets/images/groq-key-copy.jpeg",
       "alt": "Groq API key creation",
       "caption": "Create and copy your API key",
       "description": "Never publish a screenshot containing a real API key."
