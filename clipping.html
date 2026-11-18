@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guava Clip | Gutsy Automation</title>
+<meta name="description" content="Learn how to use Guava Clip to create short-form content for clipping campaigns.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gutsy Automation">
+<meta property="og:title" content="Guava Clip | Gutsy Automation">
+<meta property="og:description" content="A practical guide to using Guava Clip for short-form campaign content.">
+<meta property="og:url" content="https://gutsyautomation.com/clipping-tool">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--panel:#05080e;--panel2:#080d17;--blue:#0a6cff;--blue2:#1e8bff;--line:rgba(30,120,255,.35);--muted:#aeb9cc;--dim:#7d889c;--white:#f7f9fd;--max:1100px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{background:var(--bg);color:var(--white);font:15px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#8dbbff;text-decoration:none}a:hover{color:#c7ddff}
+button,a,input{font:inherit}button:focus-visible,a:focus-visible{outline:2px solid var(--blue2);outline-offset:4px}
+img{max-width:100%;display:block}
+.wrap{width:min(100% - 44px,var(--max));margin:auto}
+header{height:76px;position:sticky;top:0;z-index:100;background:rgba(0,0,0,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.head{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative}
+.logo img{height:62px;width:auto;max-width:190px;object-fit:contain}
+nav.desktop{display:flex;gap:32px;align-items:center}
+nav a{font-size:12px;color:#dce4f3;font-weight:500}
+nav a:hover,nav a[aria-current=page]{color:var(--blue2)}
+.pill{border:1px solid var(--blue);border-radius:999px;padding:9px 16px;display:inline-flex;align-items:center;gap:9px;color:#fff;font-size:11px;white-space:nowrap}
+.pill:hover{background:#0a6cff22}
+.mobile-toggle{display:none;width:42px;height:42px;border:1px solid #1b3559;border-radius:9px;background:#03070d;color:white;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer}
+.mobile-toggle span{height:2px;width:18px;background:#dbe8ff;transition:transform .2s,opacity .2s}
+.mobile-menu{position:absolute;top:76px;left:0;right:0;background:#03060b;border-bottom:1px solid var(--line);padding:12px 22px 20px;box-shadow:0 18px 35px #000b}
+.mobile-menu nav{display:grid;gap:0}
+.mobile-menu a{padding:13px 2px;border-bottom:1px solid #152238;font-size:14px}
+.mobile-menu .mobile-cta{margin-top:12px;padding:12px 14px;border:1px solid var(--blue);border-radius:8px;text-align:center}
+.hero{border-bottom:1px solid var(--line);padding:62px 0 58px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0 0 auto 40%;height:100%;background:radial-gradient(ellipse at 70% 20%,#0a6cff24,transparent 62%);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1fr;gap:0;align-items:center}
+.eyebrow{display:flex;align-items:center;gap:11px;color:var(--blue2);font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px}
+.eyebrow:before{content:"";width:28px;height:3px;border-radius:4px;background:var(--blue)}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.12;letter-spacing:-.035em}
+h1{font-size:clamp(38px,5.2vw,62px);max-width:680px}
+h1 span,h2 span{color:var(--blue2)}
+.lead{font-size:16px;color:#c7d1e2;max-width:610px;margin:20px 0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--blue);color:#fff;padding:13px 19px;border-radius:8px;font-size:13px;font-weight:700;border:1px solid var(--blue);transition:.2s}
+.btn:hover{background:var(--blue2);color:white}
+.btn.secondary{background:transparent;border-color:#29456d;color:#e8f0ff}
+.btn.secondary:hover{background:#0b1422}
+.price-line{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:22px}
+.price-line strong{font:700 26px "Space Grotesk";color:white}
+.price-line span{font-size:12px;color:var(--muted)}
+.trustline{font-size:11px;color:var(--dim);margin-top:14px}
+.transaction{background:linear-gradient(145deg,#07101d,#03060b);border:1px solid #23436d;border-radius:15px;padding:14px;box-shadow:0 20px 70px #00163a55}
+.transaction .slot-label{display:flex;justify-content:space-between;gap:10px;color:#b9c9e2;font-size:10px;text-transform:uppercase;letter-spacing:.12em;margin:2px 2px 12px}
+.section{padding:66px 0;border-bottom:1px solid #13233a}
+.section-head{max-width:720px;margin-bottom:28px}
+.kicker{color:var(--blue2);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+h2{font-size:clamp(28px,3.6vw,42px);margin-bottom:14px}
+.section-head p,.body-copy{color:var(--muted);max-width:760px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:linear-gradient(145deg,#070b12,#030507);border:1px solid #182a43;border-radius:12px;padding:20px}
+.card h3{font-size:17px;margin-bottom:9px;letter-spacing:-.01em}
+.card p,.card li{font-size:13px;color:var(--muted)}
+.card .big{font:700 25px "Space Grotesk";color:#fff;margin-bottom:8px}
+.callout{margin-top:20px;border:1px solid #29466e;background:#07101c;border-radius:10px;padding:16px 18px;color:#d5e0f2;font-size:13px}
+.steps{display:grid;gap:18px}
+.step{display:grid;grid-template-columns:52px minmax(0,1fr);gap:17px;padding:22px 0;border-top:1px solid #17263b}
+.step-num{width:40px;height:40px;border:1px solid #24518b;border-radius:10px;display:grid;place-items:center;color:#8dbbff;font:700 15px "Space Grotesk";background:#061020}
+.step h3{font-size:21px;margin:2px 0 10px}
+.step p,.step li{color:var(--muted);font-size:14px}
+.step ol,.step ul{padding-left:20px;margin:10px 0}
+.step li{margin:6px 0}
+.shot{margin:16px 0 4px;background:#050a12;border:1px dashed #31517c;border-radius:11px;min-height:150px;display:grid;place-items:center;text-align:center;overflow:hidden}
+.shot img{width:100%;height:auto;max-height:520px;object-fit:contain;background:#03060b}
+.shot-placeholder{padding:26px 18px;color:#a9bad4}
+.shot-placeholder b{display:block;color:#dce8fa;font-size:12px;margin-bottom:5px}
+.shot-placeholder small{display:block;font-size:11px;color:#8496b3}
+.caption{padding:8px 4px 0;color:#8799b6;font-size:11px}
+.code{font:12px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;background:#03070d;border:1px solid #1d3454;padding:14px;border-radius:9px;color:#d8e6ff;margin:12px 0}
+.buy{background:radial-gradient(ellipse at 50% 0%,#0a6cff1c,transparent 65%)}
+.buy-panel{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border:1px solid #24518b;background:#050b14;border-radius:16px;padding:28px}
+.price{font:700 clamp(30px,4vw,44px) "Space Grotesk";margin:8px 0}
+.price small{font:500 14px Inter;color:#9eb0ca}
+.buy-list{display:grid;gap:8px;margin-top:14px;color:#c5d2e5;font-size:13px}
+.faq{display:grid;gap:10px}
+details{background:#05080e;border:1px solid #192c45;border-radius:10px;padding:15px 17px}
+summary{cursor:pointer;font-weight:600;font-size:13px}
+details p{color:var(--muted);font-size:13px;margin-top:10px}
+
+footer a{color:inherit;text-decoration:none}footer a:hover{color:var(--blue2)}
+.note{font-size:11px;color:#8d9bb1}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr;gap:28px}.transaction{max-width:650px}.grid3{grid-template-columns:1fr 1fr}.buy-panel{grid-template-columns:1fr}.buy-panel .btn{justify-self:start}}
+@media(max-width:700px){.wrap{width:min(100% - 34px,var(--max))}nav.desktop,.head>.pill{display:none}.mobile-toggle{display:flex}.hero{padding:44px 0}.section{padding:48px 0}.grid3{grid-template-columns:1fr}.step{grid-template-columns:38px minmax(0,1fr);gap:12px}.step-num{width:34px;height:34px}.logo img{height:56px}.buy-panel{padding:21px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+
+/* Header and footer matched to the supplied Gutsy Automation Store page. */
+header{height:76px;background:#000;border-bottom:1px solid var(--bl);position:sticky;top:env(safe-area-inset-top,0px);z-index:50}
+header .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 40px;position:relative;max-width:1100px}
+.logo img{height:64px;width:auto;display:block;mix-blend-mode:screen}
+nav.main{display:flex;gap:40px;position:absolute;left:50%;transform:translateX(-50%);height:100%}
+nav.main a{font-size:12.5px;font-weight:500;display:flex;align-items:center;position:relative;height:100%}
+nav.main a:hover{color:var(--blue2)}
+nav.main a.on{color:var(--blue2)}
+nav.main a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--blue2)}
+.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--blue);color:#fff;border-radius:999px;font-weight:500;font-size:11px;padding:10px 20px;background:transparent;transition:.2s;white-space:nowrap}
+.pill svg{width:14px;height:14px;flex:none;color:var(--blue2)}
+.pill:hover{background:rgba(10,108,255,.15)}
+footer{background:#000;padding:22px 0 16px}
+footer .wrap{max-width:1100px;padding:0 54px}
+.fr{display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--bl)}
+.fl img{height:84px;width:auto;mix-blend-mode:screen;display:block}
+.fc{display:flex;gap:50px;justify-content:center;font-size:10.5px;flex-wrap:wrap}
+.fc div{display:flex;align-items:center;gap:12px}
+.soc{display:flex;gap:16px}
+.soc svg{width:20px;height:20px;fill:#fff}
+.soc a:hover svg{fill:var(--blue2)}
+.cp{display:flex;justify-content:space-between;gap:20px;font-size:8.5px;color:var(--dim);padding-top:14px}
+.cp span:last-child{color:var(--blue2)}
+.mobile-toggle{display:none;align-items:center;justify-content:center;flex-direction:column;gap:4px;width:42px;height:42px;padding:0;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:#000;color:#fff;cursor:pointer;flex:0 0 auto}
+.mobile-toggle span{display:block;width:16px;height:1.5px;background:currentColor;transition:.2s}
+.mobile-menu{display:none}
+.mobile-menu nav{display:flex;flex-direction:column}
+.mobile-menu a{display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:0 20px;border-bottom:1px solid var(--line);font-size:13px;font-weight:600;color:#fff}
+.mobile-menu a:hover,.mobile-menu a.on{color:var(--blue2)}
+.mobile-menu a.mobile-cta{color:#fff;background:var(--blue)}
+.mobile-menu a.mobile-cta svg{width:15px;height:15px}
+@media(max-width:700px){header .wrap{padding-left:20px;padding-right:20px}nav.main{display:none}header .pill span{display:none}header .pill{padding:10px 14px}.mobile-toggle{display:flex}.mobile-menu{position:absolute;left:0;right:0;top:100%;display:block;background:#000;border-bottom:1px solid var(--bl);box-shadow:0 14px 30px rgba(0,0,0,.35)}.mobile-menu[hidden]{display:none}.fr{grid-template-columns:1fr}.fc{justify-content:flex-start;gap:20px}.cp{flex-direction:column;gap:6px}footer .wrap{padding-left:20px;padding-right:20px}}
+.mobile-toggle[aria-expanded='true'] span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}.mobile-toggle[aria-expanded='true'] span:nth-child(2){opacity:0}.mobile-toggle[aria-expanded='true'] span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content" style="position:absolute;left:-9999px;top:auto">Skip to main content</a>
+<header>
+  <div class="wrap">
+    <a class="logo" href="https://gutsyautomation.com/" aria-label="Gutsy Automation home"><img src="assets/gutsy-logo.png" alt="Gutsy Automation"></a>
+    <nav class="main" aria-label="Main">
+      <a href="https://gutsyautomation.com/">Home</a><a href="https://gutsyautomation.com/solutions">Solutions</a><a class="on" href="https://gutsyautomation.com/store" aria-current="page">Store</a><a href="https://gutsyautomation.com/about">About</a>
+    </nav>
+    <a class="pill" href="https://gutsyautomation.com/onboarding" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><span>Book a discovery call</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+<button class="mobile-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<div class="mobile-menu" id="mobile-menu" hidden><nav aria-label="Mobile navigation"><a href="https://gutsyautomation.com/">Home</a><a href="https://gutsyautomation.com/solutions">Solutions</a><a class="on" href="https://gutsyautomation.com/store" aria-current="page">Store</a><a href="https://gutsyautomation.com/about">About</a><a class="mobile-cta" href="https://gutsyautomation.com/onboarding">Book a discovery call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></nav></div>
+</header>
+<main id="main-content">
+<section class="hero">
+ <div class="wrap hero-grid">
+  <div>
+   <div class="eyebrow">Gutsy Automation · Guava Clip</div>
+   <h1>Turn campaign videos into <span>short-form clips.</span></h1>
+   <p class="lead">A practical, beginner-friendly walkthrough for using Guava Clip to create short-form campaign content, publish eligible clips and track your rewards.</p>
+   <div class="hero-actions"><a class="btn" href="https://wa.me/254704131495?text=Hi%20Gutsy%20Automation%2C%20I%E2%80%99d%20like%20to%20purchase%20the%20Clipping%20Tool%20for%20%2439%20%2F%20KSh%205%2C000.%20Please%20guide%20me%20through%20payment%20and%20delivery." target="_blank" rel="noopener noreferrer">Purchase via WhatsApp ↗</a><a class="btn secondary" href="#guide">Explore the guide</a></div>
+   <div class="price-line"><strong>US$39</strong><span>/</span><strong>KSh 5,000</strong><span>One-time purchase</span></div>
+   <p class="trustline">International and Kenyan buyers · WhatsApp purchase assistance · One-on-one setup help</p>
+  </div>
+  <aside class="transaction" aria-label=" screenshot">
+   <div class="slot-label"><span></span><span></span></div>
+   <div class="shot" data-shot="heroTransaction"><div class="shot-placeholder"><b></b><small></small></div></div>
+   
+  </aside>
+ </div>
+</section>
+
+<section class="section">
+ <div class="wrap">
+  <div class="section-head"><div class="kicker">The opportunity</div><h2>Understand how <span>campaign rewards</span> work.</h2><p>Clipping campaigns are offers from brands or creators. A campaign defines the source content, accepted platforms, posting requirements and reward model. Your results depend on campaign terms and the performance of eligible posts.</p></div>
+  <div class="grid3">
+   <article class="card"><div class="big">CPM</div><h3>Paid per 1,000 views</h3><p>For a CPM campaign, the reward is calculated using eligible views and the campaign’s stated rate.</p></article>
+   <article class="card"><div class="big">Per Post</div><h3>Fixed post reward</h3><p>Some campaigns pay a stated amount for an eligible post rather than paying by view count.</p></article>
+   <article class="card"><div class="big">Retainer</div><h3>Agreed campaign work</h3><p>Some campaigns use an agreed recurring or package-based arrangement. Always read the campaign terms.</p></article>
+  </div>
+  <div class="callout"><b>Illustrative CPM calculation:</b> 10,000 eligible views at a $2 CPM = $20 gross campaign earnings before any applicable platform fee, campaign cap or other terms. This is an example, not a promise or forecast of income.</div>
+ </div>
+</section>
+
+<section class="section" id="guide">
+ <div class="wrap">
+  <div class="section-head"><div class="kicker">Beginner walkthrough</div><h2>Start with the tool. <span>Follow the workflow.</span></h2><p>Complete the purchase and receive your tool before beginning installation. Keep this guide open as you work through the steps.</p></div>
+  <div class="steps">
+   <article class="step"><div class="step-num">01</div><div><h3>Purchase the Guava Clip</h3><p>Choose the purchase button and send the prefilled WhatsApp message. We will guide you through payment and delivery. The listed price is US$39 / KSh 5,000, one-time.</p><ol><li>Tap <b>Purchase via WhatsApp</b>.</li><li>Send the message that opens in WhatsApp.</li><li>Confirm the payment route and delivery details with Gutsy Automation.</li><li>Keep your purchase confirmation. The tool and access instructions are delivered after purchase verification.</li></ol><div class="callout">International buyers: use WhatsApp to confirm the available payment route before sending payment. Kenyan buyers can also ask for the current local payment instructions.</div></div></article>
+   <article class="step"><div class="step-num">02</div><div><h3>Prepare your Groq account and API key</h3><p>Connect your Groq API key to enable the AI processing used by Guava Clip. Create your own key and keep it private.</p><ol><li>Open <a href="https://console.groq.com" target="_blank" rel="noopener noreferrer">console.groq.com</a> and create an account.</li><li>Open <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer">the API Keys page</a>.</li><li>Choose <b>Create API Key</b>, give it a recognisable name such as “Guava Clip”, then create it.</li><li>Copy the key and store it securely. Do not send it to anyone or include it in screenshots.</li><li>If you lose the key, create a replacement and update the tool’s settings.</li></ol><div class="shot" data-shot="groq-signup"></div><div class="shot" data-shot="groq-keys-page"></div><div class="shot" data-shot="groq-key-copy"></div></div></article>
+   <article class="step"><div class="step-num">03</div><div><h3>Install and configure the tool</h3><p>Use the installation file and instructions delivered after your purchase. Follow the prompts shown by the installer.</p><ol><li>Download the delivered tool file onto your computer.</li><li>Open the installer and follow its on-screen installation steps.</li><li>Launch Guava Clip.</li><li>Open <b>Settings</b>, paste your Groq API key into the designated field, and save.</li><li>Run the tool’s test clip if that option is available in your delivered version. Confirm it completes before moving on.</li></ol><div class="shot" data-shot="purchase-delivery"></div><div class="shot" data-shot="install-click"></div><div class="shot product-preview" data-shot="tool-dashboard"></div><div class="shot" data-shot="tool-settings"></div><div class="shot" data-shot="test-clip"></div><p class="callout">If the installer or settings screen differs from the screenshot, stop and contact one-on-one support rather than guessing at settings.</p></div></article>
+   <article class="step"><div class="step-num">04</div><div><h3>Create a dedicated TikTok account</h3><p>Use an account that you intend to connect to Content Rewards. Campaign submission rules may require the account to be public.</p><ol><li>Create or sign in to your TikTok account.</li><li>Complete the profile with a recognisable profile image and a suitable bio.</li><li>Set the account to <b>Public</b> in TikTok privacy settings if required by the campaign platform.</li></ol><div class="shot" data-shot="tiktok-signup"></div><div class="shot" data-shot="tiktok-public"></div></div></article>
+   <article class="step"><div class="step-num">05</div><div><h3>Create your Content Rewards account</h3><p>Open <a href="https://contentrewards.com" target="_blank" rel="noopener noreferrer">contentrewards.com</a> and complete its registration flow. The platform may route account creation through Whop.</p><ol><li>Open Content Rewards.</li><li>Choose the sign-up option and complete the requested account details.</li><li>Finish any account verification prompts shown to you.</li></ol><div class="shot" data-shot="cr-signup"></div></div></article>
+   <article class="step"><div class="step-num">06</div><div><h3>Connect your TikTok account</h3><p>Use the current connected-account flow inside Content Rewards. The platform interface may change, so follow the labels currently shown in your account.</p><ol><li>Open your Content Rewards profile or account settings.</li><li>Choose <b>Connected accounts</b>.</li><li>Choose <b>Connect account</b>, select TikTok, then sign in and approve the requested connection.</li><li>Return to Content Rewards and confirm that TikTok appears as connected or verified.</li></ol><div class="shot" data-shot="cr-connected-accounts"></div><div class="shot" data-shot="cr-connect-tiktok"></div><div class="shot" data-shot="cr-verified"></div><p class="callout"></p></div></article>
+   <article class="step"><div class="step-num">07</div><div><h3>Find and join a suitable campaign</h3><p>Campaigns can have different reward structures and conditions. Read the campaign page before using its source material.</p><ol><li>Open <b>Discover</b> in Content Rewards.</li><li>Open a campaign and check its reward model: CPM, Per Post or Retainer.</li><li>Read the accepted platforms, content rules, disclosure requirements, minimum payout, budget or cap, and submission deadline.</li><li>Check whether the campaign offers <b>Join Campaign</b> for immediate access or <b>Apply</b> for a review before access.</li><li>Only use the campaign’s authorised source material and follow its terms.</li></ol><div class="shot" data-shot="cr-discover"></div><div class="shot" data-shot="cr-campaign"></div><div class="shot" data-shot="cr-join"></div></div></article>
+   <article class="step"><div class="step-num">08</div><div><h3>Generate clips using Guava Clip</h3><p>Use the source video and campaign brief to configure the clipping tool. The exact controls depend on the version supplied to you.</p><ol><li>Open the campaign’s authorised source video or download the supplied source file if the campaign permits it.</li><li>In Guava Clip, paste the source link or load the permitted video file.</li><li>Read the campaign brief carefully and enter its instructions in the tool’s brief or prompt field where available.</li><li>Set the output format and duration to match the campaign requirements. For vertical TikTok content, use 9:16 only where the campaign accepts that format.</li><li>Set captions and other available output options according to the campaign brief.</li><li>Choose an output folder you can find easily, then start generation.</li><li>Wait for the process to finish. Open the output folder and review every generated clip.</li><li>Check that each clip follows the campaign brief, uses permitted material, has readable captions, and starts and ends cleanly.</li></ol><div class="shot" data-shot="tool-source"></div><div class="shot" data-shot="tool-settings-panel"></div><div class="shot" data-shot="tool-progress"></div><div class="shot" data-shot="tool-output"></div></div></article>
+   <article class="step"><div class="step-num">09</div><div><h3>Publish the eligible clip</h3><p>Publish only after checking the campaign’s platform, disclosure, content and approval requirements.</p><ol><li>If the campaign requires pre-approval, submit the draft through the campaign process and wait for approval before publishing.</li><li>For commercial content, use TikTok’s applicable content disclosure setting when required. Follow the campaign’s exact disclosure instructions.</li><li>Publish from the connected account on an accepted platform, using the visibility and post settings required by the campaign.</li><li>Copy the public post link after publishing.</li></ol><div class="shot" data-shot="tiktok-upload"></div><div class="shot" data-shot="tiktok-copy-link"></div></div></article>
+   <article class="step"><div class="step-num">10</div><div><h3>Submit the post to the campaign</h3><p>Return to the matching campaign in Content Rewards and submit the public post URL. The platform’s current guidance specifies submission within 30 minutes of posting.</p><ol><li>Open the campaign and choose <b>Submit clip</b>.</li><li>Paste the public post link.</li><li>Confirm that you have read and followed the campaign requirements.</li><li>Submit the clip and check that it appears in your submissions.</li></ol><div class="shot" data-shot="cr-submit"></div><div class="shot" data-shot="cr-submissions"></div></div></article>
+   <article class="step"><div class="step-num">11</div><div><h3>Track review, views and earnings</h3><p>Open the submissions or earnings area in Content Rewards. A submitted post may remain pending while the platform reviews it.</p><ol><li>Check whether the submission is pending, approved or rejected.</li><li>If rejected, read the reason and compare it with the campaign requirements before submitting future clips.</li><li>For CPM campaigns, distinguish eligible views and calculated earnings from money that is approved and available to withdraw.</li><li>Check the campaign’s current earning period, minimum payout and any hold period.</li></ol></div></article>
+   <article class="step"><div class="step-num">12</div><div><h3>Withdraw available earnings</h3><p>Content Rewards provides withdrawal through Whop Balance when your available balance meets its current minimum. The available payout methods depend on country, account and provider.</p><ol><li>Open <b>Earnings</b> in Content Rewards.</li><li>Choose <b>Withdraw</b>, then select <b>Whop Balance</b>.</li><li>Continue to the payout methods available to your Whop account.</li><li>Choose and complete a withdrawal using the payout method available in your account.</li></ol><div class="shot" data-shot="cr-withdraw"></div></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="section buy" id="purchase">
+ <div class="wrap">
+  <div class="section-head"><div class="kicker">Get the tool</div><h2>Start using the <span>Guava Clip.</span></h2><p>Purchase the tool and get direct WhatsApp guidance for payment, delivery and getting started.</p></div>
+  <div class="buy-panel">
+   <div><div class="kicker">One-time purchase</div><div class="price">US$39 <small>/ KSh 5,000</small></div><ul class="buy-list"><li>• Guava Clip</li><li>• Delivery and access instructions via WhatsApp</li><li>• One-on-one help getting started</li></ul><p class="note" style="margin-top:14px">Purchase Guava Clip and receive the delivery and setup instructions directly from Gutsy Automation.</p></div>
+   <div><a class="btn" href="https://wa.me/254704131495?text=Hi%20Gutsy%20Automation%2C%20I%E2%80%99d%20like%20to%20purchase%20the%20Clipping%20Tool%20for%20%2439%20%2F%20KSh%205%2C000.%20Please%20guide%20me%20through%20payment%20and%20delivery." target="_blank" rel="noopener noreferrer">Purchase via WhatsApp ↗</a><p style="margin-top:12px"><a href="https://wa.me/254704131495?text=Hi%20Gutsy%20Automation%2C%20I%20need%20one-on-one%20help%20with%20the%20Clipping%20Tool.%20Please%20guide%20me%20through%20getting%20started%20and%20using%20it." target="_blank" rel="noopener noreferrer">Ask for one-on-one help ↗</a></p></div>
+  </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="wrap">
+  <div class="section-head"><div class="kicker">Questions</div><h2>Frequently asked <span>questions.</span></h2></div>
+  <div class="faq">
+   <details><summary>Is the US$39 / KSh 5,000 payment monthly?</summary><p>The displayed price is a one-time purchase for Guava Clip. </p></details>
+   <details><summary>Do I need a powerful computer?</summary><p>Guava Clip is a desktop application. Your delivery instructions include the setup requirements and installation steps for your device.</p></details>
+   <details><summary>How much can I earn?</summary><p>Campaign rewards vary by campaign model, eligible views, performance and campaign terms. There is no fixed earning amount; your dashboard shows the earnings recorded for your eligible clips.</p></details>
+   <details><summary>How do I withdraw my earnings?</summary><p>Withdraw your available earnings using one of the payout methods shown in your account.</p></details>
+   <details><summary>Can I get help setting it up?</summary><p>Yes. Use the one-on-one help WhatsApp link on this page and describe where you are stuck.</p></details>
+  </div>
+ </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fr">
+      <a class="fl" href="https://gutsyautomation.com/" aria-label="Gutsy Automation home"><img src="assets/gutsy-logo.png" alt="Gutsy Automation"></a>
+      <div class="fc">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+254704131495">+254 704 131 495</a></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:andyautom3000@gmail.com">andyautom3000@gmail.com</a></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Nairobi, Kenya</span></div>
+      </div>
+      <div class="soc">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.5 3A2.5 2.5 0 1 0 4.5 8 2.5 2.5 0 0 0 4.5 3zM2.3 9.5h4.4V22H2.3V9.5zM9 9.5h4.2v1.7h.1c.6-1.1 2-2 4.1-2 4.4 0 5.2 2.9 5.2 6.6V22h-4.4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V22H9V9.5z"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.2 4.7H5.4l11.3 14.5z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 8.2a2.7 2.7 0 0 0-1.9-1.9C18.4 5.8 12 5.8 12 5.8s-6.4 0-8.1.5A2.7 2.7 0 0 0 2 8.2 28 28 0 0 0 1.6 12 28 28 0 0 0 2 15.8a2.7 2.7 0 0 0 1.9 1.9c1.7.5 8.1.5 8.1.5s6.4 0 8.1-.5a2.7 2.7 0 0 0 1.9-1.9c.3-1.2.4-2.5.4-3.8s-.1-2.6-.4-3.8zM10 15V9l5.2 3L10 15z"/></svg></a>
+      </div>
+    </div>
+    <div class="cp"><span>© 2026 Gutsy Automation. All rights reserved.</span><span>Automation that drives revenue.</span></div>
+  </div>
+</footer>
+<script>
+(() => {
+ const toggle=document.querySelector('.mobile-toggle');
+ const menu=document.getElementById('mobile-menu');
+ const close=()=>{menu.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation menu');};
+ toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';menu.hidden=!open;toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');});
+ menu.addEventListener('click',e=>{if(e.target.closest('a'))close();});
+ document.addEventListener('click',e=>{if(!menu.hidden&&!menu.contains(e.target)&&!toggle.contains(e.target))close();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){close();toggle.focus();}});
+ const slots=[...document.querySelectorAll('[data-shot]')];
+ fetch('assets/clipping-guide.json').then(r=>{if(!r.ok)throw new Error('Could not load screenshot configuration');return r.json();}).then(cfg=>{
+   slots.forEach(slot=>{
+     const key=slot.dataset.shot;
+     const item=key==='heroTransaction'?cfg.heroTransaction:cfg.screenshots?.[key];
+     if(!item||!item.src)return;
+     const img=document.createElement('img');img.src=item.src;img.alt=item.alt||'Guide screenshot';img.loading='lazy';
+     img.onerror=()=>{img.remove();};
+     slot.replaceChildren(img);
+     if(item.caption){const cap=document.createElement('div');cap.className='caption';cap.textContent=item.caption;slot.after(cap);}
+   });
+ }).catch(err=>console.warn(err));
+})();
+</script>
+</body>
+</html>
