@@ -4,13 +4,7 @@
     "caption": "GUAVA CLIP",
     "description": "Example transaction proof. Personal and payment details should be hidden."
   },
-  "screenshots": {
-    "tool-dashboard": {
-      "src": "assets/images/guava-clip-dashboard.png",
-      "alt": "Guava Clip desktop application showing the Clipping Studio, source preview, clip library, campaign brief, aspect ratio and Generate Clips controls",
-      "caption": "Guava Clip — Clipping Studio",
-      "description": "The Guava Clip desktop application used in the workflow."
-    },
+  
     "groq-signup": {
       "src": "assets/images/groq-signup.png",
       "alt": "Groq sign-up page",
