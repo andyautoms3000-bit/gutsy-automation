@@ -26,12 +26,12 @@
     "tiktok-signup": {
       "src": "assets/images/tiktok-signup.png",
       "alt": "TikTok sign-up",
-      "caption": "Create a TikTok account"
+      
     },
     "tiktok-public": {
       "src": "assets/images/tiktok-public.png",
       "alt": "TikTok privacy setting",
-      "caption": "Set the account to public"
+      
     },
     "cr-signup": {
       "src": "assets/images/cr-signup.png",
