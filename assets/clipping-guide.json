@@ -159,6 +159,8 @@
 "cyber-security": {
   "src": "assets/images/cyber-security.jpg"
 },
-"engineering-labs": {
-  "src": "assets/images/engineering-labs.jpg"
+    "engineering-labs": {
+      "src": "assets/images/engineering-labs.jpg"
+    }
+  }
 }
