@@ -141,7 +141,7 @@
   },
   "homepage": {
     "hero": {
-      "src": "assets/hero-background.jpg"
+      "src": "assets/images/hero-background.jpg"
     },
     "midsection": {
       "src": "assets/midsection-background.jpg"
