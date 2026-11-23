@@ -1,4 +1,5 @@
-{  "heroTransaction": {
+{
+  "heroTransaction": {
     "src": "assets/images/transaction-proof.jpeg",
     "alt": "Transaction confirmation showing earnings from a clipping campaign",
     "caption": "GUAVA CLIP",
@@ -136,6 +137,29 @@
       "src": "assets/images/cr-withdraw.png",
       "alt": "Content Rewards withdrawal",
       "caption": "Withdraw available earnings"
+    }
+  },
+  "homepage": {
+    "hero": {
+      "src": "assets/hero-background.jpg"
+    },
+    "midsection": {
+      "src": "assets/midsection-background.jpg"
+    },
+    "bottom": {
+      "src": "assets/bottom-background.jpg"
+    },
+    "business-os": {
+      "src": "assets/business-os.jpg"
+    },
+    "applied-ai": {
+      "src": "assets/applied-ai.jpg"
+    },
+    "cyber-security": {
+      "src": "assets/cyber-security.jpg"
+    },
+    "engineering-labs": {
+      "src": "assets/engineering-labs.jpg"
     }
   }
 }
