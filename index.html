@@ -58,7 +58,19 @@
     .divisions .container,.bottom-section .container{position:relative;z-index:1}
     .divisions{padding:100px 0 108px;border-bottom:1px solid var(--line)}
     .divisions .media-layer{opacity:1}
-    .divisions .media-layer::after{background:linear-gradient(180deg,rgba(7,13,24,.88),rgba(7,13,24,.78)),linear-gradient(0deg,var(--bg),transparent 22%)}
+    .divisions .media-layer::after {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7,13,24,.60),
+            rgba(7,13,24,.50)
+        ),
+        linear-gradient(
+            0deg,
+            var(--bg),
+            transparent 22%
+        );
+}
     .divisions-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
     .division-card{min-width:0;overflow:hidden;border:1px solid rgba(207,220,240,.16);border-radius:12px;background:rgba(8,14,25,.78);transition:border-color var(--ease),transform var(--ease)}
     .division-card:hover{border-color:rgba(100,165,255,.55);transform:translateY(-3px)}
