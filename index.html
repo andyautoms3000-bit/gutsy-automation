@@ -354,7 +354,7 @@
       var imageSlots = document.querySelectorAll("[data-home-image]");
 
       if(imageSlots.length){
-        fetch("assets/images/clipping-guide.json")
+        fetch("assets/clipping-guide.json")
           .then(function(response){
             if(!response.ok){
               throw new Error("Homepage image manifest unavailable: HTTP " + response.status);
