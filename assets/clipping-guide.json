@@ -141,7 +141,8 @@
   },
   "homepage": {
     "hero": {
-      "src": "assets/images/hero-background.jpg"
+      "src": "assets/images/hero-background.jpg",
+      "alt": "Gutsy Automation hero background"
     },
     "midsection": {
       "src": "assets/midsection-background.jpg"
