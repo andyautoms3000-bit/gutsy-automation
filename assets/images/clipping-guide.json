@@ -145,22 +145,22 @@
       "alt": "Gutsy Automation hero background"
     },
     "midsection": {
-      "src": "assets/midsection-background.jpg"
+      "src": "assets/images/midsection-background.jpg"
     },
     "bottom": {
-      "src": "assets/bottom-background.jpg"
+      "src": "assets/images/bottom-background.jpg"
     },
     "business-os": {
-      "src": "assets/business-os.jpg"
+      "src": "assets/images/business-os.jpg"
     },
     "applied-ai": {
-      "src": "assets/applied-ai.jpg"
+      "src": "assets/images/applied-ai.jpg"
     },
     "cyber-security": {
-      "src": "assets/cyber-security.jpg"
+      "src": "assets/images/cyber-security.jpg"
     },
     "engineering-labs": {
-      "src": "assets/engineering-labs.jpg"
+      "src": "assets/images/engineering-labs.jpg"
     }
   }
 }
