@@ -137,7 +137,8 @@
       .site-header{padding:11px 0}
       .brand{font-size:.83rem;letter-spacing:.1em}
       .nav-cluster{left:18px;right:18px}
-      .hero{min-height:88svh;padding:125px 0 76px}
+      /* On mobile, anchor hero copy near the top instead of vertically centring it. */
+      .hero{min-height:88svh;align-items:flex-start;padding:145px 0 76px}
       .hero .media-layer::after{background:linear-gradient(90deg,rgba(7,13,24,.84) 0%,rgba(7,13,24,.60) 72%,rgba(7,13,24,.30) 100%),linear-gradient(0deg,var(--bg),transparent 35%)}
       .hero-copy{font-size:1rem}
       .hero-actions{align-items:flex-start;flex-direction:column;gap:14px}
@@ -386,9 +387,9 @@
     <section class="hero">
       <div class="media-layer"></div>
       <div class="container hero-content">
-        <p class="eyebrow">BUSINESS SYSTEMS &middot; CORPORATE AI INFRASTRUCTURE &middot; CYBERSECURITY &middot; ENGINEERING STUDIOS</p>
+        <p class="eyebrow">BUSINESS SYSTEMS &middot; AI INFRASTRUCTURE &middot; CYBERSECURITY &middot; ENGINEERING STUDIOS</p>
         <h1 id="heroTitle">Engineering the systems that drive business performance.</h1>
-        <p class="hero-copy">We build business management systems that bring operations, finance, accounting, human resources, inventory, procurement, customer management and analytics into one intelligent environment. We also build advanced AI infrastructure for businesses and corporate organisations, cybersecurity solutions and bespoke hardware technologies.</p>
+        <p class="hero-copy">We build business management systems that bring operations, finance, accounting, human resources, inventory, procurement, customer management and analytics into one intelligent environment. We also build advanced AI infrastructure for businesses and corporate organisations, provide cybersecurity solutions and hardware technologies.</p>
         <div class="hero-actions">
           <a class="cta" href="#divisions">Explore Our Divisions</a>
           <a class="scroll-cue" href="#project-enquiry">Start a Project &rarr;</a>
@@ -402,7 +403,7 @@
         <div class="section-heading">
           <p class="eyebrow">WHAT WE BUILD</p>
           <h2>Four specialised divisions. One integrated engineering approach.</h2>
-          <p>Each division addresses a distinct set of technical and organisational challenges.</p>
+          <p>Each division addresses a distinct set of business and technical challenges.</p>
         </div>
         <div class="divisions-grid">
           <article class="division-card">
