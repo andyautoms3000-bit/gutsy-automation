@@ -155,9 +155,17 @@
     },
     "applied-ai": {
       "src": "assets/images/applied-ai.jpg"
-    },
+      },
     "cyber-security": {
       "src": "assets/images/cyber-security.jpg"
+    },
+    "about-background": {
+      "src": "assets/images/about-background.jpg",
+      "alt": "Gutsy Automation About page background"
+    },
+    "about-founder": {
+      "src": "assets/images/about-founder.jpg",
+      "alt": "Andrew Omwache, Founder of Gutsy Automation"
     },
     "engineering-labs": {
       "src": "assets/images/engineering-labs.jpg"
