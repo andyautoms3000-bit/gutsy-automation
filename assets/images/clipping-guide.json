@@ -1,0 +1,166 @@
+{
+  "heroTransaction": {
+    "src": "assets/images/transaction-proof.jpeg",
+    "alt": "Transaction confirmation showing earnings from a clipping campaign",
+    "caption": "GUAVA CLIP",
+    "description": "-"
+  },
+  "screenshots": {
+    "tool-dashboard": {
+      "src": "assets/images/guava-clip-dashboard.png",
+      "alt": "Guava Clip desktop application showing the Clipping Studio, source preview, clip library, campaign brief, aspect ratio and Generate Clips controls",
+      "caption": "Guava Clip — Clipping Studio",
+      "description": "-"
+    },
+    "groq-signup": {
+      "src": "assets/images/groq-signup.jpeg",
+      "alt": "Groq sign-up page",
+      "caption": "Create your Groq account"
+    },
+    "groq-keys-page": {
+      "src": "assets/images/groq-keys-page.jpeg",
+      "alt": "Groq API keys page",
+      "caption": "Open the API keys page"
+    },
+    "groq-key-copy": {
+      "src": "assets/images/groq-key-copy.jpeg",
+      "alt": "Groq API key creation",
+      "caption": "Create and copy your API key",
+      "description": "Never publish a screenshot containing a real API key."
+    },
+    "purchase-delivery": {
+      "src": "assets/images/purchase-delivery.png",
+      "alt": "Tool delivery message",
+      "caption": "Receive the tool after purchase"
+    },
+    "install-click": {
+      "src": "assets/images/install-click.png",
+      "alt": "Tool installer",
+      "caption": "Install the clipping tool"
+    },
+    "tool-settings": {
+      "src": "assets/images/tool-settings.png",
+      "alt": "Tool settings",
+      "caption": "Add your Groq API key in Settings"
+    },
+    "test-clip": {
+      "src": "assets/images/test-clip.png",
+      "alt": "Successful test clip",
+      "caption": "Confirm setup with a test clip"
+    },
+    "tiktok-signup": {
+      "src": "assets/images/tiktok-signup.png",
+      "alt": "TikTok sign-up",
+      "caption": "-"
+    },
+    "tiktok-public": {
+      "src": "assets/images/tiktok-public.png",
+      "alt": "TikTok privacy setting",
+      "caption": "-"
+    },
+    "cr-signup": {
+      "src": "assets/images/cr-signup.png",
+      "alt": "Content Rewards sign-up",
+      "caption": "Create your Content Rewards account"
+    },
+    "cr-connected-accounts": {
+      "src": "assets/images/cr-connected-accounts.png",
+      "alt": "Content Rewards connected accounts",
+      "caption": "Open Connected accounts"
+    },
+    "cr-connect-tiktok": {
+      "src": "assets/images/cr-connect-tiktok.png",
+      "alt": "Connect TikTok to Content Rewards",
+      "caption": "Connect TikTok and approve access"
+    },
+    "cr-verified": {
+      "src": "assets/images/cr-verified.png",
+      "alt": "Verified TikTok account",
+      "caption": "Confirm your TikTok account is connected"
+    },
+    "cr-discover": {
+      "src": "assets/images/cr-discover.png",
+      "alt": "Content Rewards Discover page",
+      "caption": "Find campaigns in Discover"
+    },
+    "cr-campaign": {
+      "src": "assets/images/cr-campaign.png",
+      "alt": "Campaign details",
+      "caption": "Read the campaign rate and requirements"
+    },
+    "cr-join": {
+      "src": "assets/images/cr-join.png",
+      "alt": "Join campaign",
+      "caption": "Join or apply to a campaign"
+    },
+    "tool-source": {
+      "src": "assets/images/tool-source.png",
+      "alt": "Tool source input",
+      "caption": "Paste the campaign source into the tool"
+    },
+    "tool-settings-panel": {
+      "src": "assets/images/tool-settings-panel.png",
+      "alt": "Clipping tool settings",
+      "caption": "Configure the clip generation settings"
+    },
+    "tool-progress": {
+      "src": "assets/images/tool-progress.png",
+      "alt": "Clip generation progress",
+      "caption": "Wait for clip generation to finish"
+    },
+    "tool-output": {
+      "src": "assets/images/tool-output.png",
+      "alt": "Generated clips",
+      "caption": "Review the generated clips"
+    },
+    "tiktok-upload": {
+      "src": "assets/images/tiktok-upload.png",
+      "alt": "TikTok upload screen",
+      "caption": "Publish the approved clip format"
+    },
+    "tiktok-copy-link": {
+      "src": "assets/images/tiktok-copy-link.png",
+      "alt": "TikTok copy link option",
+      "caption": "Copy the public post link"
+    },
+    "cr-submit": {
+      "src": "assets/images/cr-submit.png",
+      "alt": "Content Rewards submit clip form",
+      "caption": "Submit the clip link"
+    },
+    "cr-submissions": {
+      "src": "assets/images/cr-submissions.png",
+      "alt": "Content Rewards submissions",
+      "caption": "Track review and approval status"
+    },
+    "cr-withdraw": {
+      "src": "assets/images/cr-withdraw.png",
+      "alt": "Content Rewards withdrawal",
+      "caption": "Withdraw available earnings"
+    }
+  },
+  "homepage": {
+    "hero": {
+      "src": "assets/images/hero-background.jpg",
+      "alt": "Gutsy Automation hero background"
+    },
+    "midsection": {
+      "src": "assets/midsection-background.jpg"
+    },
+    "bottom": {
+      "src": "assets/bottom-background.jpg"
+    },
+    "business-os": {
+      "src": "assets/business-os.jpg"
+    },
+    "applied-ai": {
+      "src": "assets/applied-ai.jpg"
+    },
+    "cyber-security": {
+      "src": "assets/cyber-security.jpg"
+    },
+    "engineering-labs": {
+      "src": "assets/engineering-labs.jpg"
+    }
+  }
+}
