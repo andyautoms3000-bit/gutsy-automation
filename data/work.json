@@ -1,0 +1,50 @@
+[
+  {
+    "id": "work-business-os",
+    "title": "",
+    "division": "Business OS",
+    "status": "hidden",
+    "image": "",
+    "image_alt": "",
+    "short_description": "",
+    "description": "",
+    "tags": [],
+    "project_status": ""
+  },
+  {
+    "id": "work-applied-ai",
+    "title": "",
+    "division": "Applied AI",
+    "status": "hidden",
+    "image": "",
+    "image_alt": "",
+    "short_description": "",
+    "description": "",
+    "tags": [],
+    "project_status": ""
+  },
+  {
+    "id": "work-cyber-security",
+    "title": "",
+    "division": "Cyber Security",
+    "status": "hidden",
+    "image": "",
+    "image_alt": "",
+    "short_description": "",
+    "description": "",
+    "tags": [],
+    "project_status": ""
+  },
+  {
+    "id": "work-engineering-studio",
+    "title": "",
+    "division": "Engineering Studio",
+    "status": "hidden",
+    "image": "",
+    "image_alt": "",
+    "short_description": "",
+    "description": "",
+    "tags": [],
+    "project_status": ""
+  }
+]
