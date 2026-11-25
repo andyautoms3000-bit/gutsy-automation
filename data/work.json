@@ -13,13 +13,13 @@
   },
   {
     "id": "work-applied-ai",
-    "title": "",
+    "title": "CLIPPING TOOL",
     "division": "Applied AI",
-    "status": "hidden",
+    "status": "published",
     "image": "",
     "image_alt": "",
-    "short_description": "",
-    "description": "",
+    "short_description": " local clipping tool",
+    "description": "local clipping tool for video clipping",
     "tags": [],
     "project_status": ""
   },
