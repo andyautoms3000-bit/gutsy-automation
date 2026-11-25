@@ -1,1 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Applied AI engineering by Gutsy Automation: AI chatbots, AI agents and managed private AI infrastructure for organisations.">
+  <title>Applied AI | Gutsy Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
 
+    :root {
+      color-scheme: dark;
+      --bg:#000;
+      --panel:rgba(12,17,27,.48);
+      --line:rgba(225,235,250,.20);
+      --blue:#B6FF00;
+      --blue-light:#D7FF66;
+      --white:#f2f5fa;
+      --muted:#b7c2d2;
+      --max:1180px;
+      --radius:16px;
+      --ease:220ms ease;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg);scroll-padding-top:90px}
+    body{margin:0;background:#000;color:var(--white);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--blue-light);outline-offset:3px}
+    .container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+
+    /* Header */
+    .site-header{position:fixed;z-index:50;inset:0 0 auto;padding:12px 0;background:transparent;border:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:inline-flex;align-items:center;flex:0 0 auto;background:#000;padding:4px 10px;border-radius:8px;line-height:0}
+    .brand img{display:block;width:auto;height:76px;max-width:230px;object-fit:contain}
+    .nav-cluster{display:flex;align-items:center;gap:13px}
+    .main-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;width:clamp(460px,48vw,640px);padding:5px;border:0;border-radius:0;background:transparent}
+    .main-nav a{display:inline-flex;align-items:center;justify-content:center;flex:1;min-height:46px;padding:10px 20px;border:1px solid rgba(225,235,250,.24);border-radius:999px;background:linear-gradient(145deg,rgba(30,35,43,.88),rgba(4,5,8,.94));color:var(--white);font-size:.9rem;font-weight:550;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 5px 18px rgba(0,0,0,.24);transition:background var(--ease),border-color var(--ease),transform var(--ease),box-shadow var(--ease)}
+    .main-nav a:hover,.main-nav a:focus-visible{background:linear-gradient(145deg,rgba(54,62,72,.92),rgba(8,10,14,.96));border-color:rgba(215,255,102,.55);color:#fff;transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 8px 22px #0007}
+    .text-link{color:var(--blue-light);font-weight:650;font-size:.88rem}
+    .text-link:hover{color:#fff}
+    .cta{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:10px 18px;border-radius:999px;background:var(--blue);color:#101500;font-size:.88rem;font-weight:750;border:1px solid rgba(255,255,255,.32);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 5px 20px rgba(182,255,0,.12);transition:background var(--ease),transform var(--ease),box-shadow var(--ease)}
+    .cta:hover{background:var(--blue-light);color:#050505;transform:translateY(-1px);box-shadow:inset 0 1px 0 #fff8,0 8px 25px rgba(182,255,0,.2)}
+    .mobile-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:10px;background:rgba(13,21,37,.8);color:#fff;cursor:pointer}
+    .mobile-toggle svg{width:21px;height:21px}
+
+    /* Hero: existing image slot is retained; its image is now the section background */
+    .hero,.divisions,.bottom-section{position:relative;isolation:isolate;overflow:hidden}
+    .hero{min-height:min(850px,100svh);display:flex;align-items:center;padding:150px 0 90px;border-bottom:1px solid var(--line);background:#000}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr);align-items:center;gap:0}
+    .hero-content{max-width:720px;justify-self:start;position:relative;z-index:2;padding:34px 0}
+    .hero-visual{position:absolute;inset:0;margin:0;overflow:hidden;border:0;border-radius:0;background:#050505;z-index:0;pointer-events:none}
+    .hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+    .hero-visual-fallback{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 50%,#222 0,#090909 55%,#000 100%)}
+    .visual-orbit{position:absolute;width:72%;aspect-ratio:1;border:1px solid rgba(220,220,220,.2);border-radius:50%;transform:rotate(-28deg) scaleY(.45)}
+    .orbit-two{width:90%;transform:rotate(48deg) scaleY(.38);border-color:rgba(220,220,220,.12)}
+    .visual-core{display:grid;place-items:center;width:128px;height:128px;border:1px solid rgba(255,255,255,.5);border-radius:28px;color:#eee;font:700 5rem/1 'Space Grotesk',sans-serif;box-shadow:0 0 70px #ffffff18,inset 0 0 35px #ffffff10}
+    .hero-visual.has-image .hero-visual-fallback{display:none}
+    .hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(3,7,13,.94) 0%,rgba(3,7,13,.84) 34%,rgba(3,7,13,.48) 60%,rgba(3,7,13,.08) 100%),linear-gradient(0deg,rgba(0,0,0,.38),transparent 42%,rgba(0,0,0,.22))}
+    .eyebrow{display:inline-block;margin:0 0 18px;color:var(--blue-light);font-size:.92rem;letter-spacing:.02em}
+    h1{max-width:800px;margin:0 0 22px;font-size:clamp(2.55rem,6.3vw,5.2rem);line-height:1.02;letter-spacing:-.055em;font-weight:820}
+    h1 span{color:var(--blue-light)}
+    .hero-copy{max-width:650px;margin:0 0 30px;color:#e0e6ef;font-size:clamp(1rem,1.5vw,1.13rem);text-shadow:0 2px 16px #000}
+    .hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .scroll-cue{color:#e4eaf3;font-size:.9rem;text-shadow:0 2px 12px #000}
+
+    /* Shared background image layers */
+    .media-layer{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:linear-gradient(135deg,#101b2d 0%,#090f1c 78%)}
+    .media-layer img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
+    .media-layer::after{content:"";position:absolute;inset:0;pointer-events:none}
+    .divisions .container,.bottom-section .container{position:relative;z-index:1}
+
+    /* Divisions */
+    .divisions{padding:100px 0 108px;border-bottom:1px solid var(--line)}
+    .divisions .media-layer{opacity:1}
+    .divisions .media-layer::after{background:linear-gradient(180deg,rgba(7,13,24,.60),rgba(7,13,24,.50)),linear-gradient(0deg,var(--bg),transparent 22%)}
+    .divisions-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .division-card{position:relative;min-width:0;overflow:hidden;border:1px solid rgba(225,235,250,.22);border-radius:15px;background:linear-gradient(145deg,rgba(24,31,43,.66),rgba(5,9,16,.57));backdrop-filter:blur(16px) saturate(135%);-webkit-backdrop-filter:blur(16px) saturate(135%);box-shadow:0 18px 48px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.20);transition:border-color var(--ease),transform var(--ease),box-shadow var(--ease)}
+    .division-card::before,.enquiry-panel::before{content:"";position:absolute;inset:0 0 auto;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),rgba(255,255,255,.12),transparent);z-index:3}
+    .division-card::after,.enquiry-panel::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.075),transparent 28%,transparent 72%,rgba(255,255,255,.025));opacity:.8}
+    .division-card:hover{border-color:rgba(215,255,102,.5);transform:translateY(-4px);box-shadow:0 23px 55px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.24)}
+    .card-media{height:210px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 40%,#171717,#050505 75%)}
+    .card-media img,.card-media video{width:100%;height:100%;display:block;object-fit:cover}
+    .image-caption{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:#fff;font-size:.8rem;text-shadow:0 1px 8px #000}
+    .card-media::after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(8,14,25,.45));pointer-events:none}
+    .card-body{position:relative;z-index:1;padding:22px 24px 24px}
+    .card-body h2{margin:0 0 9px;font-size:1.25rem;line-height:1.25}
+    .card-body p{margin:0 0 18px;color:#d0d9e6;font-size:.92rem}
+
+    /* Information sections: consistent glass-panel system */
+    .section{position:relative;isolation:isolate;overflow:hidden;padding:88px 0;border-bottom:1px solid rgba(207,220,240,.10);background:radial-gradient(ellipse at 85% 0%,rgba(57,75,101,.18),transparent 48%),linear-gradient(135deg,#090d14,#030405 72%)}
+    .section::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(110deg,rgba(255,255,255,.035),transparent 35%,rgba(255,255,255,.018))}
+    .section .container{position:relative}
+    .section .container> .eyebrow{margin-bottom:13px}
+    .section h2{max-width:780px;margin:0 0 20px;font-size:clamp(1.8rem,3.5vw,2.65rem);line-height:1.12;letter-spacing:-.035em}
+    .section p,.section li{color:#c4cedc}
+    .section p{max-width:800px}
+    .section ol{counter-reset:steps;list-style:none;padding:0;margin:30px 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .section ol li{position:relative;min-width:0;padding:19px 16px 18px;border:1px solid rgba(225,235,250,.18);border-radius:13px;background:linear-gradient(145deg,rgba(28,36,49,.58),rgba(6,10,17,.64));backdrop-filter:blur(13px) saturate(130%);-webkit-backdrop-filter:blur(13px) saturate(130%);box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 12px 30px #0003;font-size:.88rem}
+    .section ol li::before{counter-increment:steps;content:"0" counter(steps);display:block;margin-bottom:12px;color:var(--blue-light);font-size:.78rem;font-weight:750;letter-spacing:.08em}
+    .section ol strong{display:block;color:#fff;margin-bottom:5px}
+    .capability-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
+    .capability-list span{display:flex;align-items:center;min-height:86px;padding:18px;border:1px solid rgba(225,235,250,.18);border-radius:13px;background:linear-gradient(145deg,rgba(28,36,49,.58),rgba(6,10,17,.64));backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px);box-shadow:inset 0 1px 0 rgba(255,255,255,.14);color:#e2e8f0;font-weight:600}
+    .about-panel{max-width:900px;padding:32px;border:1px solid rgba(225,235,250,.2);border-radius:16px;background:linear-gradient(145deg,rgba(28,36,49,.56),rgba(6,10,17,.62));backdrop-filter:blur(15px) saturate(130%);-webkit-backdrop-filter:blur(15px) saturate(130%);box-shadow:inset 0 1px 0 rgba(255,255,255,.17),0 18px 45px #0004}
+    .about-panel p:last-child{margin-bottom:0}
+
+    /* Company and enquiry */
+    .bottom-section{padding:100px 0;background:#000}
+    .bottom-section .media-layer{opacity:1}
+    .bottom-section .media-layer::after{background:linear-gradient(90deg,rgba(7,13,24,.86),rgba(7,13,24,.92))}
+    .bottom-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:56px;align-items:start}
+    .company-intro h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.04em;margin:0 0 18px}
+    .company-statement{max-width:520px;color:#d0d9e6;margin:0 0 34px;font-size:1.05rem}
+    .enquiry-panel{position:relative;overflow:hidden;padding:30px;border:1px solid rgba(225,235,250,.23);border-radius:var(--radius);background:linear-gradient(145deg,rgba(24,32,45,.68),rgba(5,9,16,.66));backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:0 20px 55px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.22)}
+    .enquiry-panel h2{position:relative;z-index:1;font-size:1.45rem;margin:0 0 22px}
+    #enquiryForm{position:relative;z-index:1}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:15px;min-width:0}
+    .form-group label,.conditional-label{font-size:.84rem;color:#d0d9e6}
+    .form-control{width:100%;min-height:45px;padding:10px 12px;border:1px solid rgba(225,235,250,.2);border-radius:8px;background:rgba(4,8,14,.72);color:#fff}
+    .form-control:focus{outline:2px solid #B6FF0066;border-color:var(--blue)}
+    textarea.form-control{min-height:115px;resize:vertical}
+    .conditional-box{display:none;margin:0 0 15px;padding:13px;border:1px solid rgba(225,235,250,.18);border-radius:9px;background:rgba(4,8,14,.62)}
+    .conditional-box.visible{display:block}
+    .conditional-label{display:block;margin-bottom:10px}
+    .service-pills{display:flex;flex-wrap:wrap;gap:8px}
+    .service-pill{position:relative}
+    .service-pill input{position:absolute;opacity:0;width:1px;height:1px}
+    .service-pill span{display:inline-flex;padding:7px 11px;border:1px solid rgba(225,235,250,.2);border-radius:999px;color:var(--muted);font-size:.82rem;cursor:pointer;background:rgba(255,255,255,.025)}
+    .service-pill input:checked+span{border-color:var(--blue);background:#B6FF002b;color:#fff}
+    .service-pill input:focus-visible+span{outline:2px solid var(--blue-light);outline-offset:3px}
+    .btn-submit{width:100%;border:0;cursor:pointer}
+    .btn-submit:disabled{opacity:.65;cursor:wait;transform:none}
+    .form-feedback{display:none;margin-top:14px;padding:12px;border-radius:8px;font-size:.9rem}
+    .form-feedback.success{display:block;background:#064e3b55;border:1px solid #10b98166;color:#a7f3d0}
+    .form-feedback.error{display:block;background:#7f1d1d55;border:1px solid #ef444466;color:#fecaca}
+
+    /* Footer */
+    .site-footer{padding:38px 0 24px;background:#000;border-top:1px solid rgba(207,220,240,.15)}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid rgba(207,220,240,.15)}
+    .footer-brand p{margin:7px 0 0;color:var(--muted);font-size:.88rem}
+    .footer-links,.footer-socials{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:.87rem}
+    .footer-socials{gap:15px}
+    .footer-links a:hover,.footer-socials a:hover{color:#fff}
+    .footer-contact{display:flex;gap:22px;flex-wrap:wrap;padding:18px 0 0;color:var(--muted);font-size:.87rem}
+    .footer-contact p{margin:0}
+    .footer-contact a:hover{color:#fff}
+    .footer-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;color:#8390a3;font-size:.8rem}
+
+    @media(max-width:980px){
+      .mobile-toggle{display:inline-grid;place-items:center}
+      .nav-cluster{display:none;position:absolute;top:calc(100% + 8px);left:24px;right:24px;max-height:calc(100svh - 95px);overflow-y:auto;align-items:stretch;flex-direction:column;padding:14px;border:1px solid var(--line);border-radius:16px;background:#050505;box-shadow:0 20px 45px #0009}
+      .nav-cluster.mobile-open{display:flex}
+      .main-nav{width:100%;align-items:stretch;flex-direction:column;gap:8px;padding:0}
+      .main-nav a{width:100%;min-height:44px;padding:11px 14px}
+      .nav-cluster>.cta{width:100%}
+      .hero{padding:132px 0 78px}
+      .hero-content{max-width:680px}
+      .bottom-grid{grid-template-columns:1fr;gap:42px}
+      .section ol{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .capability-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:640px){
+      .container{width:calc(100% - 36px)}
+      .site-header{padding:11px 0}
+      .brand img{height:62px;max-width:190px}
+      .nav-cluster{left:18px;right:18px}
+      .hero{min-height:88svh;padding:118px 0 76px}
+      .hero-content{padding:22px 0}
+      .hero-visual img{object-position:62% center}
+      .hero::after{background:linear-gradient(90deg,rgba(3,7,13,.94),rgba(3,7,13,.76) 68%,rgba(3,7,13,.48)),linear-gradient(0deg,rgba(0,0,0,.5),transparent 45%)}
+      h1{font-size:clamp(2.45rem,12vw,4rem);letter-spacing:-.045em}
+      .hero-copy{font-size:1rem}
+      .hero-actions{align-items:flex-start;flex-direction:column;gap:14px}
+      .divisions,.bottom-section{padding:72px 0}
+      .divisions-grid{grid-template-columns:1fr;gap:15px}
+      .card-media{height:190px}
+      .card-body{padding:19px}
+      .bottom-grid{gap:34px}
+      .enquiry-panel{padding:21px 17px}
+      .form-row{grid-template-columns:1fr;gap:0}
+      .section{padding:68px 0}
+      .section ol{grid-template-columns:1fr 1fr}
+      .capability-list{grid-template-columns:1fr 1fr;gap:10px}
+      .capability-list span{min-height:76px;padding:14px;font-size:.9rem}
+      .about-panel{padding:22px}
+      .footer-top{flex-direction:column;gap:20px}
+      .footer-links{gap:13px 17px}
+      .footer-bottom{flex-direction:column}
+      .footer-contact{gap:10px 18px;flex-direction:column}
+    }
+    @media(max-width:390px){
+      .section ol{grid-template-columns:1fr}
+      .capability-list{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    }
+  
+
+    /* Applied AI page additions. Header and footer styles above are inherited unchanged. */
+    .hero.applied-hero{min-height:min(790px,94svh);padding-top:160px;padding-bottom:100px}
+    .applied-hero .hero-content{max-width:800px}
+    .applied-hero h1{max-width:780px}
+    .hero-kicker{display:inline-flex;align-items:center;gap:10px;color:var(--blue-light);font-size:.83rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 18px}
+    .hero-kicker::before{content:"";width:26px;height:1px;background:var(--blue)}
+    .hero-actions .cta{min-width:160px}
+    .hero-secondary{color:#e5ebf4;font-size:.92rem}
+    .service-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:38px;max-width:900px}
+    .overview-link{display:flex;flex-direction:column;gap:6px;padding:17px 18px;border:1px solid rgba(225,235,250,.22);border-radius:12px;background:rgba(4,8,14,.48);backdrop-filter:blur(12px);transition:border-color var(--ease),transform var(--ease),background var(--ease)}
+    .overview-link:hover{border-color:rgba(215,255,102,.55);transform:translateY(-2px);background:rgba(4,8,14,.68)}
+    .overview-link strong{font-size:.98rem;color:#fff}
+    .overview-link span{font-size:.82rem;color:#b7c2d2}
+    .service-section{padding:92px 0;border-bottom:1px solid rgba(207,220,240,.12);background:radial-gradient(ellipse at 10% 0%,rgba(57,75,101,.16),transparent 48%),linear-gradient(135deg,#080c12,#020304 76%)}
+    .service-section:nth-of-type(even){background:radial-gradient(ellipse at 90% 10%,rgba(57,75,101,.18),transparent 48%),linear-gradient(135deg,#030405,#0a0e15 76%)}
+    .service-section .container{position:relative}
+    .service-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;margin-bottom:32px}
+    .service-index{color:var(--blue-light);font-size:.8rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px}
+    .service-head h2{font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.05;letter-spacing:-.045em;margin:0 0 14px}
+    .service-lead{max-width:760px;margin:0;color:#cbd5e1;font-size:1.04rem}
+    .price-panel{min-width:225px;padding:18px 20px;border:1px solid rgba(215,255,102,.38);border-radius:13px;background:linear-gradient(145deg,rgba(182,255,0,.10),rgba(5,9,16,.68));box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+    .price-panel .price-label{display:block;color:#c4cedc;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
+    .price-panel strong{display:block;color:#fff;font-size:1.15rem;line-height:1.35}
+    .price-panel small{display:block;color:#b7c2d2;font-size:.82rem;margin-top:5px}
+    .service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+    .detail-panel{padding:24px;border:1px solid rgba(225,235,250,.18);border-radius:14px;background:linear-gradient(145deg,rgba(24,31,43,.62),rgba(5,9,16,.68));backdrop-filter:blur(14px) saturate(130%);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 14px 35px rgba(0,0,0,.18)}
+    .detail-panel h3{margin:0 0 14px;color:#fff;font-size:1.05rem}
+    .detail-panel ul{margin:0;padding-left:19px;display:grid;gap:8px}
+    .detail-panel li{color:#c4cedc;font-size:.92rem;line-height:1.5}
+    .industry-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .industry-tags span{display:inline-flex;align-items:center;padding:7px 10px;border:1px solid rgba(225,235,250,.17);border-radius:999px;background:rgba(255,255,255,.035);color:#d6deea;font-size:.82rem}
+    .outcome-panel{margin-top:15px;padding:22px 24px;border:1px solid rgba(215,255,102,.22);border-radius:13px;background:linear-gradient(100deg,rgba(182,255,0,.07),rgba(5,9,16,.50))}
+    .outcome-panel h3{margin:0 0 10px;font-size:1rem;color:#fff}
+    .outcome-panel p{margin:0;color:#c4cedc;max-width:950px}
+    .scope-note{margin-top:20px;padding:16px 18px;border-left:2px solid var(--blue);background:rgba(182,255,0,.055);color:#d5deea;border-radius:0 9px 9px 0;font-size:.91rem}
+    .process-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:30px}
+    .process-step{padding:20px;border:1px solid rgba(225,235,250,.18);border-radius:13px;background:linear-gradient(145deg,rgba(28,36,49,.55),rgba(6,10,17,.64))}
+    .process-step span{display:block;color:var(--blue-light);font-size:.76rem;font-weight:750;letter-spacing:.12em;margin-bottom:9px}
+    .process-step h3{margin:0 0 7px;font-size:1rem;color:#fff}
+    .process-step p{margin:0;color:#bdc8d7;font-size:.88rem}
+    .commercial-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+    .commercial-item{padding:19px 20px;border:1px solid rgba(225,235,250,.17);border-radius:12px;background:rgba(8,13,21,.62)}
+    .commercial-item h3{margin:0 0 7px;color:#fff;font-size:.98rem}
+    .commercial-item p{margin:0;color:#bdc8d7;font-size:.9rem}
+    .combo-banner{margin-top:28px;padding:24px;border:1px solid rgba(215,255,102,.32);border-radius:14px;background:linear-gradient(110deg,rgba(182,255,0,.09),rgba(6,10,17,.72))}
+    .combo-banner h3{margin:0 0 8px;color:#fff;font-size:1.1rem}
+    .combo-banner p{margin:0;color:#cbd5e1}
+    .bottom-section.applied-enquiry{padding:96px 0}
+    .enquiry-intro h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.04em;margin:0 0 18px}
+    .enquiry-intro p{max-width:510px;color:#cbd5e1}
+    .focus-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+    .focus-option{position:relative;display:flex;align-items:center;gap:9px;padding:10px 11px;border:1px solid rgba(225,235,250,.18);border-radius:9px;background:rgba(255,255,255,.025);color:#cbd5e1;font-size:.84rem;cursor:pointer}
+    .focus-option input{accent-color:var(--blue);width:16px;height:16px}
+    .form-hint{color:#91a0b5;font-size:.78rem;margin:-5px 0 14px}
+    .form-feedback{white-space:pre-line}
+    @media(max-width:980px){
+      .service-head{grid-template-columns:1fr;align-items:start}
+      .price-panel{width:100%;max-width:380px}
+      .service-overview{grid-template-columns:1fr 1fr}
+      .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:640px){
+      .hero.applied-hero{min-height:88svh;padding:125px 0 70px}
+      .service-overview{grid-template-columns:1fr;gap:9px;margin-top:27px}
+      .service-section{padding:68px 0}
+      .service-grid,.commercial-grid{grid-template-columns:1fr}
+      .detail-panel{padding:20px}
+      .process-grid{grid-template-columns:1fr}
+      .focus-options{grid-template-columns:1fr}
+      .bottom-section.applied-enquiry{padding:72px 0}
+    }
+
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BK712808V5"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());
+    gtag('config','G-BK712808V5');
+  </script>
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Gutsy Automation home"><img src="/assets/gutsy-logo.png" alt="Gutsy Automation"></a>
+      <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navCluster">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="nav-cluster" id="navCluster">
+        <nav class="main-nav" aria-label="Primary">
+          <a href="/">Home</a><a href="/#work">Work</a><a href="/store.html">Store</a><a href="/about.html">About</a>
+        </nav>
+        <a class="cta" href="#project-enquiry">Start a Project</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero applied-hero" id="home">
+      <div class="hero-visual" data-home-image="applied-ai">
+        <div class="hero-visual-fallback" aria-hidden="true"><span class="visual-orbit orbit-one"></span><span class="visual-orbit orbit-two"></span><span class="visual-core">AI</span></div>
+      </div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="hero-kicker">APPLIED AI · ENGINEERED FOR OPERATIONS</p>
+          <h1>AI that <span>communicates, executes and powers</span> business operations.</h1>
+          <p class="hero-copy">We engineer practical AI systems that handle conversations, execute authorised work and connect organisational knowledge to the systems your business depends on.</p>
+          <div class="hero-actions">
+            <a class="cta" href="#project-enquiry">Discuss Your Project</a>
+            <a class="hero-secondary" href="#services">Explore Services &darr;</a>
+          </div>
+          <div class="service-overview" aria-label="Applied AI service categories">
+            <a class="overview-link" href="#ai-chatbots"><strong>01 · AI Chatbots</strong><span>Communicate with customers and teams.</span></a>
+            <a class="overview-link" href="#ai-agents"><strong>02 · AI Agents</strong><span>Execute authorised tasks and workflows.</span></a>
+            <a class="overview-link" href="#ai-infrastructure"><strong>03 · AI Infrastructure</strong><span>Power, connect and govern AI systems.</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <p class="eyebrow">THREE ENGINEERING CAPABILITIES</p>
+        <h2>Choose the capability your operation needs.</h2>
+        <p>Chatbots communicate. Agents execute. Infrastructure powers and governs AI systems. Projects can combine all three where the requirements call for an integrated solution.</p>
+      </div>
+    </section>
+
+    <section class="service-section" id="ai-chatbots">
+      <div class="container">
+        <div class="service-head">
+          <div>
+            <p class="service-index">01 · COMMUNICATION LAYER</p>
+            <h2>AI Chatbots</h2>
+            <p class="service-lead">AI-powered conversational systems that automate customer and internal communication using your business-specific information.</p>
+          </div>
+          <div class="price-panel">
+            <span class="price-label">Starting prices</span>
+            <strong>Setup · KSh 15,000</strong>
+            <strong>Monthly · KSh 5,000</strong>
+            <small>Final quotation depends on scope and usage.</small>
+          </div>
+        </div>
+        <div class="service-grid">
+          <article class="detail-panel">
+            <h3>Capabilities</h3>
+            <ul>
+              <li>Answer enquiries using business-specific information.</li>
+              <li>Explain products, services, pricing and business policies.</li>
+              <li>Capture and qualify leads; handle FAQs and follow-ups.</li>
+              <li>Support English, Swahili and Sheng, subject to model performance and testing.</li>
+              <li>Connect to WhatsApp, websites and supported social platforms.</li>
+              <li>Transfer conversations to human staff when necessary.</li>
+              <li>Maintain conversation history and context.</li>
+              <li>Support appointment enquiries and booking workflows.</li>
+              <li>Provide conversation analytics and performance reporting.</li>
+              <li>Connect to business databases and other systems where required.</li>
+            </ul>
+          </article>
+          <article class="detail-panel">
+            <h3>Applicable industries</h3>
+            <div class="industry-tags">
+              <span>Healthcare and dental</span><span>Hospitality</span><span>Hotels and restaurants</span>
+              <span>Retail and e-commerce</span><span>Real estate</span><span>Property management</span>
+              <span>Professional services</span><span>Law firms</span><span>Education and training</span>
+              <span>Automotive and vehicle hire</span><span>Beauty and wellness</span><span>Fitness</span>
+              <span>Financial and consulting services</span><span>Other enquiry-driven businesses</span>
+            </div>
+          </article>
+          <article class="detail-panel">
+            <h3>What you get</h3>
+            <ul>
+              <li>Configured AI chatbot and business-specific knowledge setup.</li>
+              <li>Integration with agreed communication channels.</li>
+              <li>Conversation, booking and escalation workflows as scoped.</li>
+              <li>Testing, deployment and usage/performance monitoring.</li>
+              <li>Ongoing maintenance and support under the agreed subscription.</li>
+            </ul>
+          </article>
+          <article class="detail-panel">
+            <h3>What to expect</h3>
+            <ul>
+              <li>Less manual handling of repetitive enquiries.</li>
+              <li>Faster customer responses and more consistent communication.</li>
+              <li>Continuous availability, subject to platform and provider uptime.</li>
+              <li>Better lead capture and enquiry tracking.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="outcome-panel"><h3>Primary outcome</h3><p>Routine conversations are handled consistently, while staff receive the context needed to take over enquiries that require human judgement.</p></div>
+      </div>
+    </section>
+
+    <section class="service-section" id="ai-agents">
+      <div class="container">
+        <div class="service-head">
+          <div>
+            <p class="service-index">02 · EXECUTION LAYER</p>
+            <h2>AI Agents</h2>
+            <p class="service-lead">AI agents execute business tasks, interact with connected systems and automate operational workflows. Unlike a chatbot that primarily communicates, an agent can take authorised actions.</p>
+          </div>
+          <div class="price-panel">
+            <span class="price-label">Starting prices</span>
+            <strong>Setup · KSh 30,000</strong>
+            <strong>Monthly · KSh 10,000</strong>
+            <small>Final quotation depends on scope and usage.</small>
+          </div>
+        </div>
+        <div class="service-grid">
+          <article class="detail-panel">
+            <h3>Capabilities</h3>
+            <ul>
+              <li>Execute predefined business tasks and workflows.</li>
+              <li>Create, retrieve and update business records.</li>
+              <li>Manage appointments, cancellations and rescheduling.</li>
+              <li>Handle supported orders and customer requests.</li>
+              <li>Qualify leads and conduct follow-ups.</li>
+              <li>Coordinate tasks across departments.</li>
+              <li>Retrieve and process information from connected systems.</li>
+              <li>Perform administrative and back-office operations.</li>
+              <li>Conduct research and prepare structured reports.</li>
+              <li>Support voice-based interactions.</li>
+              <li>Coordinate multiple specialised agents.</li>
+              <li>Operate within defined permissions, spending limits and approval rules.</li>
+              <li>Escalate exceptional or consequential actions to human staff.</li>
+            </ul>
+          </article>
+          <article class="detail-panel">
+            <h3>Applicable industries</h3>
+            <div class="industry-tags">
+              <span>Healthcare</span><span>Hospitality and tourism</span><span>Retail and e-commerce</span>
+              <span>Real estate</span><span>Professional services</span><span>Law firms</span>
+              <span>Education and training</span><span>Automotive and fleet management</span>
+              <span>Logistics and distribution</span><span>Manufacturing and processing</span>
+              <span>Construction and engineering</span><span>Agriculture and agribusiness</span>
+              <span>Repeatable operational workflows</span>
+            </div>
+          </article>
+          <article class="detail-panel">
+            <h3>What you get</h3>
+            <ul>
+              <li>Configured AI agent or agent ecosystem.</li>
+              <li>Defined operational responsibilities and workflows.</li>
+              <li>Connections to agreed business systems.</li>
+              <li>Permission and action-control configuration.</li>
+              <li>Testing against expected tasks and failure scenarios.</li>
+              <li>Deployment, monitoring, usage tracking and ongoing maintenance under the agreed subscription.</li>
+            </ul>
+          </article>
+          <article class="detail-panel">
+            <h3>What to expect</h3>
+            <ul>
+              <li>Automation of repetitive operational work.</li>
+              <li>Reduced manual data entry and administrative workload.</li>
+              <li>Faster execution of supported workflows.</li>
+              <li>Better coordination between systems and departments.</li>
+              <li>Human oversight for sensitive or exceptional operations.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="outcome-panel"><h3>Primary outcome</h3><p>Connected systems perform defined operational work with controlled permissions, traceable actions and human approval where required.</p></div>
+      </div>
+    </section>
+
+    <section class="service-section" id="ai-infrastructure">
+      <div class="container">
+        <div class="service-head">
+          <div>
+            <p class="service-index">03 · FOUNDATION AND GOVERNANCE</p>
+            <h2>AI Infrastructure</h2>
+            <p class="service-lead">We design, build, integrate and manage the underlying AI infrastructure private organisations need to deploy AI securely and reliably at scale.</p>
+          </div>
+          <div class="price-panel">
+            <span class="price-label">Pricing</span>
+            <strong>Discussed based on scope</strong>
+            <small>Defined after technical assessment.</small>
+          </div>
+        </div>
+        <div class="service-grid">
+          <article class="detail-panel">
+            <h3>Capabilities</h3>
+            <ul>
+              <li>Private AI system design and deployment.</li>
+              <li>Self-hosted and locally deployed AI models.</li>
+              <li>Enterprise knowledge systems and Retrieval-Augmented Generation (RAG).</li>
+              <li>Intelligent document processing and extraction.</li>
+              <li>Enterprise AI search.</li>
+              <li>AI model integration and routing.</li>
+              <li>Custom AI APIs and application integrations.</li>
+              <li>AI data pipelines and knowledge ingestion.</li>
+              <li>AI access control and governance.</li>
+              <li>Model evaluation and performance monitoring.</li>
+              <li>Usage measurement and cost optimisation.</li>
+              <li>Logging, observability and operational safeguards.</li>
+              <li>Custom AI platforms and infrastructure.</li>
+            </ul>
+          </article>
+          <article class="detail-panel">
+            <h3>Applicable organisations</h3>
+            <div class="industry-tags">
+              <span>Healthcare and medical institutions</span><span>Financial services</span>
+              <span>Accounting</span><span>Legal and professional services</span>
+              <span>Education and research</span><span>Manufacturing and industrial operations</span>
+              <span>Government</span><span>Large organisations</span><span>Retail and distribution</span>
+              <span>Logistics and supply chain</span><span>Technology companies</span>
+              <span>Organisations with sensitive data or complex information systems</span>
+            </div>
+          </article>
+          <article class="detail-panel">
+            <h3>What you get</h3>
+            <ul>
+              <li>AI infrastructure assessment and technical design.</li>
+              <li>Agreed managed infrastructure configuration.</li>
+              <li>Model and data-source integration.</li>
+              <li>Knowledge retrieval and processing systems where applicable.</li>
+              <li>Security and access-control implementation.</li>
+              <li>Testing, performance evaluation and deployment documentation.</li>
+              <li>Monitoring and maintenance under the agreed subscription.</li>
+            </ul>
+          </article>
+          <article class="detail-panel">
+            <h3>What to expect</h3>
+            <ul>
+              <li>Greater control over AI deployment and data access.</li>
+              <li>AI systems connected to organisational knowledge.</li>
+              <li>More structured management of AI models and usage costs.</li>
+              <li>A foundation for deploying multiple AI applications and agents.</li>
+              <li>Infrastructure designed around security, performance and scalability requirements.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="outcome-panel"><h3>Primary outcome</h3><p>A managed foundation for private organisational AI, with infrastructure, knowledge, model access and governance designed around assessed requirements.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <p class="eyebrow">HOW ENGAGEMENTS WORK</p>
+        <h2>Assess first. Engineer to the actual requirement.</h2>
+        <p>Every Applied AI engagement begins with an assessment. We establish the business objective, technical environment, data requirements, integrations, security constraints, expected usage and operational responsibilities before confirming scope, price and delivery timeline.</p>
+        <div class="process-grid">
+          <article class="process-step"><span>01 · ASSESS</span><h3>Understand the requirement</h3><p>Review workflows, data, systems, infrastructure, users, security and expected outcomes.</p></article>
+          <article class="process-step"><span>02 · DEFINE</span><h3>Set the scope</h3><p>Specify capabilities, integrations, hosting configuration, permissions, usage and acceptance criteria.</p></article>
+          <article class="process-step"><span>03 · ENGINEER</span><h3>Build and integrate</h3><p>Configure models, knowledge, agents, channels, workflows and managed infrastructure as agreed.</p></article>
+          <article class="process-step"><span>04 · VALIDATE</span><h3>Test behaviour and controls</h3><p>Test expected tasks, response quality, failure scenarios, access rules and escalation paths.</p></article>
+          <article class="process-step"><span>05 · DEPLOY</span><h3>Launch and hand over</h3><p>Deploy the agreed system, document operations and onboard the relevant users.</p></article>
+          <article class="process-step"><span>06 · MANAGE</span><h3>Monitor and maintain</h3><p>Provide the agreed recurring infrastructure, monitoring, maintenance and support.</p></article>
+        </div>
+        <div class="scope-note"><strong>Managed hosting:</strong> Gutsy manages the hosting and infrastructure arrangement by default. The technical design and hosting footprint are established during assessment. External provider and consumption charges remain separately itemised.</div>
+      </div>
+    </section>
+
+    <section class="section" id="commercial">
+      <div class="container">
+        <p class="eyebrow">COMMERCIAL CONDITIONS</p>
+        <h2>Clear separation between engineering, service and consumption.</h2>
+        <div class="commercial-grid">
+          <article class="commercial-item"><h3>Setup</h3><p>One-time engineering, configuration, integration, testing and deployment charge for the agreed scope.</p></article>
+          <article class="commercial-item"><h3>Monthly subscription</h3><p>Recurring managed services, infrastructure, monitoring, maintenance and support within the agreed subscription scope.</p></article>
+          <article class="commercial-item"><h3>Third-party consumption</h3><p>AI model/API usage, WhatsApp, SMS, telephony, cloud resources and other external provider costs are itemised separately where applicable.</p></article>
+          <article class="commercial-item"><h3>Additional scope</h3><p>Custom development and integrations outside the agreed scope may require a separate quotation.</p></article>
+        </div>
+        <div class="combo-banner"><h3>Projects can combine all three capabilities.</h3><p>A chatbot, operational agents and private AI infrastructure can form one connected solution. We provide one integrated proposal based on the combined requirements rather than treating connected components as unrelated deployments.</p></div>
+        <p class="scope-note">Displayed starting prices for AI Chatbots and AI Agents are indicative starting points, not fixed quotations. Final pricing and delivery timelines are confirmed after assessment of scope, complexity, integrations, infrastructure and expected usage.</p>
+      </div>
+    </section>
+
+    <section class="bottom-section applied-enquiry" id="project-enquiry">
+      <div class="media-layer" aria-hidden="true"></div>
+      <div class="container bottom-grid">
+        <div class="enquiry-intro">
+          <p class="eyebrow">START AN APPLIED AI PROJECT</p>
+          <h2>Tell us what you need your AI system to do.</h2>
+          <p>Share the business problem, current systems and intended outcome. Every enquiry is assessed before we confirm the technical scope, quotation and delivery timeline.</p>
+          <p class="company-statement">Chatbots communicate. Agents execute. Infrastructure powers and governs.</p>
+        </div>
+        <div class="enquiry-panel">
+          <h2>Applied AI Enquiry</h2>
+          <form id="enquiryForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Service interests</label>
+              <div class="focus-options">
+                <label class="focus-option"><input type="checkbox" name="focus" value="AI Chatbots">AI Chatbots</label>
+                <label class="focus-option"><input type="checkbox" name="focus" value="AI Agents">AI Agents</label>
+                <label class="focus-option"><input type="checkbox" name="focus" value="AI Infrastructure">AI Infrastructure</label>
+                <label class="focus-option"><input type="checkbox" name="focus" value="Combined engagement">Combined engagement</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Project scope</label>
+              <textarea class="form-control" id="message" name="message" placeholder="What should the AI system do? Which systems or channels should it connect to?" required></textarea>
+            </div>
+            <p class="form-hint">Assessment is required for every engagement. No obligation is created by submitting an enquiry.</p>
+            <button class="cta btn-submit" type="submit">Submit Enquiry</button>
+            <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="Gutsy Automation home"><img src="/assets/gutsy-logo.png" alt="Gutsy Automation"></a>
+          <p>Engineered systems for business performance.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/#divisions">Divisions</a>
+          <a href="/#work">Work</a>
+          <a href="#process">Approach</a>
+          <a href="/about.html">About</a>
+          <a href="#project-enquiry">Enquire</a>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/gutsy-automation/" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on LinkedIn">LinkedIn</a>
+          <a href="https://www.instagram.com/gutsy_automation/" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on Instagram">Instagram</a>
+          <a href="https://www.facebook.com/share/1Kzs96bKwU/" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on Facebook">Facebook</a>
+          <a href="https://www.tiktok.com/@gutsy.automation" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on TikTok">TikTok</a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <p>Nairobi, Kenya</p>
+        <p><a href="tel:+254704131495">+254 704 131 495</a></p>
+        <p><a href="https://wa.me/254704131495?text=Hi%20Gutsy%20Automation%2C%20I%20want%20to%20start%20a%20project." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></p>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; Gutsy Automation. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var mobileToggle = document.getElementById("mobileToggle");
+      var navCluster = document.getElementById("navCluster");
+      var form = document.getElementById("enquiryForm");
+      var feedback = document.getElementById("formFeedback");
+
+      if(mobileToggle && navCluster){
+        function closeMobileNav(){
+          navCluster.classList.remove("mobile-open");
+          mobileToggle.setAttribute("aria-expanded","false");
+          mobileToggle.setAttribute("aria-label","Open navigation menu");
+        }
+        mobileToggle.addEventListener("click",function(){
+          var open = navCluster.classList.toggle("mobile-open");
+          mobileToggle.setAttribute("aria-expanded",String(open));
+          mobileToggle.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");
+        });
+        navCluster.addEventListener("click",function(e){if(e.target.closest("a"))closeMobileNav();});
+        document.addEventListener("keydown",function(e){
+          if(e.key==="Escape" && navCluster.classList.contains("mobile-open")){closeMobileNav();mobileToggle.focus();}
+        });
+        document.addEventListener("click",function(e){
+          if(navCluster.classList.contains("mobile-open")&&!navCluster.contains(e.target)&&!mobileToggle.contains(e.target))closeMobileNav();
+        });
+      }
+
+      /* Use the exact same homepage manifest entry as the Applied AI card. */
+      var heroSlot = document.querySelector('[data-home-image="applied-ai"]');
+      if(heroSlot){
+        fetch("/assets/images/clipping-guide.json")
+          .then(function(response){if(!response.ok)throw new Error("Homepage image manifest unavailable: HTTP "+response.status);return response.json();})
+          .then(function(config){
+            var item = config.homepage && config.homepage["applied-ai"];
+            if(!item || !item.src)throw new Error('Missing homepage["applied-ai"].src in image manifest');
+            var img = document.createElement("img");
+            img.src = item.src.charAt(0)==="/" ? item.src : "/" + item.src.replace(/^\.\/+/,"");
+            img.alt = item.alt || "Applied AI visual";
+            img.loading = "eager";
+            img.decoding = "async";
+            img.onerror = function(){console.error("Applied AI background image failed to load:",img.src);img.remove();heroSlot.classList.remove("has-image");};
+            heroSlot.appendChild(img);
+            heroSlot.classList.add("has-image");
+            if(item.caption){
+              var caption = document.createElement("figcaption");
+              caption.className = "image-caption";
+              caption.textContent = item.caption;
+              heroSlot.appendChild(caption);
+            }
+          })
+          .catch(function(error){console.error("Applied AI image configuration:",error);});
+      }
+
+      if(form && feedback){
+        form.addEventListener("submit",function(e){
+          e.preventDefault();
+          var submitBtn = form.querySelector(".btn-submit");
+          var nameVal = (form.elements.name.value || "").trim();
+          var emailVal = (form.elements.email.value || "").trim();
+          var messageVal = (form.elements.message.value || "").trim();
+          var selected = Array.from(form.querySelectorAll('input[name="focus"]:checked')).map(function(input){return input.value;});
+          if(!nameVal || !emailVal || !messageVal || selected.length===0){
+            feedback.className = "form-feedback error";
+            feedback.textContent = "Enter your name, email, project scope and select at least one service interest.";
+            return;
+          }
+          if(submitBtn)submitBtn.disabled=true;
+          var fullMessage = "Applied AI service interest: "+selected.join(", ")+"\\n\\nProject scope:\\n"+messageVal;
+          fetch("/api/enquiries",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({name:nameVal,email:emailVal,service:"Applied AI",message:fullMessage})
+          })
+          .then(function(res){if(!res.ok)throw new Error("Request failed");return res.json().catch(function(){return {};});})
+          .then(function(){
+            feedback.className="form-feedback success";
+            feedback.textContent="Enquiry received. Our team will review your requirements and respond shortly.";
+            if(typeof gtag==="function"){
+              gtag("event","generate_lead",{form:"applied_ai_enquiry"});
+              gtag("event","enquiry_submitted",{service:"Applied AI",focus:selected.join(", ")});
+            }
+            form.reset();
+          })
+          .catch(function(){
+            feedback.className="form-feedback error";
+            feedback.textContent="Unable to submit the enquiry right now. Please try again or contact us via WhatsApp.";
+          })
+          .finally(function(){if(submitBtn)submitBtn.disabled=false;});
+        });
+      }
+
+      document.addEventListener("click",function(e){
+        var link=e.target.closest("a");
+        if(!link)return;
+        var href=link.getAttribute("href")||"";
+        if(typeof gtag==="function"){
+          if(href.indexOf("wa.me")>=0)gtag("event","whatsapp_click",{method:"whatsapp"});
+          if(href.indexOf("tel:")===0)gtag("event","phone_click",{method:"phone"});
+          if(href==="#project-enquiry")gtag("event","start_project_click",{location:"applied_ai"});
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
