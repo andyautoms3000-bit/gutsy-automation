@@ -1,1 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Industry-specific Business Operating Systems connecting specialist workflows, finance, procurement, inventory, people, customers, automation and business intelligence.">
+  <title>Business OS | Gutsy Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:dark;--bg:#050505;--panel:rgba(8,14,25,.72);--line:rgba(207,220,240,.15);
+      --lime:#B6FF00;--lime-light:#D7FF66;--white:#f2f5fa;--muted:#b7c2d2;--max:1180px;
+      --radius:16px;--ease:220ms ease;--business-os-image:none;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:100px;background:var(--bg)}
+    body{margin:0;min-height:100vh;color:var(--white);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden;background-color:var(--bg);background-image:linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.9)),var(--business-os-image);background-position:center top;background-size:cover;background-attachment:fixed}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(182,255,0,.055),transparent 42%)}
+    a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--lime-light);outline-offset:3px}
+    .container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+    .site-header{position:fixed;z-index:50;inset:0 0 auto;padding:12px 0;background:rgba(0,0,0,.18);border:0;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background var(--ease),border-color var(--ease)}
+    .site-header.scrolled{background:rgba(5,8,13,.84);border-bottom:1px solid var(--line);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:inline-flex;align-items:center;flex:0 0 auto;background:#000;padding:4px 10px;border-radius:8px;line-height:0}
+    .brand img{display:block;width:auto;height:64px;max-width:210px;object-fit:contain}
+    .nav-cluster{display:flex;align-items:center;gap:13px}
+    .main-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;width:clamp(420px,44vw,590px);padding:5px;border:0;border-radius:0;background:transparent}
+    .main-nav a{display:inline-flex;align-items:center;justify-content:center;flex:1;min-height:44px;padding:9px 16px;border:1px solid rgba(207,220,240,.22);border-radius:999px;background:#050505;color:var(--white);font-size:.88rem;font-weight:550;white-space:nowrap;transition:background var(--ease),border-color var(--ease),transform var(--ease)}
+    .main-nav a:hover{background:#171717;border-color:rgba(215,255,102,.55);transform:translateY(-1px)}
+    .cta{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 19px;border-radius:999px;background:var(--lime);color:#080808;font-size:.88rem;font-weight:800;border:1px solid #ffffff20;transition:background var(--ease),transform var(--ease)}
+    .cta:hover{background:var(--lime-light);transform:translateY(-1px)}
+    .mobile-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:10px;background:rgba(13,21,37,.8);color:#fff;cursor:pointer}
+    .mobile-toggle svg{width:21px;height:21px}
+    .hero{position:relative;isolation:isolate;min-height:660px;display:flex;align-items:center;padding:160px 0 100px;border-bottom:1px solid var(--line);overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.72) 58%,rgba(0,0,0,.48)),var(--business-os-image);background-position:center;background-size:cover;transform:scale(1.015)}
+    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,var(--bg),transparent 36%),radial-gradient(ellipse at 78% 28%,rgba(182,255,0,.09),transparent 38%)}
+    .hero-content{max-width:800px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;margin:0 0 20px;padding:7px 12px;border:1px solid rgba(215,255,102,.25);border-radius:999px;background:rgba(182,255,0,.07);color:var(--lime-light);font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    h1,h2,h3{font-family:Sora,Inter,sans-serif}
+    h1{max-width:850px;margin:0 0 22px;font-size:clamp(2.8rem,6.4vw,5.4rem);line-height:1.02;letter-spacing:-.055em;font-weight:600}
+    h1 span{color:var(--lime-light)}
+    .hero-copy{max-width:680px;margin:0 0 30px;color:#d0d9e6;font-size:clamp(1rem,1.5vw,1.14rem)}
+    .hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.scroll-cue{color:#d0d9e6;font-size:.92rem}
+    .hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:54px;color:#c5cfdd;font-size:.82rem}.hero-meta span::before{content:"";display:inline-block;width:6px;height:6px;margin:0 9px 1px 0;border-radius:50%;background:var(--lime)}
+    .section{position:relative;padding:88px 0;border-bottom:1px solid var(--line)}
+    .section-heading{max-width:780px;margin:0 0 34px}.section-heading h2{margin:0 0 12px;font-size:clamp(2rem,4vw,3.15rem);line-height:1.1;letter-spacing:-.045em}.section-heading p{margin:0;color:var(--muted);max-width:680px}
+    .capability-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .glass-card,.capability-card,.product-card,.package-card,.analytics-card,.stage-card{background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025) 58%,rgba(182,255,0,.025));border:1px solid rgba(255,255,255,.13);border-top-color:rgba(255,255,255,.24);border-radius:var(--radius);box-shadow:0 18px 42px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.1);backdrop-filter:blur(18px) saturate(145%);-webkit-backdrop-filter:blur(18px) saturate(145%)}
+    .capability-card{padding:25px 27px}.card-index{display:inline-block;margin-bottom:12px;color:var(--lime-light);font-size:.75rem;font-weight:800;letter-spacing:.13em}.capability-card h3{margin:0 0 8px;font-size:1.16rem}.capability-card p{margin:0;color:var(--muted);font-size:.93rem}
+    .catalogue-section{background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.56))}
+    .catalogue-tools{display:grid;grid-template-columns:minmax(220px,1fr) auto;gap:16px;align-items:center;margin:28px 0 26px}
+    .search-wrap{position:relative}.search-wrap svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+    .search-input{width:100%;height:48px;padding:11px 15px 11px 44px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.055);color:#fff;outline:none}.search-input:focus{border-color:rgba(215,255,102,.65);box-shadow:0 0 0 3px rgba(182,255,0,.12)}
+    .filter-row{display:flex;gap:8px;flex-wrap:wrap}.filter-btn{border:1px solid var(--line);border-radius:999px;padding:9px 13px;background:rgba(255,255,255,.045);color:var(--muted);font-size:.78rem;font-weight:650;cursor:pointer;transition:all var(--ease)}.filter-btn:hover,.filter-btn[aria-pressed=true]{color:#090909;background:var(--lime);border-color:var(--lime)}
+    .category-block{margin:34px 0 42px}.category-heading{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:0 0 16px;padding-bottom:13px;border-bottom:1px solid var(--line)}.category-heading h3{margin:0;font-size:1.25rem}.category-count{color:var(--lime-light);font-size:.78rem;font-weight:700;white-space:nowrap}
+    .products-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .product-card{min-width:0;display:flex;flex-direction:column;padding:19px 19px 17px;transition:transform var(--ease),border-color var(--ease),background var(--ease)}.product-card:hover{transform:translateY(-3px);border-color:rgba(215,255,102,.48);background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.035) 58%,rgba(182,255,0,.06))}
+    .product-number{color:var(--lime-light);font-size:.72rem;font-weight:800;letter-spacing:.1em}.product-card h4{margin:7px 0 8px;font-size:1rem;line-height:1.35}.product-card p{margin:0 0 16px;color:var(--muted);font-size:.82rem;line-height:1.55;flex:1}.product-link{display:inline-flex;align-items:center;gap:8px;color:var(--lime-light);font-size:.82rem;font-weight:750}.product-link:hover{color:#fff}.product-link svg{width:15px;height:15px;transition:transform var(--ease)}.product-link:hover svg{transform:translateX(3px)}
+    .empty-state{display:none;padding:25px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center}.empty-state.visible{display:block}
+    .deployment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.deployment-card{padding:27px}.deployment-card h3{margin:0 0 9px;font-size:1.28rem}.deployment-card p{margin:0 0 15px;color:var(--muted);font-size:.92rem}.check-list{list-style:none;padding:0;margin:0;display:grid;gap:9px}.check-list li{position:relative;padding-left:19px;color:#d4dce7;font-size:.87rem}.check-list li::before{content:"";position:absolute;left:0;top:.68em;width:6px;height:6px;border-radius:50%;background:var(--lime)}
+    .package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.package-card{padding:25px;position:relative}.package-card.featured{border-color:rgba(182,255,0,.45);box-shadow:0 20px 50px rgba(0,0,0,.3),0 0 28px rgba(182,255,0,.07),inset 0 1px 0 rgba(255,255,255,.13)}.package-card h3{margin:0 0 8px;font-size:1.3rem}.package-price{margin:0 0 18px;color:var(--lime-light);font-weight:800;font-size:.95rem}.package-card p{margin:0 0 16px;color:var(--muted);font-size:.88rem}.package-card .check-list{gap:10px}.package-footnote{margin:22px 0 0;color:var(--muted);font-size:.84rem}
+    .shared-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.shared-card{padding:24px}.shared-card h3{margin:0 0 8px;font-size:1.18rem}.shared-card p{margin:0 0 12px;color:var(--muted);font-size:.9rem}.shared-card .check-list{gap:7px}
+    .analytics-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.analytics-card{padding:18px}.analytics-card .metric-number{display:block;color:var(--lime-light);font-size:.72rem;font-weight:800;letter-spacing:.12em}.analytics-card h3{margin:7px 0 6px;font-size:.98rem}.analytics-card p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.5}
+    .note{margin:18px 0 0;padding:15px 17px;border-left:2px solid var(--lime);background:rgba(182,255,0,.045);color:#cbd5e1;font-size:.84rem}
+    .process-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.stage-card{padding:23px}.stage-num{display:grid;place-items:center;width:34px;height:34px;margin-bottom:13px;border:1px solid rgba(182,255,0,.5);border-radius:50%;color:var(--lime-light);font-size:.78rem;font-weight:800}.stage-card h3{margin:0 0 8px;font-size:1.08rem}.stage-card p{margin:0 0 12px;color:var(--muted);font-size:.85rem}.stage-card ul{margin:0;padding-left:17px;color:#d4dce7;font-size:.82rem}.stage-card li{margin:5px 0}
+    .commercial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.commercial-item{padding:19px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.035)}.commercial-item strong{display:block;margin-bottom:5px;color:var(--lime-light);font-size:.9rem}.commercial-item span{color:var(--muted);font-size:.82rem}
+    .enquiry-section{padding:100px 0;background:linear-gradient(135deg,rgba(12,20,32,.94),rgba(0,0,0,.94))}.bottom-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:56px;align-items:start}.project-intro h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.045em;margin:0 0 18px}.project-intro p{max-width:500px;color:#d0d9e6}.enquiry-panel{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(8,14,25,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.enquiry-panel h2{font-size:1.45rem;margin:0 0 22px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:15px;min-width:0}.form-group label,.conditional-label{font-size:.84rem;color:#d0d9e6}.form-control{width:100%;min-height:45px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.05);color:#fff}.form-control:focus{outline:2px solid #B6FF0066;border-color:var(--lime)}textarea.form-control{min-height:115px;resize:vertical}.conditional-box{display:none;margin:0 0 15px;padding:13px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.04)}.conditional-box.visible{display:block}.conditional-label{display:block;margin-bottom:10px}.service-pills{display:flex;flex-wrap:wrap;gap:8px}.service-pill{position:relative}.service-pill input{position:absolute;opacity:0;width:1px;height:1px}.service-pill span{display:inline-flex;padding:7px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.82rem;cursor:pointer}.service-pill input:checked+span{border-color:var(--lime);background:#B6FF002b;color:#fff}.service-pill input:focus-visible+span{outline:2px solid var(--lime-light);outline-offset:3px}.btn-submit{width:100%;border:0;cursor:pointer}.btn-submit:disabled{opacity:.65;cursor:wait;transform:none}.form-note{margin:0 0 16px;color:var(--muted);font-size:.82rem}.form-feedback{display:none;margin-top:14px;padding:12px;border-radius:8px;font-size:.9rem}.form-feedback.success{display:block;background:#064e3b55;border:1px solid #10b98166;color:#a7f3d0}.form-feedback.error{display:block;background:#7f1d1d55;border:1px solid #ef444466;color:#fecaca}
+    .site-footer{padding:38px 0 24px;background:#070c15;border-top:1px solid var(--line)}.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid var(--line)}.footer-brand p{margin:7px 0 0;color:var(--muted);font-size:.88rem}.footer-links,.footer-socials{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:.87rem}.footer-socials{gap:15px}.footer-links a:hover,.footer-socials a:hover{color:#fff}.footer-contact{display:flex;gap:24px;flex-wrap:wrap;padding:17px 0 0;color:var(--muted);font-size:.84rem}.footer-contact p{margin:0}.footer-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;color:#8390a3;font-size:.8rem}
+    @media(max-width:980px){.mobile-toggle{display:inline-grid;place-items:center}.nav-cluster{display:none;position:absolute;top:calc(100% + 8px);left:24px;right:24px;max-height:calc(100svh - 95px);overflow-y:auto;align-items:stretch;flex-direction:column;padding:14px;border:1px solid var(--line);border-radius:16px;background:rgba(5,5,5,.96);backdrop-filter:blur(22px);box-shadow:0 20px 45px #0009}.nav-cluster.mobile-open{display:flex}.main-nav{width:100%;align-items:stretch;flex-direction:column;gap:8px;padding:0}.main-nav a{width:100%;min-height:44px;padding:11px 14px}.nav-cluster>.cta{width:100%}.bottom-grid{grid-template-columns:1fr;gap:36px}.catalogue-tools{grid-template-columns:1fr}.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.analytics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:640px){.container{width:calc(100% - 36px)}.site-header{padding:9px 0}.brand img{height:54px;max-width:175px}.nav-cluster{left:18px;right:18px}.hero{min-height:620px;padding:132px 0 70px}.hero-meta{margin-top:36px;gap:10px 16px}.section{padding:68px 0}.capability-grid,.deployment-grid,.package-grid,.shared-grid{grid-template-columns:1fr}.products-grid{grid-template-columns:1fr}.analytics-grid{grid-template-columns:1fr 1fr}.process-grid,.commercial-grid{grid-template-columns:1fr}.category-heading{align-items:flex-start;flex-direction:column;gap:5px}.filter-row{gap:7px}.filter-btn{font-size:.74rem;padding:8px 10px}.enquiry-section{padding:72px 0}.enquiry-panel{padding:22px 17px}.form-row{grid-template-columns:1fr;gap:0}.footer-top{flex-direction:column;gap:20px}.footer-links{gap:13px 17px}.footer-bottom{flex-direction:column}.footer-contact{flex-direction:column;gap:10px}.project-intro h2{font-size:2.2rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BK712808V5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BK712808V5');</script>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Gutsy Automation home"><img src="/assets/gutsy-logo.png" alt="Gutsy Automation"></a>
+      <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navCluster">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="nav-cluster" id="navCluster">
+        <nav class="main-nav" aria-label="Primary">
+          <a href="/">Home</a><a href="/work/">Work</a><a href="/store/">Store</a><a href="/about/">About</a>
+        </nav>
+        <a class="cta" href="#project-enquiry">Start a Project</a>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <p class="eyebrow">INDUSTRY-SPECIFIC BUSINESS SYSTEMS</p>
+        <h1>One system to run your <span>entire business.</span></h1>
+        <p class="hero-copy">An industry-specific operating system that connects your daily operations, finances, people, customers and business performance. Built around how your business actually works.</p>
+        <div class="hero-actions"><a class="cta" href="#project-enquiry">Start a Project</a><a class="scroll-cue" href="#industries">Explore the 26 Business OS products &darr;</a></div>
+        <div class="hero-meta"><span>26 industry-specific systems</span><span>Single or Multi Location</span><span>Essential · Growth · Complete</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">WHAT YOUR BUSINESS OS DOES</p><h2>Run operations. Manage the business.</h2><p>Specialist industry workflows connected to the business functions that keep everything moving.</p></div>
+        <div class="capability-grid">
+          <article class="capability-card"><span class="card-index">01 / OPERATIONS</span><h3>Manage your core services.</h3><p>Run the daily activities that keep your business operating.</p></article>
+          <article class="capability-card"><span class="card-index">02 / OPERATIONS</span><h3>Coordinate bookings and orders.</h3><p>Manage appointments, reservations, sales and service requests.</p></article>
+          <article class="capability-card"><span class="card-index">03 / OPERATIONS</span><h3>Track work from start to finish.</h3><p>Follow each job, transaction, treatment, rental or project through its lifecycle.</p></article>
+          <article class="capability-card"><span class="card-index">04 / OPERATIONS</span><h3>Manage your resources.</h3><p>Know where your staff, equipment, facilities and materials are being used.</p></article>
+          <article class="capability-card"><span class="card-index">05 / BUSINESS MANAGEMENT</span><h3>Control your finances.</h3><p>Track income, expenses, payments, outstanding balances, cash flow and profitability.</p></article>
+          <article class="capability-card"><span class="card-index">06 / BUSINESS MANAGEMENT</span><h3>Manage purchasing and suppliers.</h3><p>Create purchase requests, approve orders, track deliveries and monitor supplier balances.</p></article>
+          <article class="capability-card"><span class="card-index">07 / BUSINESS MANAGEMENT</span><h3>Control stock and assets.</h3><p>Track inventory, materials, equipment, asset movements, costs and utilisation.</p></article>
+          <article class="capability-card"><span class="card-index">08 / BUSINESS MANAGEMENT</span><h3>Manage customers and sales.</h3><p>Keep customer records, track enquiries, prepare quotations, manage orders and follow up.</p></article>
+          <article class="capability-card"><span class="card-index">09 / BUSINESS MANAGEMENT</span><h3>Coordinate your workforce.</h3><p>Manage staff, roles, shifts, assignments, attendance and productivity.</p></article>
+          <article class="capability-card"><span class="card-index">10 / BUSINESS MANAGEMENT</span><h3>Manage projects and tasks.</h3><p>Assign responsibilities, set milestones, allocate resources and monitor progress.</p></article>
+          <article class="capability-card"><span class="card-index">11 / BUSINESS MANAGEMENT</span><h3>Keep business records organised.</h3><p>Store documents, contracts, invoices and operational records with controlled access.</p></article>
+          <article class="capability-card"><span class="card-index">12 / BUSINESS MANAGEMENT</span><h3>Understand business performance.</h3><p>See how your finances, operations, customers, staff and resources are performing.</p></article>
+        </div>
+        <p class="note">Capabilities are adapted to each industry. Every business gets the functions relevant to how it operates.</p>
+      </div>
+    </section>
+
+    <section class="section catalogue-section" id="industries">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">FIND YOUR INDUSTRY</p><h2>One platform. 26 industry-specific systems.</h2><p>Search for your industry or browse the five clearly defined categories.</p></div>
+        <div class="catalogue-tools">
+          <label class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input class="search-input" id="industrySearch" type="search" placeholder="Search industries or Business OS products" aria-label="Search industries or Business OS products"></label>
+          <div class="filter-row" role="group" aria-label="Filter by industry category">
+            <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All Industries</button>
+            <button class="filter-btn" type="button" data-filter="service" aria-pressed="false">Service, Appointment & Rental</button>
+            <button class="filter-btn" type="button" data-filter="retail" aria-pressed="false">Retail & Commerce</button>
+            <button class="filter-btn" type="button" data-filter="food" aria-pressed="false">Food & Hospitality</button>
+            <button class="filter-btn" type="button" data-filter="manufacturing" aria-pressed="false">Manufacturing & Processing</button>
+            <button class="filter-btn" type="button" data-filter="contracting" aria-pressed="false">Contracting & Projects</button>
+          </div>
+        </div>
+
+        <section class="category-block" data-category="service" aria-labelledby="cat-service"><div class="category-heading"><h3 id="cat-service">01. Service, Appointment and Rental Operations</h3><span class="category-count">12 Business OS products</span></div><div class="products-grid">
+          <article class="product-card" data-search="dental clinic patient dental charts treatment plans appointments practitioner prescriptions billing materials"><span class="product-number">01 / SERVICE</span><h4>Dental Clinic OS</h4><p>Manage patients, dental charts, treatment plans, appointments, practitioners, prescriptions, billing and dental materials.</p><a class="product-link" href="https://gutsyautomation.com/business-os/dental-clinic/">Explore Dental Clinic OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="medical clinic physio patient consultation therapy treatment prescriptions referrals supplies"><span class="product-number">02 / SERVICE</span><h4>Medical Clinic and Physio OS</h4><p>Manage patient records, consultations, therapy sessions, treatment plans, prescriptions, referrals and medical supplies.</p><a class="product-link" href="https://gutsyautomation.com/business-os/medical-clinic-physio/">Explore Medical Clinic and Physio OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="salon barber spa customers services bookings schedules payments commissions memberships stock"><span class="product-number">03 / SERVICE</span><h4>Salon, Barber and Spa OS</h4><p>Manage customers, services, bookings, staff schedules, payments, commissions, memberships and product stock.</p><a class="product-link" href="https://gutsyautomation.com/business-os/salon-barber-spa/">Explore Salon, Barber and Spa OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="gym fitness members memberships renewals attendance trainers classes assessments equipment"><span class="product-number">04 / SERVICE</span><h4>Gym and Fitness OS</h4><p>Manage members, memberships, renewals, attendance, trainers, classes, fitness assessments and equipment.</p><a class="product-link" href="https://gutsyautomation.com/business-os/gym-fitness/">Explore Gym and Fitness OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="vet veterinary clinic animal owner consultations vaccinations prescriptions appointments pharmacy inpatient"><span class="product-number">05 / SERVICE</span><h4>Vet Clinic OS</h4><p>Manage animal and owner records, consultations, vaccinations, prescriptions, appointments, pharmacy stock and inpatient care.</p><a class="product-link" href="https://gutsyautomation.com/business-os/vet-clinic/">Explore Vet Clinic OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="law firm clients cases matters legal documents deadlines court dates time tracking billing"><span class="product-number">06 / SERVICE</span><h4>Law Firm OS</h4><p>Manage clients, cases, matters, legal documents, deadlines, court dates, time tracking, billing and team assignments.</p><a class="product-link" href="https://gutsyautomation.com/business-os/law-firm/">Explore Law Firm OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="accounting consulting clients engagements projects tasks deliverables staff expenses profitability"><span class="product-number">07 / SERVICE</span><h4>Accounting and Consulting OS</h4><p>Manage clients, engagements, projects, tasks, deliverables, staff allocation, expenses and service profitability.</p><a class="product-link" href="https://gutsyautomation.com/business-os/accounting-consulting/">Explore Accounting and Consulting OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="driving school training centre students courses instructors lessons vehicles attendance fees examinations"><span class="product-number">08 / SERVICE</span><h4>Driving School and Training Centre OS</h4><p>Manage students, courses, instructors, lessons, vehicles, attendance, fees, examinations and training progress.</p><a class="product-link" href="https://gutsyautomation.com/business-os/driving-school-training-centre/">Explore Driving School and Training Centre OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="car bike hire rental fleet vehicles availability reservations agreements check in check out deposits damage maintenance"><span class="product-number">09 / SERVICE</span><h4>Car and Bike Hire OS</h4><p>Manage fleets, vehicle availability, reservations, rental agreements, check-in and check-out, deposits, damage and maintenance.</p><a class="product-link" href="https://gutsyautomation.com/business-os/car-bike-hire/">Explore Car and Bike Hire OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="equipment hire assets reservations agreements deposits returns maintenance utilisation"><span class="product-number">10 / SERVICE</span><h4>Equipment Hire OS</h4><p>Manage equipment, availability, reservations, hire agreements, deposits, returns, maintenance and asset utilisation.</p><a class="product-link" href="https://gutsyautomation.com/business-os/equipment-hire/">Explore Equipment Hire OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="apartments airbnb properties units availability reservations guests housekeeping maintenance occupancy"><span class="product-number">11 / SERVICE</span><h4>Apartments and Airbnb OS</h4><p>Manage properties, units, availability, reservations, guests, check-in and check-out, housekeeping, maintenance and occupancy.</p><a class="product-link" href="https://gutsyautomation.com/business-os/apartments-airbnb/">Explore Apartments and Airbnb OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="venue event space enquiries reservations quotations deposits contracts schedules resources"><span class="product-number">12 / SERVICE</span><h4>Venue and Event Space OS</h4><p>Manage venues, spaces, enquiries, reservations, quotations, deposits, contracts, event schedules and resources.</p><a class="product-link" href="https://gutsyautomation.com/business-os/venue-event-space/">Explore Venue and Event Space OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+        </div></section>
+
+        <section class="category-block" data-category="retail" aria-labelledby="cat-retail"><div class="category-heading"><h3 id="cat-retail">02. Retail and Commerce</h3><span class="category-count">4 Business OS products</span></div><div class="products-grid">
+          <article class="product-card" data-search="retail shop products pos sales stock customers receipts suppliers purchase orders returns loyalty"><span class="product-number">13 / RETAIL</span><h4>Retail Shop OS</h4><p>Manage products, POS sales, stock, customers, receipts, suppliers, purchase orders, returns and loyalty.</p><a class="product-link" href="https://gutsyautomation.com/business-os/retail-shop/">Explore Retail Shop OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="supermarket wholesale retail bulk sales barcode inventory pricing credit suppliers warehouses"><span class="product-number">14 / RETAIL</span><h4>Supermarket and Wholesale OS</h4><p>Manage retail and bulk sales, barcode operations, inventory, wholesale pricing, customer credit, suppliers and warehouses.</p><a class="product-link" href="https://gutsyautomation.com/business-os/supermarket-wholesale/">Explore Supermarket and Wholesale OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="pharmacy medicines pos batches expiry prescriptions dispensing supplier purchasing reconciliation"><span class="product-number">15 / RETAIL</span><h4>Pharmacy OS</h4><p>Manage medicines, POS sales, batches, expiry dates, prescriptions, dispensing, supplier purchasing and stock reconciliation.</p><a class="product-link" href="https://gutsyautomation.com/business-os/pharmacy/">Explore Pharmacy OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="online store ecommerce storefront product catalogue cart checkout customer orders payments fulfilment"><span class="product-number">16 / RETAIL</span><h4>Online Store OS</h4><p>Manage your storefront, product catalogue, carts, checkout, customer accounts, orders, payments and fulfilment.</p><a class="product-link" href="https://gutsyautomation.com/business-os/online-store/">Explore Online Store OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+        </div></section>
+
+        <section class="category-block" data-category="food" aria-labelledby="cat-food"><div class="category-heading"><h3 id="cat-food">03. Food and Hospitality</h3><span class="category-count">3 Business OS products</span></div><div class="products-grid">
+          <article class="product-card" data-search="restaurant cafe menu tables pos orders kitchen tickets reservations recipes ingredients purchasing delivery food costing"><span class="product-number">17 / FOOD</span><h4>Restaurant and Cafe OS</h4><p>Manage menus, tables, POS, orders, kitchen tickets, reservations, recipes, ingredients, purchasing and delivery.</p><a class="product-link" href="https://gutsyautomation.com/business-os/restaurant-cafe/">Explore Restaurant and Cafe OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="bar lounge menus pos tables orders payments stock shifts drink costing promotions reservations events"><span class="product-number">18 / FOOD</span><h4>Bar and Lounge OS</h4><p>Manage menus, POS, tables, orders, payments, stock, shifts, drink costing, promotions, reservations and events.</p><a class="product-link" href="https://gutsyautomation.com/business-os/bar-lounge/">Explore Bar and Lounge OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="hotel lodge properties rooms availability reservations guests check in check out housekeeping maintenance"><span class="product-number">19 / FOOD</span><h4>Hotel and Lodge OS</h4><p>Manage properties, rooms, availability, reservations, guests, check-in and check-out, room charges, housekeeping and maintenance.</p><a class="product-link" href="https://gutsyautomation.com/business-os/hotel-lodge/">Explore Hotel and Lodge OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+        </div></section>
+
+        <section class="category-block" data-category="manufacturing" aria-labelledby="cat-manufacturing"><div class="category-heading"><h3 id="cat-manufacturing">04. Manufacturing and Processing</h3><span class="category-count">4 Business OS products</span></div><div class="products-grid">
+          <article class="product-card" data-search="workshop fabrication customers quotations job cards work orders materials production schedules labour machines job costing"><span class="product-number">20 / MANUFACTURING</span><h4>Workshop and Fabrication OS</h4><p>Manage customers, quotations, job cards, work orders, materials, production schedules, labour, machines and job costing.</p><a class="product-link" href="https://gutsyautomation.com/business-os/workshop-fabrication/">Explore Workshop and Fabrication OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="bakery food processing recipes ingredients production orders batches stock quality wastage expiry yield"><span class="product-number">21 / MANUFACTURING</span><h4>Bakery and Food Processing OS</h4><p>Manage recipes, ingredients, production orders, batches, stock, quality checks, wastage, expiry and production yield.</p><a class="product-link" href="https://gutsyautomation.com/business-os/bakery-food-processing/">Explore Bakery and Food Processing OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="print tailoring studio customers quotations job orders designs specifications production stages materials labour quality delivery"><span class="product-number">22 / MANUFACTURING</span><h4>Print and Tailoring Studio OS</h4><p>Manage customers, quotations, job orders, designs, specifications, production stages, materials, labour, quality and delivery.</p><a class="product-link" href="https://gutsyautomation.com/business-os/print-tailoring-studio/">Explore Print and Tailoring Studio OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="agro processing raw materials suppliers batches traceability production schedules quality yield wastage finished goods"><span class="product-number">23 / MANUFACTURING</span><h4>Agro-processing OS</h4><p>Manage raw materials, suppliers, batches, traceability, production schedules, quality, yield, wastage and finished goods.</p><a class="product-link" href="https://gutsyautomation.com/business-os/agro-processing/">Explore Agro-processing OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+        </div></section>
+
+        <section class="category-block" data-category="contracting" aria-labelledby="cat-contracting"><div class="category-heading"><h3 id="cat-contracting">05. Contracting and Projects</h3><span class="category-count">3 Business OS products</span></div><div class="products-grid">
+          <article class="product-card" data-search="construction contracting clients contracts projects sites schedules milestones labour materials subcontractors budgets costs"><span class="product-number">24 / PROJECTS</span><h4>Construction and Contracting OS</h4><p>Manage clients, contracts, projects, sites, schedules, milestones, labour, materials, subcontractors and project costs.</p><a class="product-link" href="https://gutsyautomation.com/business-os/construction-contracting/">Explore Construction and Contracting OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="electrical engineering services service requests quotations job cards technicians site visits equipment maintenance materials costing"><span class="product-number">25 / PROJECTS</span><h4>Electrical and Engineering Services OS</h4><p>Manage service requests, quotations, job cards, technicians, site visits, equipment, maintenance, materials and job costing.</p><a class="product-link" href="https://gutsyautomation.com/business-os/electrical-engineering-services/">Explore Electrical and Engineering Services OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+          <article class="product-card" data-search="event planning enquiries clients bookings proposals contracts suppliers schedules budgets staff equipment expenses profitability"><span class="product-number">26 / PROJECTS</span><h4>Event Planning OS</h4><p>Manage enquiries, clients, bookings, proposals, contracts, suppliers, schedules, budgets, staff and event profitability.</p><a class="product-link" href="https://gutsyautomation.com/business-os/event-planning/">Explore Event Planning OS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+        </div></section>
+        <div class="empty-state" id="emptyState">No matching Business OS products. Try another search or category.</div>
+      </div>
+    </section>
+
+    <section class="section" id="deployment">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">HOW IT'S OFFERED</p><h2>Choose your operating structure.</h2><p>Select a deployment model based on how your business is organised. Then choose the capability package that fits your requirements.</p></div>
+        <div class="deployment-grid">
+          <article class="glass-card deployment-card"><span class="card-index">DEPLOYMENT 01</span><h3>Single Location</h3><p>One business operating from one physical location, with connected staff, customers, resources and records.</p><ul class="check-list"><li>Location-specific staff and operations.</li><li>Connected business records.</li><li>Owner visibility across the operation.</li></ul></article>
+          <article class="glass-card deployment-card"><span class="card-index">DEPLOYMENT 02</span><h3>Multi Location</h3><p>Manage multiple branches from one system while retaining branch-level control.</p><ul class="check-list"><li>Branch-specific records and configuration.</li><li>Central owner access and oversight.</li><li>Staff permissions scoped to assigned branches.</li><li>Branch manager access limited to authorised locations.</li><li>Individual, comparison and consolidated reporting.</li><li>Shared customer history where configured.</li><li>Stock and resource transfers where applicable.</li></ul></article>
+        </div>
+        <p class="note">Multi Location is a deployment model, not a fourth package. Branch and resource capabilities apply where relevant to the industry.</p>
+      </div>
+    </section>
+
+    <section class="section" id="packages">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">THREE CAPABILITY PACKAGES</p><h2>Start with what you need. Expand when the business requires it.</h2><p>Every package is a working business system. Higher tiers add depth, controls and coordination.</p></div>
+        <div class="package-grid">
+          <article class="package-card"><span class="card-index">01 / CORE SYSTEM</span><h3>Essential</h3><div class="package-price">Starts from KSh X</div><p>A complete, usable business system for the core industry lifecycle.</p><ul class="check-list"><li>Core industry workflows.</li><li>Connected business records.</li><li>Essential financial management.</li><li>Relevant purchasing, suppliers and stock or asset controls.</li><li>Standard automation and reports.</li><li>Baseline security and standard AI assistance.</li></ul></article>
+          <article class="package-card featured"><span class="card-index">02 / EXPANDED CONTROL</span><h3>Growth</h3><div class="package-price">Starts from KSh X</div><p>More control across departments and operations.</p><ul class="check-list"><li>Expanded industry workflows.</li><li>Broader department integration.</li><li>Purchasing approvals and stronger controls.</li><li>Deeper cost and profitability reporting.</li><li>Advanced workforce and resource management.</li><li>Detailed dashboards and trends.</li><li>Connected multi-step automation and expanded AI assistance.</li></ul></article>
+          <article class="package-card"><span class="card-index">03 / BUSINESS-WIDE</span><h3>Complete</h3><div class="package-price">Starts from KSh X</div><p>Comprehensive business-wide management and orchestration.</p><ul class="check-list"><li>Comprehensive specialist workflows.</li><li>Advanced organisation-wide coordination.</li><li>Advanced financial and operational controls.</li><li>Deeper inventory, procurement and asset management.</li><li>Workforce planning and governance.</li><li>Forecasting and scenario analysis.</li><li>Advanced automation, integrations and coordinated AI agents.</li></ul></article>
+        </div>
+        <p class="package-footnote">Essential is not a restricted demo. Package choice depends on required capabilities. Capacity can grow within a package and is priced according to actual requirements.</p>
+      </div>
+    </section>
+
+    <section class="section" id="included">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">INCLUDED IN EVERY PACKAGE</p><h2>Intelligence, automation and control built in.</h2><p>These are shared foundations across the Business OS range, adapted to each industry's workflows.</p></div>
+        <div class="shared-grid">
+          <article class="glass-card shared-card"><span class="card-index">AUTOMATION</span><h3>Keep routine work moving.</h3><p>Reduce repetitive work and connect processes across the business.</p><ul class="check-list"><li>Automate routine workflows.</li><li>Trigger reminders and notifications.</li><li>Connect actions across departments.</li><li>Coordinate multi-step processes.</li></ul></article>
+          <article class="glass-card shared-card"><span class="card-index">SECURITY AND CONTROL</span><h3>Protect business information.</h3><p>Control access and maintain visibility over sensitive operations.</p><ul class="check-list"><li>Secure authentication and role-based permissions.</li><li>Business data isolation and sensitive-record controls.</li><li>Audit trails and automated backups.</li><li>Higher tiers add granular permissions, monitoring and governance.</li></ul></article>
+          <article class="glass-card shared-card"><span class="card-index">CUSTOMER-FACING AI</span><h3>Assist customers across supported channels.</h3><p>Give customers a consistent way to get information and complete routine requests.</p><ul class="check-list"><li>Answer enquiries and common questions.</li><li>Explain services, products, prices and policies.</li><li>Capture and qualify leads.</li><li>Check availability where supported.</li><li>Handle applicable bookings, orders and requests.</li><li>Send confirmations, reminders and follow-ups.</li><li>Retrieve authorised customer information and escalate to staff.</li><li>Maintain conversation history.</li></ul></article>
+          <article class="glass-card shared-card"><span class="card-index">INTERNAL AI AGENTS</span><h3>Give employees an assistant for daily work.</h3><p>Help teams find information and move operational processes forward.</p><ul class="check-list"><li>Find authorised business records.</li><li>Support administrative workflows.</li><li>Assist customer, stock and supplier processes.</li><li>Identify pending tasks and bottlenecks.</li><li>Prepare summaries and reports.</li><li>Help staff navigate business workflows.</li></ul></article>
+          <article class="glass-card shared-card" style="grid-column:1/-1"><span class="card-index">OWNER'S AI BUSINESS ASSISTANT</span><h3>A direct view of business performance.</h3><p>Ask questions about the business and get answers grounded in available records.</p><ul class="check-list"><li>Understand revenue, costs, cash flow and profit.</li><li>Compare branches, departments, services and products.</li><li>Identify trends and unusual performance changes.</li><li>Find overdue payments and operational inefficiencies.</li><li>Understand what is driving business results.</li><li>Receive practical improvement recommendations.</li><li>Generate management summaries and briefings.</li></ul><p class="note">Recommendations use available business data and identify relevant assumptions. Actions requiring authority or approval remain subject to configured controls. All AI access respects assigned permissions.</p></article>
+        </div>
+        <div class="section-heading" style="margin-top:62px"><p class="eyebrow">BUSINESS ANALYTICS</p><h2>Eight views of business performance.</h2></div>
+        <div class="analytics-grid">
+          <article class="analytics-card"><span class="metric-number">01</span><h3>Revenue and Sales</h3><p>Track sales, revenue, collections, volume and growth.</p></article>
+          <article class="analytics-card"><span class="metric-number">02</span><h3>Expenses and Costs</h3><p>Monitor operating expenses, direct costs, payroll and supplier costs.</p></article>
+          <article class="analytics-card"><span class="metric-number">03</span><h3>Profitability</h3><p>Understand profit and margins across products, services and projects.</p></article>
+          <article class="analytics-card"><span class="metric-number">04</span><h3>Cash Flow</h3><p>Track cash movements, receipts, payments and outstanding balances.</p></article>
+          <article class="analytics-card"><span class="metric-number">05</span><h3>Customers and Growth</h3><p>Measure acquisition, retention, repeat business and customer value.</p></article>
+          <article class="analytics-card"><span class="metric-number">06</span><h3>Operational Efficiency</h3><p>Monitor workload, completion, turnaround, capacity and backlogs.</p></article>
+          <article class="analytics-card"><span class="metric-number">07</span><h3>Staff and Productivity</h3><p>Track attendance, workload, utilisation and completed work.</p></article>
+          <article class="analytics-card"><span class="metric-number">08</span><h3>Trends and Opportunities</h3><p>Identify patterns, unusual changes, bottlenecks, risks and opportunities.</p></article>
+        </div>
+        <p class="note">Reports distinguish revenue from cash collected, and incurred expenses from expenses paid. Figures remain traceable to their underlying records.</p>
+        <p class="note">AI model usage, WhatsApp, SMS, voice and other external provider charges are measured and billed separately. Included AI capabilities do not mean unlimited external usage.</p>
+      </div>
+    </section>
+
+    <section class="section" id="implementation">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">HOW WE IMPLEMENT</p><h2>Understand first. Build against the real operation.</h2><p>Every project begins with a mandatory business audit. We do not begin implementation before defining the requirements and scope.</p></div>
+        <div class="process-grid">
+          <article class="stage-card"><span class="stage-num">01</span><h3>Business audit</h3><p>Understand the business before selecting the system design.</p><ul><li>Business structure and departments.</li><li>Industry workflows and daily operations.</li><li>Existing software and infrastructure.</li><li>Data structures, quality and migration.</li><li>Staff, resources and capacity.</li><li>Integrations, security and access requirements.</li></ul></article>
+          <article class="stage-card"><span class="stage-num">02</span><h3>System design and configuration</h3><p>Configure the selected Business OS around the agreed requirements.</p><ul><li>Industry modules and workflows.</li><li>Business management functions.</li><li>Departments, roles and permissions.</li><li>Approval processes and automation.</li><li>Reports and management dashboards.</li></ul></article>
+          <article class="stage-card"><span class="stage-num">03</span><h3>Data and integrations</h3><p>Prepare business records and connect required systems.</p><ul><li>Data extraction and cleansing.</li><li>Data migration.</li><li>Required integrations and APIs.</li><li>Connected records and workflows.</li></ul></article>
+          <article class="stage-card"><span class="stage-num">04</span><h3>Testing and validation</h3><p>Validate the system before deployment.</p><ul><li>Workflow and user-access testing.</li><li>Integration testing.</li><li>Financial and operational reconciliation.</li><li>Data accuracy and process validation.</li></ul></article>
+          <article class="stage-card"><span class="stage-num">05</span><h3>Training and deployment</h3><p>Prepare the team and move the system into operation.</p><ul><li>Staff onboarding and training.</li><li>System deployment.</li><li>Handover and operational guidance.</li><li>Initial support and issue resolution.</li></ul></article>
+          <article class="stage-card"><span class="stage-num">06</span><h3>Ongoing operation and growth</h3><p>Adapt the system as the business changes.</p><ul><li>Ongoing subscription and infrastructure.</li><li>Capacity adjustments.</li><li>Agreed improvements and integrations.</li><li>Additional development where required.</li></ul></article>
+        </div>
+        <div class="section-heading" style="margin-top:58px"><p class="eyebrow">COMMERCIAL STRUCTURE</p><h2>Three separate project components.</h2></div>
+        <div class="commercial-grid">
+          <div class="commercial-item"><strong>01 / Audit</strong><span>Business assessment, requirements and implementation scope.</span></div>
+          <div class="commercial-item"><strong>02 / Implementation</strong><span>Configuration, integration, migration, testing and deployment.</span></div>
+          <div class="commercial-item"><strong>03 / Monthly subscription</strong><span>Ongoing system operation and agreed service capacity.</span></div>
+        </div>
+        <p class="note">Custom development and out-of-scope integrations are quoted separately. External AI, messaging and communication provider charges are billed separately and itemised.</p>
+        <p class="note">Financial management is configured to the agreed scope. Full double-entry accounting, general ledger, statutory tax compliance and specific accounting integrations are included only where explicitly validated and agreed.</p>
+      </div>
+    </section>
+
+    <section class="enquiry-section" id="project-enquiry">
+      <div class="container bottom-grid">
+        <div class="project-intro"><p class="eyebrow">PROJECT ENQUIRY</p><h2>Let's examine what your business needs.</h2><p>Tell us about your business and what you want to improve. We will arrange the audit and define the right system scope.</p><p>Your enquiry and project details are handled confidentially. Information is used to assess and respond to your request.</p></div>
+        <div class="enquiry-panel">
+          <h2>Start a Project</h2>
+          <form id="enquiryForm" novalidate>
+            <div class="form-row">
+              <div class="form-group"><label for="name">Name</label><input class="form-control" id="name" name="name" type="text" required></div>
+              <div class="form-group"><label for="email">Email</label><input class="form-control" id="email" name="email" type="email" required></div>
+            </div>
+            <div class="form-group"><label for="primaryService">Primary Capability</label><select class="form-control" id="primaryService" name="primaryService" required><option value="">Select a capability</option><option value="Business OS" selected>Business OS</option><option value="Applied AI">Applied AI</option><option value="Cyber Security">Cyber Security</option><option value="Engineering Labs">Engineering Labs</option></select></div>
+            <div class="conditional-box" id="conditionalBox"><span class="conditional-label">Additional focus areas (optional)</span><div class="service-pills"><label class="service-pill"><input type="checkbox" name="focus" value="ERP & Finance"><span>ERP & Finance</span></label><label class="service-pill"><input type="checkbox" name="focus" value="AI Agents"><span>AI Agents</span></label><label class="service-pill"><input type="checkbox" name="focus" value="Infrastructure Security"><span>Infrastructure Security</span></label><label class="service-pill"><input type="checkbox" name="focus" value="Hardware & Embedded"><span>Hardware & Embedded</span></label></div></div>
+            <div class="form-group"><label for="message">Project Scope</label><textarea class="form-control" id="message" name="message" required placeholder="Tell us about your business, industry, locations and what you want the system to manage."></textarea></div>
+            <p class="form-note">We use your details only to reply to your enquiry.</p>
+            <button class="cta btn-submit" type="submit">Submit Enquiry</button>
+            <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand"><a class="brand" href="/" aria-label="Gutsy Automation home"><img src="/assets/gutsy-logo.png" alt="Gutsy Automation"></a><p>Engineered systems for business performance.</p></div>
+        <div class="footer-links"><a href="/#divisions">Divisions</a><a href="/work/">Work</a><a href="/store/">Store</a><a href="/about/">About</a><a href="#project-enquiry">Enquire</a></div>
+        <div class="footer-socials"><a href="https://www.linkedin.com/company/gutsy-automation/" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on LinkedIn">LinkedIn</a><a href="https://www.instagram.com/gutsy_automation/" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on Instagram">Instagram</a><a href="https://www.facebook.com/share/1Kzs96bKwU/" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on Facebook">Facebook</a><a href="https://www.tiktok.com/@gutsy.automation" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on TikTok">TikTok</a></div>
+      </div>
+      <div class="footer-contact"><p>Nairobi, Kenya</p><p><a href="tel:+254704131495">+254 704 131 495</a></p><p><a href="https://wa.me/254704131495?text=Hi%20Gutsy%20Automation%2C%20I%20want%20to%20start%20a%20project." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></p></div>
+      <div class="footer-bottom"><span>&copy; 2026 Gutsy Automation. All rights reserved.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var header=document.getElementById("siteHeader");
+      var mobileToggle=document.getElementById("mobileToggle");
+      var navCluster=document.getElementById("navCluster");
+      var search=document.getElementById("industrySearch");
+      var filterButtons=Array.prototype.slice.call(document.querySelectorAll(".filter-btn"));
+      var categories=Array.prototype.slice.call(document.querySelectorAll(".category-block"));
+      var emptyState=document.getElementById("emptyState");
+      var activeFilter="all";
+
+      function onScroll(){if(header)header.classList.toggle("scrolled",window.scrollY>18)}
+      window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+      if(mobileToggle&&navCluster){
+        function closeMobileNav(){navCluster.classList.remove("mobile-open");mobileToggle.setAttribute("aria-expanded","false");mobileToggle.setAttribute("aria-label","Open navigation menu")}
+        mobileToggle.addEventListener("click",function(){var open=navCluster.classList.toggle("mobile-open");mobileToggle.setAttribute("aria-expanded",String(open));mobileToggle.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu")});
+        navCluster.addEventListener("click",function(e){if(e.target.closest("a"))closeMobileNav()});
+        document.addEventListener("keydown",function(e){if(e.key==="Escape"&&navCluster.classList.contains("mobile-open")){closeMobileNav();mobileToggle.focus()}});
+        document.addEventListener("click",function(e){if(navCluster.classList.contains("mobile-open")&&!navCluster.contains(e.target)&&!mobileToggle.contains(e.target))closeMobileNav()});
+      }
+
+      // Reuse the exact Business OS image configured for the Business OS card on the homepage.
+      fetch("/assets/images/clipping-guide.json").then(function(r){if(!r.ok)throw new Error("Homepage image manifest unavailable");return r.json()}).then(function(config){
+        var item=config.homepage&&config.homepage["business-os"];
+        if(!item||!item.src){console.warn("The homepage manifest has no homepage.business-os.src entry.");return}
+        document.documentElement.style.setProperty("--business-os-image",'url("'+item.src.replace(/"/g,"\\\"")+'")');
+      }).catch(function(err){console.warn("Business OS background image could not be loaded from the homepage manifest.",err)});
+
+      function applyFilters(){
+        var term=(search&&search.value||"").trim().toLowerCase();var visibleCount=0;
+        categories.forEach(function(category){
+          var categoryMatch=activeFilter==="all"||category.dataset.category===activeFilter;var cards=Array.prototype.slice.call(category.querySelectorAll(".product-card"));var categoryVisible=0;
+          cards.forEach(function(card){var haystack=(card.textContent+" "+(card.dataset.search||"")).toLowerCase();var match=categoryMatch&&(!term||haystack.indexOf(term)!==-1);card.hidden=!match;if(match){categoryVisible++;visibleCount++}});
+          category.hidden=categoryVisible===0;
+        });
+        if(emptyState)emptyState.classList.toggle("visible",visibleCount===0);
+      }
+      filterButtons.forEach(function(btn){btn.addEventListener("click",function(){activeFilter=btn.dataset.filter;filterButtons.forEach(function(other){other.setAttribute("aria-pressed",String(other===btn))});applyFilters()})});
+      if(search)search.addEventListener("input",applyFilters);
+
+      var primaryService=document.getElementById("primaryService");var conditionalBox=document.getElementById("conditionalBox");var form=document.getElementById("enquiryForm");var feedback=document.getElementById("formFeedback");
+      if(primaryService&&conditionalBox){primaryService.addEventListener("change",function(){conditionalBox.classList.toggle("visible",Boolean(primaryService.value))});if(primaryService.value)conditionalBox.classList.add("visible")}
+      if(form&&feedback){form.addEventListener("submit",function(e){
+        e.preventDefault();var submitBtn=form.querySelector(".btn-submit");var nameVal=(form.name&&form.name.value||"").trim();var emailVal=(form.email&&form.email.value||"").trim();var serviceVal=primaryService?primaryService.value:"";var messageVal=(form.message&&form.message.value||"").trim();
+        if(!nameVal||!emailVal||!serviceVal||!messageVal){feedback.className="form-feedback error";feedback.textContent="Please complete all required fields before submitting.";return}
+        if(submitBtn)submitBtn.disabled=true;
+        fetch("/api/enquiries",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:nameVal,email:emailVal,service:serviceVal,message:messageVal})})
+          .then(function(res){if(!res.ok)throw new Error("Request failed");return res.json().catch(function(){return{}})})
+          .then(function(){feedback.className="form-feedback success";feedback.textContent="Enquiry received. Our team will review your project scope and respond shortly.";if(typeof gtag==="function"){gtag("event","generate_lead",{form:"project_enquiry"});gtag("event","enquiry_submitted",{service:serviceVal})}form.reset();if(conditionalBox)conditionalBox.classList.remove("visible")})
+          .catch(function(){feedback.className="form-feedback error";feedback.textContent="Unable to submit enquiry right now. Please try again or reach out via WhatsApp."})
+          .finally(function(){if(submitBtn)submitBtn.disabled=false});
+      })}
+      document.addEventListener("click",function(e){var el=e.target.closest("a");if(!el||typeof gtag!=="function")return;var h=el.getAttribute("href")||"";if(h.indexOf("wa.me")>=0)gtag("event","whatsapp_click",{method:"whatsapp"});if(h.indexOf("tel:")===0)gtag("event","phone_click",{method:"phone"});if(h==="#project-enquiry")gtag("event","start_project_click",{location:"cta"})});
+    })();
+  </script>
+</body>
+</html>
