@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Work | Gutsy Automation</title>
+<meta name="description" content="Explore selected projects, systems, prototypes and technical solutions developed by Gutsy Automation.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://gutsyautomation.com/work">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.png">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gutsy Automation">
+<meta property="og:title" content="Work | Gutsy Automation">
+<meta property="og:description" content="Selected projects, systems, prototypes and technical solutions from Gutsy Automation.">
+<meta property="og:url" content="https://gutsyautomation.com/work">
+<meta property="og:image" content="https://gutsyautomation.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#000;--line:rgba(207,220,240,.15);--blue:#B6FF00;--blue-light:#D7FF66;--white:#f2f5fa;--muted:#b7c2d2;--max:1180px;--radius:14px;--ease:220ms ease}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg);scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--white);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--blue-light);outline-offset:3px}
+h1,h2,h3,p,ul,ol{margin:0}
+.container{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+/* Header, navigation, CTA (shared with Home and About) */
+.site-header{position:fixed;z-index:50;inset:0 0 auto;padding:15px 0;transition:background var(--ease),border-color var(--ease);border-bottom:1px solid transparent}
+.site-header.scrolled{background:rgba(11,17,30,.62);backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);border-color:rgba(255,255,255,.1)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.nav-cluster{display:flex;align-items:center;gap:10px}
+.main-nav{display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.04));backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,.14);border-top-color:rgba(255,255,255,.26);box-shadow:0 8px 24px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.14)}
+.main-nav a{padding:8px 14px;border-radius:999px;color:var(--muted);font-size:.88rem}
+.main-nav a:hover,.main-nav a:focus-visible,.main-nav a[aria-current=page]{background:rgba(255,255,255,.08);color:var(--white)}
+.cta{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:10px 18px;border-radius:999px;background:var(--blue);color:#fff;font-size:.88rem;font-weight:700;border:1px solid #ffffff20;cursor:pointer;transition:background var(--ease),transform var(--ease)}
+.cta:hover{background:#5b9df8;transform:translateY(-1px)}
+.mobile-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:10px;background:rgba(13,21,37,.8);color:#fff;cursor:pointer}
+.mobile-toggle svg{width:21px;height:21px}
+.site-header .brand{display:inline-flex;align-items:center;flex:0 0 auto;min-width:0;line-height:0;white-space:nowrap}
+.site-header .site-logo{display:block;width:auto;height:46.8px;max-width:247px;object-fit:contain}
+.footer-brand .brand{display:inline-flex;align-items:center;line-height:0}
+.footer-brand .site-logo{display:block;width:auto;height:55px;max-width:275px;object-fit:contain}
+/* Store */
+.store-backdrop{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#05080e}
+.store-backdrop img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.48}
+.store-backdrop::after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.38),rgba(0,0,0,.415) 42%,rgba(0,0,0,.47)),linear-gradient(90deg,rgba(0,0,0,.275),transparent 65%)}
+main{position:relative;z-index:1}
+.store-hero{padding:150px 0 70px;border-bottom:1px solid var(--line)}
+.eyebrow{display:inline-block;margin:0 0 18px;padding:7px 12px;border-radius:999px;color:var(--blue-light);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.14)}
+.store-hero h1{max-width:800px;margin-bottom:22px;font-family:"Sora",system-ui,sans-serif;font-size:clamp(2.1rem,6vw,4rem);line-height:1.08;letter-spacing:-.03em;font-weight:300;color:#fff}
+.store-hero p{max-width:680px;color:#d0d9e6;font-size:clamp(1rem,1.5vw,1.12rem)}
+.store-hero p+p{margin-top:12px;color:var(--blue-light);font-weight:600}
+.section{padding:80px 0;border-bottom:1px solid var(--line)}
+.section-head{max-width:760px;margin-bottom:32px}
+.kicker{display:block;margin-bottom:10px;color:var(--blue-light);font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.section-head h2{margin-bottom:10px;font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.12;letter-spacing:-.04em}
+.section-head p{color:var(--muted)}
+.glass{position:relative;border:1px solid rgba(255,255,255,.12);border-top-color:rgba(255,255,255,.28);border-radius:var(--radius);background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.03) 55%,rgba(182,255,0,.04));backdrop-filter:blur(22px) saturate(165%);-webkit-backdrop-filter:blur(22px) saturate(165%);box-shadow:0 20px 48px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.16)}
+.type-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.type-card{padding:26px}
+.type-card h3{margin-bottom:8px;font-size:1.2rem}
+.type-card p{color:var(--muted);font-size:.93rem}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05);color:var(--muted);font-size:.84rem;cursor:pointer;transition:all var(--ease)}
+.filter:hover,.filter.is-active{color:#fff;border-color:var(--blue);background:#B6FF002b}
+.search{display:flex;align-items:center;gap:8px;flex:0 0 220px;height:40px;padding:0 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.05);color:var(--muted)}
+.search svg{width:16px;height:16px;flex:none}
+.search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#fff;font-size:.88rem}
+.status{min-height:22px;margin-bottom:12px;color:#8390a3;font-size:.82rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.pcard{display:flex;flex-direction:column;min-width:0;overflow:hidden;transition:transform var(--ease),border-color var(--ease)}
+.pcard:hover{transform:translateY(-3px);border-color:rgba(215,255,102,.5)}
+.pmedia{position:relative;height:190px;overflow:hidden;display:grid;place-items:center;background:radial-gradient(ellipse at 70% 15%,rgba(182,255,0,.2),transparent 55%),#0b1423;border-bottom:1px solid var(--line)}
+.pmedia img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pmark{width:56px;height:56px;display:grid;place-items:center;border:1px solid rgba(182,255,0,.5);border-radius:12px;color:var(--blue-light);background:rgba(0,0,0,.4)}
+.pmark svg{width:26px;height:26px}
+.pmedia.has-image .pmark{display:none}
+.pbadge{position:absolute;z-index:2;top:12px;left:12px;padding:4px 9px;border:1px solid rgba(182,255,0,.45);border-radius:999px;background:rgba(0,0,0,.72);color:var(--blue-light);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.pbody{display:flex;flex-direction:column;flex:1;padding:20px}
+.pmeta{display:flex;justify-content:space-between;gap:8px;margin-bottom:8px;color:#8b9bb1;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+.pbody h3{margin-bottom:8px;font-size:1.1rem;line-height:1.3;overflow-wrap:anywhere}
+.pdesc{color:var(--muted);font-size:.88rem}
+.pfeat{list-style:none;padding:0;margin:14px 0 18px;display:grid;gap:8px}
+.pfeat li{position:relative;padding-left:14px;color:#d0d9e6;font-size:.84rem}
+.pfeat li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--blue)}
+.pbottom{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--line)}
+.plabel{display:block;color:#8390a3;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase}
+.pprice{font-size:1.35rem;font-weight:700;letter-spacing:-.02em}
+.pnote{color:#8997ab;font-size:.74rem}
+.pactions{display:flex;gap:8px;align-items:center}
+.btn-ghost{min-height:43px;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05);color:#fff;font-size:.84rem;font-weight:600;cursor:pointer}
+.btn-ghost:hover{border-color:var(--blue)}
+.cta.is-off{background:#2a3446;color:#aab6c8;pointer-events:none}
+.empty{margin-top:8px;padding:30px 18px;border:1px dashed var(--line);border-radius:var(--radius);text-align:center;color:var(--muted)}
+.steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;counter-reset:s}
+.steps li{counter-increment:s;padding:18px 20px 18px 62px;color:#d0d9e6;font-size:.94rem}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#B6FF002b;border:1px solid var(--blue);color:#fff;font-size:.82rem;font-weight:700}
+.sample{margin-top:22px;padding:22px 24px}
+.sample strong{display:block;margin-bottom:8px;color:var(--blue-light);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase}
+.sample p{color:#e2eaf6}
+.fine{margin-top:16px;color:var(--muted);font-size:.9rem}
+.enquiry{max-width:720px;padding:30px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:15px;min-width:0}
+.form-group label{font-size:.84rem;color:#d0d9e6}
+.form-control{width:100%;min-height:45px;padding:10px 12px;border:1px solid rgba(255,255,255,.12);border-radius:8px;background:rgba(255,255,255,.05);color:#fff;box-shadow:inset 0 2px 6px rgba(0,0,0,.22)}
+.form-control:focus{outline:0;border-color:rgba(215,255,102,.65);box-shadow:0 0 0 3px rgba(182,255,0,.22)}
+textarea.form-control{min-height:115px;resize:vertical}
+select.form-control option{background:#0f172a;color:#f1f5f9}
+.form-note{margin:0 0 16px;color:var(--muted);font-size:.82rem}
+.btn-submit{width:100%;border:0}
+.btn-submit:disabled{opacity:.65;cursor:wait;transform:none}
+.form-feedback{display:none;margin-top:14px;padding:12px;border-radius:8px;font-size:.9rem}
+.form-feedback.success{display:block;background:#064e3b55;border:1px solid #10b98166;color:#a7f3d0}
+.form-feedback.error{display:block;background:#7f1d1d55;border:1px solid #ef444466;color:#fecaca}
+.closing{padding:70px 0 84px;text-align:center}
+.closing h2{font-size:clamp(1.5rem,3.2vw,2.3rem);font-weight:400;letter-spacing:-.03em}
+.modal-bg{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:18px;background:rgba(0,0,0,.78)}
+.modal{position:relative;width:min(100%,580px);max-height:88vh;overflow:auto;padding:28px;background:#070d18}
+.modal-x{position:absolute;right:12px;top:12px;width:34px;height:34px;border:1px solid var(--line);border-radius:8px;background:#0a111c;color:#fff;font-size:20px;cursor:pointer}
+.modal h3{margin:0 40px 12px 0;font-size:1.5rem;line-height:1.2}
+.modal p{margin-bottom:14px;color:#c5cfde;font-size:.94rem}
+.modal ul{margin:0 0 16px;padding-left:18px;color:#d0d9e6;font-size:.9rem}
+.modal .pactions{margin-top:18px}
+/* Footer (shared with Home and About) */
+.site-footer{position:relative;z-index:1;padding:38px 0 24px;background:#000;border-top:1px solid var(--line)}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.footer-brand p{margin:7px 0 0;color:var(--muted);font-size:.88rem}
+.footer-links,.footer-socials{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:.87rem}
+.footer-socials{gap:15px}
+.footer-links a:hover,.footer-socials a:hover{color:#fff}
+.footer-contact{padding-top:18px;color:var(--muted);font-size:.87rem}
+.footer-contact p{margin:0 0 4px}
+.footer-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;color:#8390a3;font-size:.8rem}
+@media(max-width:980px){
+.mobile-toggle{display:inline-grid;place-items:center}
+.nav-cluster{display:none;position:absolute;top:calc(100% + 8px);left:24px;right:24px;max-height:calc(100svh - 95px);overflow-y:auto;align-items:stretch;flex-direction:column;padding:15px;border:1px solid rgba(255,255,255,.14);border-radius:13px;background:rgba(11,17,30,.78);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);box-shadow:0 20px 45px #0009}
+.nav-cluster.mobile-open{display:flex}
+.main-nav{align-items:stretch;flex-direction:column;border:0;background:transparent;box-shadow:none;padding:0}
+.main-nav a{padding:11px 12px;border-radius:8px}
+.nav-cluster>.cta{width:100%}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.toolbar{align-items:flex-start;flex-direction:column}
+.search{flex-basis:auto;width:min(100%,320px)}
+}
+@media(max-width:760px){
+.site-header .site-logo{height:40.3px;max-width:201.5px}
+.footer-brand .site-logo{height:50px;max-width:237.5px}
+}
+@media(max-width:640px){
+.container{width:calc(100% - 36px)}
+.site-header{padding:11px 0}
+.nav-cluster{left:18px;right:18px}
+.store-hero{padding:125px 0 56px}
+.section{padding:60px 0}
+.type-grid,.steps,.grid{grid-template-columns:1fr}
+.filters{flex-wrap:nowrap;max-width:100%;overflow-x:auto;padding-bottom:6px}
+.filter{flex:none}
+.form-row{grid-template-columns:1fr;gap:0}
+.enquiry{padding:21px 17px}
+.footer-top{flex-direction:column;gap:20px}
+.footer-links{gap:13px 17px}
+.footer-bottom{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
+
+/* Work catalogue */
+.work-hero{padding:150px 0 70px;border-bottom:1px solid var(--line)}
+.work-hero h1{max-width:850px;margin-bottom:22px;font-family:"Sora",system-ui,sans-serif;font-size:clamp(2.1rem,6vw,4rem);line-height:1.08;letter-spacing:-.03em;font-weight:300;color:#fff}
+.work-hero p{max-width:720px;color:#d0d9e6;font-size:clamp(1rem,1.5vw,1.12rem)}
+.work-hero p+p{margin-top:12px;color:var(--blue-light)}
+.work-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px}
+.work-filters{display:flex;gap:8px;flex-wrap:wrap}
+.work-filter{padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05);color:var(--muted);font-size:.84rem;cursor:pointer;transition:all var(--ease);white-space:nowrap}
+.work-filter:hover,.work-filter.is-active{color:#fff;border-color:var(--blue);background:#B6FF002b}
+.work-search{display:flex;align-items:center;gap:8px;flex:0 0 220px;height:40px;padding:0 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.05);color:var(--muted)}
+.work-search svg{width:16px;height:16px;flex:none}
+.work-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#fff;font-size:.88rem}
+.work-status{min-height:22px;margin-bottom:12px;color:#8390a3;font-size:.82rem}
+.work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.work-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;transition:transform var(--ease),border-color var(--ease)}
+.work-card:hover{transform:translateY(-3px);border-color:rgba(215,255,102,.5)}
+.work-media{position:relative;height:210px;overflow:hidden;background:radial-gradient(ellipse at 70% 15%,rgba(182,255,0,.16),transparent 55%),#0b1423;border-bottom:1px solid var(--line)}
+.work-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.work-media-placeholder{position:absolute;inset:0;display:grid;place-items:center;color:rgba(215,255,102,.7);font-size:2.4rem}
+.work-media.has-image .work-media-placeholder{display:none}
+.work-badge{position:absolute;z-index:2;top:12px;left:12px;padding:4px 9px;border:1px solid rgba(182,255,0,.45);border-radius:999px;background:rgba(0,0,0,.72);color:var(--blue-light);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.work-body{display:flex;flex-direction:column;flex:1;padding:20px}
+.work-meta{display:flex;justify-content:space-between;gap:8px;margin-bottom:9px;color:#8b9bb1;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+.work-body h3{margin-bottom:9px;font-size:1.12rem;line-height:1.3;overflow-wrap:anywhere}
+.work-desc{color:var(--muted);font-size:.89rem}
+.work-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.work-tag{padding:4px 9px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.045);color:#d0d9e6;font-size:.72rem}
+.work-bottom{margin-top:auto;padding-top:15px}
+.work-project-status{display:inline-block;color:var(--blue-light);font-size:.75rem;font-weight:600;letter-spacing:.04em}
+.work-empty{margin-top:8px;padding:34px 18px;border:1px dashed var(--line);border-radius:var(--radius);text-align:center;color:var(--muted)}
+.work-closing{padding:70px 0 84px;text-align:center}
+.work-closing h2{font-size:clamp(1.5rem,3.2vw,2.3rem);font-weight:400;letter-spacing:-.03em}
+@media(max-width:980px){.work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.work-toolbar{align-items:flex-start;flex-direction:column}.work-search{flex-basis:auto;width:min(100%,320px)}}
+@media(max-width:640px){.work-hero{padding:125px 0 56px}.work-grid{grid-template-columns:1fr}.work-filters{flex-wrap:nowrap;max-width:100%;overflow-x:auto;padding-bottom:6px}.work-filter{flex:none}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BK712808V5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BK712808V5');
+</script>
+<!-- End Google tag -->
+</head>
+<body>
+<div class="store-backdrop" aria-hidden="true"></div>
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Gutsy Automation home"><img class="site-logo" src="/assets/gutsy-logo.png" alt="Gutsy Automation" /></a>
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navCluster">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <div class="nav-cluster" id="navCluster">
+      <nav class="main-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/work" aria-current="page">Work</a>
+        <a href="/store">Store</a>
+        <a href="/about">About</a>
+      </nav>
+      <a class="cta" href="/#project-enquiry">Start a Project</a>
+    </div>
+  </div>
+</header>
+<main id="top">
+  <section class="work-hero">
+    <div class="container">
+      <p class="eyebrow">Gutsy Automation · Selected Work</p>
+      <h1>Ideas engineered into working systems.</h1>
+      <p>Explore selected projects, digital systems, technical implementations and physical prototypes developed by Gutsy Automation.</p>
+      <p>Each project reflects a practical application of technology, engineering and automation.</p>
+    </div>
+  </section>
+  <section class="section" id="selected-work" aria-labelledby="workTitle">
+    <div class="container">
+      <div class="section-head"><span class="kicker">The Gutsy portfolio</span><h2 id="workTitle">Selected projects.</h2><p>Browse work across our four divisions. Project photographs and descriptions are maintained through the Work catalogue JSON file.</p></div>
+      <div class="work-toolbar">
+        <div class="work-filters" id="workFilters" role="group" aria-label="Filter projects by division">
+          <button class="work-filter is-active" type="button" data-division="All">All work</button>
+          <button class="work-filter" type="button" data-division="Business OS">Business OS</button>
+          <button class="work-filter" type="button" data-division="Applied AI">Applied AI</button>
+          <button class="work-filter" type="button" data-division="Cyber Security">Cyber Security</button>
+          <button class="work-filter" type="button" data-division="Engineering Studio">Engineering Studio</button>
+        </div>
+        <label class="work-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="workSearch" type="search" placeholder="Search projects" aria-label="Search projects"></label>
+      </div>
+      <div class="work-status" id="workStatus" role="status" aria-live="polite">Loading selected work…</div>
+      <div class="work-grid" id="workGrid"></div>
+      <div class="work-empty" id="workEmpty" hidden>No projects have been published yet. Project showcases will appear here as they are added.</div>
+      <noscript><p class="work-empty">Please enable JavaScript to browse the project catalogue.</p></noscript>
+    </div>
+  </section>
+  <section class="work-closing"><div class="container"><h2>Have a project worth building?</h2><p style="max-width:650px;margin:12px auto 22px;color:var(--muted)">Tell us what you want to develop. We can assess the requirements and identify a practical engineering approach.</p><a class="cta" href="/#project-enquiry">Start a Project</a></div></section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand footer-logo" href="/" aria-label="Gutsy Automation home"><img class="site-logo" src="/assets/gutsy-logo.png" alt="Gutsy Automation" /></a>
+        <p>Engineered systems for business performance.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/#divisions">Divisions</a>
+        <a href="/work">Work</a>
+        <a href="/store">Store</a>
+        <a href="/about">About</a>
+        <a href="/#project-enquiry">Enquire</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/company/gutsy-automation/" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on LinkedIn">LinkedIn</a>
+        <a href="https://www.instagram.com/gutsy_automation/" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on Instagram">Instagram</a>
+        <a href="https://www.facebook.com/share/1Kzs96bKwU/" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on Facebook">Facebook</a>
+        <a href="https://www.tiktok.com/@gutsy.automation" target="_blank" rel="noopener noreferrer" aria-label="Gutsy Automation on TikTok">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-contact">
+      <p>Nairobi, Kenya</p>
+      <p><a href="tel:+254704131495">+254 704 131 495</a></p>
+      <p><a href="https://wa.me/254704131495?text=Hi%20Gutsy%20Automation%2C%20I%20want%20to%20start%20a%20project." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></p>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Gutsy Automation. All rights reserved.</span></div>
+  </div>
+</footer>
+<script>
+(function(){
+  var toggle=document.getElementById('mobileToggle'),nav=document.getElementById('navCluster'),hdr=document.getElementById('siteHeader');
+  if(toggle&&nav){
+    toggle.addEventListener('click',function(){var o=nav.classList.toggle('mobile-open');toggle.setAttribute('aria-expanded',String(o));});
+    nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('mobile-open');toggle.setAttribute('aria-expanded','false');});});
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a');if(!a||typeof gtag!=='function')return;
+    var h=a.getAttribute('href')||'';
+    if(h.indexOf('wa.me')>=0)gtag('event','whatsapp_click',{method:'whatsapp'});
+    if(h.indexOf('tel:')===0)gtag('event','phone_click',{method:'phone'});
+  });
+  function onScroll(){hdr.classList.toggle('scrolled',window.scrollY>18);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+<script>
+/* Work catalogue: edit /data/work.json to add, update or hide project cards. */
+(function(){
+  'use strict';
+  var grid=document.getElementById('workGrid');
+  var filters=document.getElementById('workFilters');
+  var search=document.getElementById('workSearch');
+  var status=document.getElementById('workStatus');
+  var empty=document.getElementById('workEmpty');
+  var projects=[],division='All',query='';
+  function safe(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function card(p){
+    var image=typeof p.image==='string'?p.image.trim():'';
+    var tags=Array.isArray(p.tags)?p.tags.filter(function(t){return typeof t==='string'&&t.trim();}).slice(0,6):[];
+    var badge=p.badge||p.project_status||'';
+    return '<article class="glass work-card">'+
+      '<div class="work-media'+(image?' has-image':'')+'">'+
+      (image?'<img src="'+safe(image)+'" alt="'+safe(p.image_alt||p.title)+'" loading="lazy" data-work-image>':'')+
+      '<span class="work-media-placeholder" aria-hidden="true">✳</span>'+
+      (badge?'<span class="work-badge">'+safe(badge)+'</span>':'')+
+      '</div><div class="work-body">'+
+      '<div class="work-meta"><span>'+safe(p.division)+'</span><span>Gutsy Automation</span></div>'+
+      '<h3>'+safe(p.title)+'</h3><p class="work-desc">'+safe(p.short_description||p.description||'Project description to be added.')+'</p>'+
+      (tags.length?'<div class="work-tags">'+tags.map(function(t){return '<span class="work-tag">'+safe(t)+'</span>';}).join('')+'</div>':'')+
+      (p.project_status?'<div class="work-bottom"><span class="work-project-status">'+safe(p.project_status)+'</span></div>':'')+
+      '</div></article>';
+  }
+  function matches(p){
+    var content=[p.title,p.division,p.short_description,p.description,p.project_status,p.badge].concat(Array.isArray(p.tags)?p.tags:[]).join(' ').toLowerCase();
+    return (division==='All'||p.division===division)&&content.indexOf(query)>-1;
+  }
+  function render(){
+    var list=projects.filter(function(p){return p.status!=='hidden'&&matches(p);});
+    grid.innerHTML=list.map(card).join('');
+    status.textContent=list.length+' project'+(list.length===1?'':'s')+' shown';
+    empty.hidden=list.length!==0;
+    grid.querySelectorAll('[data-work-image]').forEach(function(img){img.addEventListener('error',function(){var media=img.parentElement;img.remove();media.classList.remove('has-image');},{once:true});});
+  }
+  filters.addEventListener('click',function(e){
+    var b=e.target.closest('[data-division]');if(!b)return;
+    division=b.getAttribute('data-division');
+    filters.querySelectorAll('.work-filter').forEach(function(x){x.classList.toggle('is-active',x===b);});
+    render();
+  });
+  search.addEventListener('input',function(){query=search.value.trim().toLowerCase();render();});
+  fetch('/data/work.json',{cache:'no-store'}).then(function(r){
+    if(!r.ok)throw new Error('Work catalogue request failed ('+r.status+')');
+    return r.json();
+  }).then(function(data){
+    if(!Array.isArray(data))throw new Error('Work catalogue must be a JSON array');
+    projects=data.filter(function(p){return p&&typeof p==='object'&&typeof p.id==='string'&&typeof p.title==='string'&&typeof p.division==='string';});
+    render();
+    if(!projects.some(function(p){return p.status!=='hidden';}))status.textContent='No projects published yet.';
+  }).catch(function(err){
+    console.error('Gutsy Work catalogue:',err);
+    status.textContent='The Work catalogue could not be loaded.';
+    empty.hidden=false;empty.textContent='We could not load the project catalogue. Please try again later.';
+  });
+})();
+</script>
+<script>
+/* Background: shared full-page image used by the Store. */
+(function(){
+  var target=document.querySelector('.store-backdrop');if(!target)return;
+  fetch('/assets/images/clipping-guide.json',{credentials:'same-origin'})
+  .then(function(r){if(!r.ok)throw new Error('Manifest request failed: '+r.status);return r.json();})
+  .then(function(m){
+    var entry=m&&m.homepage&&m.homepage.hero;
+    if(!entry||!entry.src)throw new Error('Missing hero entry in manifest');
+    var img=document.createElement('img');img.alt=entry.alt||'';img.setAttribute('aria-hidden','true');img.decoding='async';
+    img.addEventListener('error',function(){console.error('[Gutsy Work] Background failed to load:',entry.src);},{once:true});
+    img.src=entry.src;target.replaceChildren(img);
+  })
+  .catch(function(e){console.error('[Gutsy Work] Could not load background manifest:',e);});
+})();
+</script>
+</body>
+</html>
