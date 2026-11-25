@@ -8,8 +8,17 @@
   <title>Applied AI | Gutsy Automation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300&display=swap" rel="stylesheet">
   <style>
+    /* Typography and shared chrome aligned to the About page. */
+    :root{--font-body:"Sora",system-ui,sans-serif;--font-heading:"Sora",system-ui,sans-serif}
+    html,body,button,input,textarea,select{font-family:"Sora",system-ui,sans-serif}
+    h1,h2,h3,h4,h5,h6,.brand,.main-nav,.cta{font-family:"Sora",system-ui,sans-serif}
+    .site-header{padding:11px 0}
+    .site-header.scrolled{background:rgba(11,17,30,.62);-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);border-bottom:1px solid rgba(255,255,255,.10)}
+    .site-header .brand{display:inline-flex;align-items:center;justify-content:flex-start;flex:0 0 auto;min-width:0;line-height:0;white-space:nowrap}
+    .site-header .site-logo{display:block;width:auto;height:46.8px;max-width:247px;object-fit:contain}
+    .site-footer{position:relative;z-index:1;background:#000!important}
 
     :root {
       color-scheme: dark;
@@ -49,7 +58,22 @@
     .mobile-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:10px;background:rgba(13,21,37,.8);color:#fff;cursor:pointer}
     .mobile-toggle svg{width:21px;height:21px}
 
-    /* Hero: existing image slot is retained; its image is now the section background */
+
+    /* Persistent manifest image across the entire page. */
+    html{background:#000}
+    body{position:relative;background:transparent}
+    .page-background{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#05070b}
+    .page-background img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+    .page-background-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(3,7,13,.86),rgba(3,7,13,.68) 48%,rgba(3,7,13,.76)),linear-gradient(180deg,rgba(0,0,0,.30),rgba(0,0,0,.58))}
+    .site-header,main,.site-footer{position:relative;z-index:1}
+    .hero{background:transparent}
+    .hero-visual{display:none}
+    .section,.service-section{background:rgba(0,0,0,.28)}
+    .service-section:nth-of-type(even){background:rgba(0,0,0,.38)}
+    .bottom-section{background:rgba(0,0,0,.42)}
+    .bottom-section .media-layer{display:none}
+
+    /* Hero: image is supplied by the page-wide background layer. */
     .hero,.divisions,.bottom-section{position:relative;isolation:isolate;overflow:hidden}
     .hero{min-height:min(850px,100svh);display:flex;align-items:center;padding:150px 0 90px;border-bottom:1px solid var(--line);background:#000}
     .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr);align-items:center;gap:0}
@@ -61,7 +85,6 @@
     .orbit-two{width:90%;transform:rotate(48deg) scaleY(.38);border-color:rgba(220,220,220,.12)}
     .visual-core{display:grid;place-items:center;width:128px;height:128px;border:1px solid rgba(255,255,255,.5);border-radius:28px;color:#eee;font:700 5rem/1 'Space Grotesk',sans-serif;box-shadow:0 0 70px #ffffff18,inset 0 0 35px #ffffff10}
     .hero-visual.has-image .hero-visual-fallback{display:none}
-    .hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(3,7,13,.94) 0%,rgba(3,7,13,.84) 34%,rgba(3,7,13,.48) 60%,rgba(3,7,13,.08) 100%),linear-gradient(0deg,rgba(0,0,0,.38),transparent 42%,rgba(0,0,0,.22))}
     .eyebrow{display:inline-block;margin:0 0 18px;color:var(--blue-light);font-size:.92rem;letter-spacing:.02em}
     h1{max-width:800px;margin:0 0 22px;font-size:clamp(2.55rem,6.3vw,5.2rem);line-height:1.02;letter-spacing:-.055em;font-weight:820}
     h1 span{color:var(--blue-light)}
@@ -166,6 +189,8 @@
       .capability-list{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
     @media(max-width:640px){
+      .site-header .site-logo{height:40.3px;max-width:201.5px}
+
       .container{width:calc(100% - 36px)}
       .site-header{padding:11px 0}
       .brand img{height:62px;max-width:190px}
@@ -266,6 +291,8 @@
       .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
     @media(max-width:640px){
+      .site-header .site-logo{height:40.3px;max-width:201.5px}
+
       .hero.applied-hero{min-height:88svh;padding:125px 0 70px}
       .service-overview{grid-template-columns:1fr;gap:9px;margin-top:27px}
       .service-section{padding:68px 0}
@@ -286,15 +313,19 @@
   </script>
 </head>
 <body>
+  <div class="page-background" data-page-background aria-hidden="true"><div class="page-background-overlay"></div></div>
 <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <a class="brand" href="/" aria-label="Gutsy Automation home"><img src="/assets/gutsy-logo.png" alt="Gutsy Automation"></a>
-      <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navCluster">
+      <a class="brand" href="/" aria-label="Gutsy Automation home"><img class="site-logo" src="/assets/gutsy-logo.png" alt="Gutsy Automation" /></a>
+      <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navCluster">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
       <div class="nav-cluster" id="navCluster">
         <nav class="main-nav" aria-label="Primary">
-          <a href="/">Home</a><a href="/#work">Work</a><a href="/store.html">Store</a><a href="/about.html">About</a>
+          <a href="/">Home</a>
+          <a href="/work">Work</a>
+          <a href="/store">Store</a>
+          <a href="/about">About</a>
         </nav>
         <a class="cta" href="#project-enquiry">Start a Project</a>
       </div>
@@ -619,14 +650,14 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a class="brand" href="/" aria-label="Gutsy Automation home"><img src="/assets/gutsy-logo.png" alt="Gutsy Automation"></a>
+          <a class="brand footer-logo" href="/" aria-label="Gutsy Automation home"><img class="site-logo" src="/assets/gutsy-logo.png" alt="Gutsy Automation" /></a>
           <p>Engineered systems for business performance.</p>
         </div>
         <div class="footer-links">
           <a href="/#divisions">Divisions</a>
-          <a href="/#work">Work</a>
-          <a href="#process">Approach</a>
-          <a href="/about.html">About</a>
+          <a href="/work">Work</a>
+          <a href="/store">Store</a>
+          <a href="/about">About</a>
           <a href="#project-enquiry">Enquire</a>
         </div>
         <div class="footer-socials">
@@ -637,12 +668,11 @@
         </div>
       </div>
       <div class="footer-contact">
-        <p>Nairobi, Kenya</p>
         <p><a href="tel:+254704131495">+254 704 131 495</a></p>
         <p><a href="https://wa.me/254704131495?text=Hi%20Gutsy%20Automation%2C%20I%20want%20to%20start%20a%20project." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></p>
       </div>
       <div class="footer-bottom">
-        <span>&copy; Gutsy Automation. All rights reserved.</span>
+        <span>&copy; 2026 Gutsy Automation. All rights reserved.</span>
       </div>
     </div>
   </footer>
@@ -674,9 +704,9 @@
         });
       }
 
-      /* Use the exact same homepage manifest entry as the Applied AI card. */
-      var heroSlot = document.querySelector('[data-home-image="applied-ai"]');
-      if(heroSlot){
+      /* Use the exact same homepage manifest entry; apply it across the full page. */
+      var backgroundSlot = document.querySelector("[data-page-background]");
+      if(backgroundSlot){
         fetch("/assets/images/clipping-guide.json")
           .then(function(response){if(!response.ok)throw new Error("Homepage image manifest unavailable: HTTP "+response.status);return response.json();})
           .then(function(config){
@@ -687,14 +717,13 @@
             img.alt = item.alt || "Applied AI visual";
             img.loading = "eager";
             img.decoding = "async";
-            img.onerror = function(){console.error("Applied AI background image failed to load:",img.src);img.remove();heroSlot.classList.remove("has-image");};
-            heroSlot.appendChild(img);
-            heroSlot.classList.add("has-image");
+            img.onerror = function(){console.error("Applied AI page background image failed to load:",img.src);img.remove();};
+            backgroundSlot.insertBefore(img,backgroundSlot.firstChild);
             if(item.caption){
               var caption = document.createElement("figcaption");
               caption.className = "image-caption";
               caption.textContent = item.caption;
-              heroSlot.appendChild(caption);
+              backgroundSlot.appendChild(caption);
             }
           })
           .catch(function(error){console.error("Applied AI image configuration:",error);});
